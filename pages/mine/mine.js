@@ -44,6 +44,7 @@ Page({
   },
   getUserInfo: function(e) {
     app.globalData.userInfo = e.detail.userInfo
+    console.log(e.detail.userInfo)
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
@@ -57,7 +58,22 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    wx.login({
+      success (res) {
+        console.log(res)
+        if (res.code) {
+          //发起网络请求
+          wx.request({
+            url: 'https://api.cx2k-custstate1-d1-public.model-t.ccv2prod.sapcloud.cn/zddsws/test/login?id=moonsky&&code=' + res.code,
+            data: {
+              code: res.code
+            }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   },
 
   /**

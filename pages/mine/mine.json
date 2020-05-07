@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "mp-cell": "../../resources/weui/cell/cell",
+    "mp-cells": "../../resources/weui/cells/cells"
+  },
+  "navigationBarTitleText": "个人中心"
 }

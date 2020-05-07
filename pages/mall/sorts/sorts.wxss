@@ -1,0 +1,14 @@
+/* pages/mall/sorts/sorts.wxss */
+.content_flex {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.content {
+  width: 33%;
+  background: grey;
+  height: 70rpx;
+}

@@ -6,7 +6,7 @@ Page({
    */
   data: {
     province: '',
-    city: '杭州',
+    city: '杭',
     imgSrc: [
       "../../resources/img/a.jpg",
       "../../resources/img/b.png",
@@ -66,6 +66,7 @@ Page({
   },
   // 获取定位
   getLocat (e) {
+    var that = this
     wx.getLocation({
       type: 'wgs84',
       success (res) {
@@ -81,15 +82,15 @@ Page({
             location: `${res.latitude}, ${res.longitude}`,
             output: 'json'
           },
-          successs: function (res) {
+          success: function (res) {
             console.log(res)
             if (res.data.status == "0") {
-              this.setData({
+              that.setData({
                 province: res.data.result.addressComponent.province,
                 city: res.data.result.addressComponent.city
               })
             } else {
-              this.setData({
+              that.setData({
                 city: '未知位置'
               })
             }

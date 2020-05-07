@@ -6,7 +6,7 @@
       <input class="lf_input" placeholder="请输入产品名称" type="text" confirm-type="search" />
       <image class="lf_img" src="../../resources/img/search.png" />
     </view>
-    <view class="top_rt">
+    <view class="top_rt" bindtap="toSorts">
       <image class="rt_img" src="../../resources/img/sorts.png" />
     </view>
   </view>
@@ -52,7 +52,7 @@
       <text>套餐专区</text>
       <text class="package_title_rt">查看全部></text>
     </view>
-    <view class="package_wrap" wx:for="{{packageData}}" wx:key-index="idx" wx:for-item="itemName">
+    <view class="package_wrap" wx:for="{{packageData}}" wx:for-index="idx" wx:for-item="itemName">
       <view class="wrap_title">
         <view class="wrap_title_lf">{{itemName.title}}</view>
         <view class="wrap_title_rt">
@@ -61,18 +61,24 @@
         </view>
       </view>
       <view class="wrap_content">
-        <view class="content_imgBox">
-          <image class="content_img" src="../../resources/img/a.jpg" />
+        <view class="content_imgBox" wx:for="{{itemName.content}}" wx:key="index">
+          <image class="content_img" src="{{item.imgSrc}}" />
         </view>
-        <view class="content_imgBox">
-          <image class="content_img" src="../../resources/img/a.jpg" />
-        </view>
-        <view class="content_imgBox">
-          <image class="content_img" src="../../resources/img/a.jpg" />
-        </view>
-        <view class="content_imgBox">
-          <image class="content_img" src="../../resources/img/a.jpg" />
-        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 商品推荐 -->
+  <view>
+    <view class="recommend_title">
+      <text>商品推荐</text>
+      <text class="retitle_rt">查看全部></text>
+    </view>
+    <view class="recommend_content">
+      <view class="recontent_box" wx:for="{{recommendData}}" wx:key="index">
+        <image class="recontent_img" src="{{item.imgSrc}}" />
+        <view class="recontent_text">{{item.text}}</view>
+        <view style="color: red;">￥{{item.price}}</view>
       </view>
     </view>
   </view>

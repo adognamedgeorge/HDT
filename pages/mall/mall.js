@@ -29,22 +29,32 @@ Page({
         title: '汽车活动套餐',
         price: '2723.00',
         content: [
-          '../../resources/img/a.jpg',
-          '../../resources/img/b.png',
-          '../../resources/img/c.png',
-          '../../resources/img/d.png'
+          {imgSrc: '../../resources/img/a.jpg'},
+          {imgSrc: '../../resources/img/a.jpg'},
+          {imgSrc: '../../resources/img/a.jpg'},
+          {imgSrc: '../../resources/img/a.jpg'}
         ]
       },
       {
         title: '家电活动套餐',
         price: '1234.00',
         content: [
-          '../../resources/img/b.png',
-          '../../resources/img/a.jpg',
-          '../../resources/img/d.png',
-          '../../resources/img/c.png'
+          {imgSrc: '../../resources/img/a.jpg'},
+          {imgSrc: '../../resources/img/a.jpg'},
+          {imgSrc: '../../resources/img/a.jpg'},
+          {imgSrc: '../../resources/img/a.jpg'}
         ]
       }
+    ],
+    recommendData: [
+      {imgSrc: '../../resources/img/a.jpg', text: '炒锅砂锅aaaaa', price: '345'},
+      {imgSrc: '../../resources/img/b.png', text: '炒锅砂锅aaaaa', price: '345'},
+      {imgSrc: '../../resources/img/a.jpg', text: '炒锅砂锅aaaaa', price: '345'},
+      {imgSrc: '../../resources/img/c.png', text: '炒锅砂锅aaaaa', price: '345'},
+      {imgSrc: '../../resources/img/a.jpg', text: '炒锅砂锅aaaaa', price: '345'},
+      {imgSrc: '../../resources/img/a.jpg', text: '炒锅砂锅aaaaa', price: '345'},
+      {imgSrc: '../../resources/img/a.jpg', text: '炒锅砂锅aaaaa', price: '345'},
+      {imgSrc: '../../resources/img/a.jpg', text: '炒锅砂锅aaaaa', price: '345'}
     ]
   },
   computed: {
@@ -65,11 +75,18 @@ Page({
       return pages
     }
   },
+
+  toSorts: function (e) {
+    wx.navigateTo({
+      url: './sorts/sorts'
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -79,11 +96,15 @@ Page({
 
   },
 
+  fn1: function () {
+    console.log('fn1')
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.fn1()
   },
 
   /**
