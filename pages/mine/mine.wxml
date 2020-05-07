@@ -1,0 +1,9 @@
+<!--pages/mine/mine.wxml-->
+<view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image style="width: 100rpx; height: 100rpx;" bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+    <button hidden open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权绑定手机号</button>
+  </view>

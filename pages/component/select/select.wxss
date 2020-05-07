@@ -1,0 +1,37 @@
+/* pages/component/select/select.wxss */
+.select {
+  position: relative;
+  margin: 20rpx;
+}
+
+.selected {
+  border: 1px solid grey; 
+  width: 300rpx; 
+  padding: 0 20rpx; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.selected_text {
+  color: black; 
+  font-size: 30rpx;
+}
+
+.selected_img {
+  width: 30rpx; 
+  height: 30rpx;
+}
+
+.select_list {
+  border: 1px solid grey; 
+  border-top: none; 
+  width: 300rpx; 
+  padding: 0 20rpx; 
+  position: absolute; 
+  left: 0; 
+  z-index: 999; 
+  background: lightgrey; 
+  height: 200rpx; 
+  overflow: auto;
+}

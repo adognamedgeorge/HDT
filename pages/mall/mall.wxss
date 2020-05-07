@@ -1,0 +1,156 @@
+/* pages/mall/mall.wxss */
+.page {
+  padding: 0 20rpx;
+}
+
+.top {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.top_lf {
+  position: relative;
+  flex: .9;
+}
+
+.lf_input {
+  background-color: #dbdbdb;
+  border-radius: 40rpx;
+  padding: 10rpx 40rpx;
+  font-size: 30rpx;
+}
+
+.lf_img {
+  position: absolute;
+  top: 12rpx;
+  right: 30rpx;
+}
+
+.lf_img, .top_rt {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.rt_img {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper_box {
+  border-radius: 20rpx;
+  overflow: hidden;
+  box-shadow: 0rpx 10rpx 20rpx 5rpx grey;
+}
+
+.swiper_item, .swiper_img {
+  width: 100%;
+  height: 100%;
+}
+
+.coupon {
+  width: 100%;
+  height: 260rpx;
+  background-color: #dbdbdb;
+  border-radius: 40rpx;
+  margin-top: 40rpx;
+  box-shadow: 0 10rpx 30rpx 5rpx grey;
+}
+
+.goods {
+  margin: 40rpx 0;
+}
+
+.goods_title {
+  margin: 40rpx 0 25rpx 0;
+  padding: 0 10rpx;
+  font-weight: bold;
+}
+
+.flex_box {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.flex_content {
+  width: 24%;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.img_box {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+
+.flex_img {
+  width: 100%;
+  height: 100%;
+}
+
+.package_wrap {
+  margin-bottom: 30rpx;
+}
+
+.package_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 40rpx;
+  font-weight: bold;
+  padding: 20rpx 0;
+}
+
+.package_title_rt {
+  font-size: 30rpx;
+  color: lightgrey;
+  font-weight: lighter;
+}
+
+.wrap_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0;
+}
+
+.wrap_title_rt {
+  color: red;
+}
+
+.rt_text {
+  font-size: 35rpx;
+}
+
+.wrap_content {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #dbdbdb;
+}
+
+.content_imgBox {
+  width: 45%;
+  height: 220rpx;
+  overflow: hidden;
+  padding: 20rpx 0;
+  border-radius: 20rpx;
+}
+
+.content_img {
+  width: 100%;
+  height: 100%;
+}

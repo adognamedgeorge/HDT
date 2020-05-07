@@ -1,0 +1,12 @@
+<!--pages/component/select/select.wxml-->
+<view  class="select">
+  <view class="selected" bindtap="showList">
+    <text class="selected_text">{{content}}</text>
+    <image class="selected_img" src="../../../resources/img/select_down.png"/>
+  </view>
+  <view class="select_list" hidden="{{isHidden}}">
+    <scroll-view style="height: 200rpx;" scroll-y="true">
+      <view wx:for="{{selectListData}}" wx:key="index" bindtap="hidList" data-name="{{item}}" data-id="{{index}}">{{item}}</view>
+    </scroll-view>
+  </view>
+</view>

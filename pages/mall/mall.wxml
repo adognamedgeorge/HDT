@@ -1,0 +1,79 @@
+<!--pages/mall/mall.wxml-->
+<view class="page">
+<!-- 搜索 -->
+  <view class="top">
+    <view class="top_lf">
+      <input class="lf_input" placeholder="请输入产品名称" type="text" confirm-type="search" />
+      <image class="lf_img" src="../../resources/img/search.png" />
+    </view>
+    <view class="top_rt">
+      <image class="rt_img" src="../../resources/img/sorts.png" />
+    </view>
+  </view>
+  <!-- 轮播 -->
+  <view class="swiper_box">
+    <swiper indicator-dots autoplay interval="2000" duration="500" circular>
+      <block wx:for="{{swiperData}}" wx:key="index">
+        <swiper-item>
+          <view class="swiper_item">
+            <image class="swiper_img" src="{{item}}" />
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 优惠券 -->
+  <view class="coupon">
+    优惠券
+  </view>
+  <!-- 商品类别 -->
+  <view class="goods">
+    <view class="goods_title">商品类别{{sum}}</view>
+    <view class="swiper_wrap">
+      <swiper indicator-dots>
+        <block wx:for="{{goodsData2}}" wx:key-index="idx" wx:for-item="itemName">
+          <swiper-item>
+            <view class="flex_box">
+              <view class="flex_content" wx:for="{{itemName}}" wx:key="index">
+                <view class="img_box">
+                  <image class="flex_img" src="{{item.imgSrc}}" />
+                </view>
+                <text>{{item.txt}}</text>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+  <!-- 套餐 -->
+  <view>
+    <view class="package_title">
+      <text>套餐专区</text>
+      <text class="package_title_rt">查看全部></text>
+    </view>
+    <view class="package_wrap" wx:for="{{packageData}}" wx:key-index="idx" wx:for-item="itemName">
+      <view class="wrap_title">
+        <view class="wrap_title_lf">{{itemName.title}}</view>
+        <view class="wrap_title_rt">
+          <text class="rt_text">套餐价￥</text>
+          <text>{{itemName.price}}</text>
+        </view>
+      </view>
+      <view class="wrap_content">
+        <view class="content_imgBox">
+          <image class="content_img" src="../../resources/img/a.jpg" />
+        </view>
+        <view class="content_imgBox">
+          <image class="content_img" src="../../resources/img/a.jpg" />
+        </view>
+        <view class="content_imgBox">
+          <image class="content_img" src="../../resources/img/a.jpg" />
+        </view>
+        <view class="content_imgBox">
+          <image class="content_img" src="../../resources/img/a.jpg" />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

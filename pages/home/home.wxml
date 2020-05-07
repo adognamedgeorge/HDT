@@ -1,0 +1,91 @@
+<!--pages/home/home.wxml-->
+<!--pages/home/home.wxml-->
+<view class="page">
+  <view class="top">
+    <view class="top_lf">
+      <text class="lf_text">国家电网</text>
+      <view class="lf_add" bindtap="getLocat">{{city}}</view>
+    </view>
+    <view class="top_rt" bindtap="bindToSearch">
+      <image class="rt_img" src="../../resources/img/search.png" />
+    </view>
+  </view>
+  <!-- 轮播 -->
+  <view>
+   <swiper indicator-dots autoplay interval="2000" duration="500" circular>
+    <block wx:for="{{imgSrc}}" wx:key="*this">
+      <swiper-item>
+        <view class="swiper_item">
+          <image class="swiper_img" src="{{item}}" />
+        </view>
+      </swiper-item>
+    </block>
+   </swiper>
+  </view>
+  <!-- 导航 -->
+  <view class="tab_wrap">
+    <view class="tab_content" wx:for="{{tabContent}}" wx:key="index">
+      <view class="img_box {{item.bg}}">
+        <image class="tab_img" src="{{item.imgSrc}}"/>
+      </view>
+      <text>{{item.txt}}</text>
+    </view>
+  </view>
+  <!-- 新零售等大类目 -->
+  <view class="sort_box">
+    <view class="sort" wx:for="{{sortData}}" wx:key="index">
+      <view class="sort_content">
+        <view class="sort_title">
+          <text class="lf_title">{{item.title}}</text>
+          <text class="rt_title">了解更多></text>
+        </view>
+        <view class="sort_img_box">
+          <image class="sort_img" src="{{item.imgSrc}}" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 推荐商品 -->
+  <view class="recommend">
+    <view class="rec_title">
+      <text class="rec_title_lf">推荐商品</text>
+      <text class="rec_title_rt">查看全部></text>
+    </view>
+    <view class="rec_content" wx:for="{{recData.length < 3 ? recData : newRecData}}" wx:key="index">
+      <view class="content_lf">
+        <image class="content_lf_img" src="{{item.imgSrc}}" />
+      </view>
+      <view class="content_rt">
+        <view class="content_rt_name">{{item.name}}</view>
+        <view class="content_rt_title">{{item.title}}</view>
+        <view>
+          <view class="label1">{{item.label}}</view>
+          <view wx:for="{{item.tags}}" wx:key="index" style="display: inline-block;">
+            <view class="label2">{{item}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="content_bottom" wx:if="{{recData.length > 2}}">
+      <button bindtap="showRec" class="bottom_btn" type="primary">查看更多</button>
+    </view>
+  </view>
+  <!-- 商品类别 -->
+  <view class="goods_category">
+    <text class="goods_title">商品类别</text>
+    <view class="category_content">
+      <view class="category" wx:for="{{cateData}}" wx:key="index">
+        <view class="cate_img_box">
+          <image class="cate_img" src="{{item.imgSrc}}"/>
+        </view>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 登录 -->
+  <view class="login">
+    <text class="login_text">登录有礼，享尽海量福利</text>
+    <view class="login_btn" bindtap="bindToMine">立刻登录</view>
+  </view>
+</view>
+

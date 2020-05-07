@@ -1,0 +1,7 @@
+<!--pages/customer/customer.wxml-->
+<view class="box">
+  <view class="content">
+    <view>11111111111</view>
+    <button open-type="contact" bindcontact="handleContact">咨询客服</button>
+  </view>
+</view>

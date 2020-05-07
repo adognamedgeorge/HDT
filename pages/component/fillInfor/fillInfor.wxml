@@ -1,0 +1,7 @@
+<!--pages/component/fillInfor/fillInfor.wxml-->
+<view>
+  <form bindsubmit="formSubmit">
+    <button formType="submit">保存</button>
+    <select></select>
+  </form>
+</view>
