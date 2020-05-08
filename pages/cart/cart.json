@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "mp-checkbox-group": "../../resources/weui/checkbox-group/checkbox-group",
+    "mp-checkbox": "../../resources/weui/checkbox/checkbox"
+  },
+  "navigationBarTitleText": "购物车"
+}

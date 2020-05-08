@@ -82,6 +82,12 @@ Page({
     })
   },
 
+  bindToSets: function (e) {
+    wx.navigateTo({
+      url: './sets/sets'
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

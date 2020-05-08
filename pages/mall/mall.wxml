@@ -48,7 +48,7 @@
   </view>
   <!-- 套餐 -->
   <view>
-    <view class="package_title">
+    <view class="package_title" bindtap="bindToSets">
       <text>套餐专区</text>
       <text class="package_title_rt">查看全部></text>
     </view>

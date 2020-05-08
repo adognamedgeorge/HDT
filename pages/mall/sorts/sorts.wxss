@@ -1,4 +1,22 @@
 /* pages/mall/sorts/sorts.wxss */
+.page {
+  padding: 0 30rpx;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.title_icon {
+  font-size: 35rpx;
+  font-weight: lighter;
+}
+
 .content_flex {
   display: flex;
   flex-wrap: wrap;
@@ -8,7 +26,9 @@
 }
 
 .content {
-  width: 33%;
-  background: grey;
+  width: 27%;
+  background: #e6e6e6;
   height: 70rpx;
+  margin: 3%;
+  text-align: center;
 }
