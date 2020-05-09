@@ -5,7 +5,7 @@
     <text class="title_icon">></text>
   </view>
 
-  <view wx:for="{{sortsData}}" wx:for-index="idx" wx:for-item="itemName">
+  <view wx:for="{{sortsData}}" wx:key="index" wx:for-item="itemName">
     <view class="title">
       <text>{{itemName.title}}</text>
       <text class="title_icon">查看全部></text>

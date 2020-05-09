@@ -1,0 +1,78 @@
+/* pages/mine/myCoupon/myCoupon.wxss */
+.tab {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tabtn {
+  color: #C4C7D0;
+  padding: 30rpx 0;
+}
+
+.navActive {
+  color: #2D313A;
+  border-bottom: 2px solid #2D313A;
+}
+
+.wrap {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #FCF2F2;
+  margin: 30rpx auto;
+  border-radius: 30rpx;
+  padding: 20rpx;
+  position: relative;
+}
+
+.left {
+  text-align: center;
+}
+
+.left_price {
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #FF3C3C;
+}
+
+.left_btm {
+  color: #868A92;
+  font-size: 30rpx;
+}
+
+.middle {
+  flex: 1;
+  margin: 0 15rpx 0 30rpx;
+  border-right: 5rpx dotted #FF3C3C;
+}
+
+.midtext {
+  display: block;
+  color: #FE3F3F;
+  font-size: 30rpx;
+}
+
+.right {
+  font-weight: bold;
+  font-size: 30rpx;
+  color: #FF3C3C;
+  width: 115rpx;
+  text-align: center;
+}
+
+.geted {
+  color: #D58181;
+}
+
+.noleft {
+  color: #EAB8B8;
+}
+
+.right_img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100rpx;
+  height: 100rpx;
+}

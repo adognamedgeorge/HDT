@@ -1,0 +1,7 @@
+<!--pages/goodsInfo/goodsInfo.wxml-->
+<view>
+  <view class="tab">
+    <text class="tab_text {{index == navActive ? 'navActive' : ''}}" wx:for="{{tabData}}" wx:key="index" data-idx="{{index}}" bindtap="bindTabbar">{{item}}</text>
+  </view>
+</view>
+

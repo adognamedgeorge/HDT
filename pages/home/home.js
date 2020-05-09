@@ -119,6 +119,29 @@ bindToMine (e) {
     wx.hideLoading()
   }, 500)
 },
+
+bindToView (e) {
+  console.log(e)
+  switch (e.currentTarget.dataset.idx) {
+  case 0:
+    wx.navigateTo({
+      url: './coupons/coupon'
+    });
+    break;
+  case 2:
+    wx.navigateTo({
+      url: '../mall/sets/sets'
+    });
+    break;
+  }
+},
+
+bindToGoodsInfo () {
+  wx.navigateTo({
+    url: '../goodsInfo/goodsInfo'
+  })
+},
+
   /**
    * 生命周期函数--监听页面加载
    */

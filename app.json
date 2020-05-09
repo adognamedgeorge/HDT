@@ -7,7 +7,10 @@
     "pages/mine/mine",
     "pages/customer/customer",
     "pages/mall/mall",
-    "pages/cart/cart"
+    "pages/cart/cart",
+    "pages/home/coupons/coupon",
+    "pages/mall/sorts/sorts",
+    "pages/mine/myCoupon/myCoupon"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -65,12 +65,10 @@ Page({
       const pages = []
       data.goodsData.forEach((item, index) => {
         const page = Math.floor(index / 8)
-        console.log(page)
         if (!pages[page]) {
           pages[page] = []
         }
         pages[page].push(item)
-        console.log(pages)
       })
       return pages
     }

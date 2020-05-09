@@ -31,7 +31,7 @@
     <view class="goods_title">商品类别{{sum}}</view>
     <view class="swiper_wrap">
       <swiper indicator-dots>
-        <block wx:for="{{goodsData2}}" wx:key-index="idx" wx:for-item="itemName">
+        <block wx:for="{{goodsData2}}" wx:key="index" wx:for-item="itemName">
           <swiper-item>
             <view class="flex_box">
               <view class="flex_content" wx:for="{{itemName}}" wx:key="index">
@@ -52,7 +52,7 @@
       <text>套餐专区</text>
       <text class="package_title_rt">查看全部></text>
     </view>
-    <view class="package_wrap" wx:for="{{packageData}}" wx:for-index="idx" wx:for-item="itemName">
+    <view class="package_wrap" wx:for="{{packageData}}" wx:key="index" wx:for-item="itemName">
       <view class="wrap_title">
         <view class="wrap_title_lf">{{itemName.title}}</view>
         <view class="wrap_title_rt">

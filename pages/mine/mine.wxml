@@ -31,7 +31,7 @@
   </view>
 
   <mp-cells ext-class="my_cells" title="我的资产">
-    <mp-cell value="我的优惠券" footer="3张可用" link hover>
+    <mp-cell value="我的优惠券" footer="3张可用" link hover bindtap="bindToMypon">
       <image slot="icon" src="../../resources/img/log.png" class="cell_img"/>
     </mp-cell>
   </mp-cells>
