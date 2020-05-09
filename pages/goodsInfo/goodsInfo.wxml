@@ -5,7 +5,9 @@
   </view>
 
   <view>
-    <goods></goods>
+    <goods wx:if="{{navActive == 0}}"></goods>
+    <infor wx:if="{{navActive == 1}}"></infor>
+    <assess wx:if="{{navActive ==2}}"></assess>
   </view>
 </view>
 

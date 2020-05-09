@@ -1,7 +1,9 @@
 {
   "component": true,
   "usingComponents": {
-    "goods": "./goods/goods"
+    "goods": "./goods/goods",
+    "infor": "./infor/infor",
+    "assess": "./assess/assess"
   },
   "navigationBarTitleText": "商品详情"
 }

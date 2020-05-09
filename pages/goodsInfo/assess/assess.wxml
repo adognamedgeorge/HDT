@@ -1,0 +1,4 @@
+<!--pages/goodsInfo/assess/assess.wxml-->
+<view>
+  <view>评价</view>
+</view>
