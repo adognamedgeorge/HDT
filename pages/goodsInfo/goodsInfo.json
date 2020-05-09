@@ -1,5 +1,7 @@
 {
   "component": true,
-  "usingComponents": {},
+  "usingComponents": {
+    "goods": "./goods/goods"
+  },
   "navigationBarTitleText": "商品详情"
 }

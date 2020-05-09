@@ -1,0 +1,61 @@
+<!--pages/goodsInfo/goods/goods.wxml-->
+<view>
+  <view>
+    <swiper indicator-dots autoplay interval="2000" duration="1000">
+      <block>
+        <swiper-item>
+          <view>
+            <image src="../../../resources/img/b.png" />
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view>
+    <view>产品名称产品名称产品名称产品名称产品名称产品名称产品名称</view>
+    <text>二级说明二级说明二级说明二级说明</text>
+    <view>
+      ￥599
+      <text>￥919</text>
+    </view>
+  </view>
+
+  <view>
+    <mp-cells title="发货|快递：23元">
+      <mp-cell value="优惠券" footer="点击获取更多优惠券" link hover>
+        <image style="width: 50rpx; height: 50rpx;" slot="icon" src="../../../resources/img/all.png" />
+      </mp-cell>
+    </mp-cells>
+  </view>
+
+  <view>
+    <text>优惠套餐</text>
+    <view>
+      <image src="../../../resources/img/d.png" style="width: 100rpx; height: 100rpx;"/>
+      <view>
+        <view>优惠套餐</view>
+        <view>DNGDKD-DAHD-GD</view>
+        <view>
+          <view>
+            ￥666
+            <text>￥999</text>
+          </view>
+          <button>立即购买</button>
+        </view>
+      </view>
+    </view>
+    <view>查看其他1个优惠</view>
+  </view>
+
+  <view>
+    <button>客服</button>
+    <view>
+      <image src="" />
+      <mp-badge content="99+"></mp-badge>
+    </view>
+    <button>加入购物车</button>
+    <button>立即购买</button>
+  </view>
+
+</view>

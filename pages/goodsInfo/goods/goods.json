@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "mp-cells": "../../../resources/weui/cells/cells",
+    "mp-cell": "../../../resources/weui/cell/cell",
+    "mp-badge": "../../../resources/weui/badge/badge"
+  }
+}
