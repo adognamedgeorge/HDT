@@ -54,11 +54,17 @@ Page({
     console.log(e)
   },
 
+  bindToOrder (e) {
+    wx.navigateTo({
+      url: './myOrder/myOrder'
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.login({
+    /*wx.login({
       success (res) {
         console.log(res)
         if (res.code) {
@@ -73,7 +79,7 @@ Page({
           console.log('登录失败！' + res.errMsg)
         }
       }
-    })
+    })*/
   },
 
   bindToMypon (e) {
@@ -81,7 +87,7 @@ Page({
       url: './myCoupon/myCoupon'
     })
   },
-  
+
   /**
    * 生命周期函数--监听页面显示
    */

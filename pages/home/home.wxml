@@ -24,8 +24,8 @@
   </view>
   <!-- 导航 -->
   <view class="tab_wrap">
-    <view class="tab_content" wx:for="{{tabContent}}" wx:key="index">
-      <view class="img_box {{item.bg}}" bindtap="bindToView" data-idx="{{index}}">
+    <view class="tab_content" wx:for="{{tabContent}}" wx:key="index" bindtap="bindToView" data-idx="{{index}}">
+      <view class="img_box {{item.bg}}">
         <image class="tab_img" src="{{item.imgSrc}}"/>
       </view>
       <text>{{item.txt}}</text>
@@ -74,7 +74,7 @@
   <view class="goods_category">
     <text class="goods_title">商品类别</text>
     <view class="category_content">
-      <view class="category" wx:for="{{cateData}}" wx:key="index">
+      <view class="category" wx:for="{{cateData}}" wx:key="index" bindtap="bindToGoodsList">
         <view class="cate_img_box">
           <image class="cate_img" src="{{item.imgSrc}}"/>
         </view>
@@ -85,7 +85,7 @@
   <!-- 登录 -->
   <view class="login">
     <text class="login_text">登录有礼，享尽海量福利</text>
-    <view class="login_btn" bindtap="bindToMine">立刻登录</view>
+    <view class="login_btn" bindtap="bindToLogin">立刻登录</view>
   </view>
 </view>
 

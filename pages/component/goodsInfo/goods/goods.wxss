@@ -1,0 +1,134 @@
+/* pages/goodsInfo/goods/goods.wxss */
+.wrap {
+  margin-bottom: 30rpx;
+  background-color: #ffffff;
+}
+
+.swiper_content {
+  width: 100%;
+  height: 100%;
+}
+
+.goods_title {
+  padding: 0 40rpx;
+}
+
+.sec_title {
+  font-size: 26rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 80%;
+}
+
+.del_price {
+  text-decoration: line-through;
+  color: lightgrey;
+}
+
+.flex, .flex_wrap, .flex_btm, .flex_contact {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flex {
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 20rpx 0;
+}
+
+.flex_content {
+  background-color: #ffffff;
+  width: 40%;
+}
+
+.item_name {
+  font-size: 27rpx;
+  width: 100rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 20rpx 0;
+}
+
+.item_title {
+  padding: 15rpx; 
+  display: block; 
+  width: 80%; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  white-space: nowrap;
+}
+
+.buy_now {
+  background-color: red; 
+  padding: 15rpx 20rpx; 
+  border-radius: 40rpx; 
+  font-size: 22rpx; 
+  color: white;
+}
+
+.btn_contact {
+  padding: 0 !important;
+}
+
+.flex_contact {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  padding: 20rpx 0;
+}
+
+.btm_cart {
+  width: 60rpx; 
+  height: 60rpx; 
+  display: block; 
+  margin: 0 auto;
+}
+
+.cart_badge {
+  position: absolute; 
+  right: 0; 
+  top: -20rpx;
+}
+
+.btm_btn {
+  margin: 0 15rpx; 
+  border-radius: 40rpx;
+  font-size: 15px;
+}
+
+.dialog {
+  background: white; 
+  position: fixed; 
+  bottom: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 50%; 
+  z-index: 999;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+  overflow: auto;
+}
+
+.dialog_btn {
+  background-color: red;
+  color: #ffffff;
+  border-radius: 40rpx;
+  width: 90%;
+  margin-bottom: 20rpx;
+}
+
+.mask {
+  background:black; 
+  opacity: .5; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  z-index: 666;
+}

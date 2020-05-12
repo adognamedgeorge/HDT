@@ -1,0 +1,73 @@
+/* pages/mine/myOrder/myOrder.wxss */
+.tabbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30rpx 0;
+}
+
+.tab_text {
+  color: grey;
+  padding: 15rpx;
+  text-align: center;
+}
+
+.navActive {
+  color: black;
+  border-bottom: 1px solid black;
+}
+
+.content {
+  border-bottom: 10rpx solid #e6e6e6;
+}
+
+.content_top, .content_mid, .content_btm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 40rpx;
+}
+
+.content_mid {
+  justify-content: flex-start;
+}
+
+.mid_rt {
+  width: 55%;
+  position: relative;
+  margin-left: 20rpx;
+  flex: 1;
+}
+
+.total {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: red;
+}
+
+.mid_title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 80%;
+  display: block;
+}
+
+.btn {
+  width: 100rpx;
+  height: 30rpx;
+  border: 1px solid lightgrey;
+  border-radius: 40rpx;
+  font-size: 25rpx;
+  padding: 10rpx 20rpx;
+  text-align: center;
+  line-height: 30rpx;
+  color: black;
+}
+
+.btn2 {
+  border: 1px solid red;
+  color: red;
+  margin-left: 15rpx;
+}

@@ -1,0 +1,28 @@
+<!--pages/component/goodsList/goodsList.wxml-->
+<view>
+  <view class="tabbar">
+    <view wx:for="{{tabData}}" wx:key="index">
+      <view>
+        {{item}}
+        <image src="../../../resources/img/arrow.png" style="width: 20rpx; height: 20rpx;" />
+      </view>
+    </view>
+  </view>
+
+  <view>
+    <view class="content">
+      <view class="content_lf">
+        <image class="lf_img" src="../../../resources/img/a.jpg" />
+      </view>
+      <view class="content_rt">
+        <view class="rt_top">美的美的美的美的美的ddddaa美的</view>
+        <text class="rt_mid">DAG-KQWEK-DA2</text>
+        <view>
+          <text class="price">￥666</text>
+          <text class="del_price">￥999</text>
+          <image src="../../../resources/img/cart2.png" class="btm_img"/>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

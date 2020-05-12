@@ -1,0 +1,27 @@
+<!--pages/goodsInfo/assess/assess.wxml-->
+<view>
+  <view style="margin-top: 100rpx;">
+    <view>
+      <view class="title">
+        <image style="width: 70rpx; height: 70rpx; border-radius: 50%;" src="../../../../resources/img/a.jpg" />
+        <view>
+          <text>某某某</text>
+          <view class="grade">
+            <mp-icon icon="star" size="{{25}}" type="field" color="yellow"></mp-icon>
+          </view>
+        </view>
+        <view>2020-03-03</view>
+      </view>
+
+      <view>电工很热情电工很热情电工很热情电工很热情</view>
+
+      <view>
+        <image src="../../../../resources/img/a.jpg" style="width: 100rpx; height: 100rpx;"/>
+      </view>
+
+      <view>
+        商家回复：DAU噢化工IE好哦我啊就hi大家很过分的哈
+      </view>
+    </view>
+  </view>
+</view>

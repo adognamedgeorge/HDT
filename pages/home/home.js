@@ -1,4 +1,7 @@
-// pages/home/home.js
+const api = require('../../config/api.js');
+const util = require('../../utils/util.js');
+const user = require('../../services/user.js');
+
 Page({
 
   /**
@@ -6,7 +9,7 @@ Page({
    */
   data: {
     province: '',
-    city: '杭',
+    city: '杭州',
     imgSrc: [
       "../../resources/img/a.jpg",
       "../../resources/img/b.png",
@@ -25,23 +28,23 @@ Page({
     ],
     recData: [
       {
-        imgSrc: '../../resources/img/a.jpg', 
+        imgSrc: '../../resources/img/a.jpg',
         name: '商品名称商品名称商品名称aaaa',
-        title: '辅助说明辅助说明辅助说明bbb', 
+        title: '辅助说明辅助说明辅助说明bbb',
         label: '自营店面',
         tags: ['标签内容1', '标签内容2', '标签内容3']
       },
       {
-        imgSrc: '../../resources/img/b.png', 
+        imgSrc: '../../resources/img/b.png',
         name: '商品名称商品名称商品名称aaaa',
-        title: '辅助说明辅助说明辅助说明bbb', 
+        title: '辅助说明辅助说明辅助说明bbb',
         label: '自营店面',
         tags: ['标签内容1', '标签内容2']
       },
       {
-        imgSrc: '../../resources/img/c.png', 
+        imgSrc: '../../resources/img/c.png',
         name: '商品名称商品名称商品名称aaaa',
-        title: '辅助说明辅助说明辅助说明bbb', 
+        title: '辅助说明辅助说明辅助说明bbb',
         label: '自营店面',
         tags: ['标签内容1']
       }
@@ -58,21 +61,35 @@ Page({
       {imgSrc: '../../resources/img/d.png', name: '洗衣机'}
     ]
   },
+
+  //获取轮播图片
+  getBannerData: function (){
+    let that = this;
+    //查询首页轮播图片
+    util.request(api.BannerUrl, {channel: "MOBILE"}, "GET").then(function (res) {
+      if (res.success) {
+        /*that.setData({
+          banner: carousels
+        })*/
+      }
+    });
+  },
+
   // 点击显示推荐商品
-  showRec (e) {
+  showRec: function (e) {
     this.setData({
       newRecData: this.data.recData
     })
   },
+
   // 获取定位
-  getLocat (e) {
-    var that = this
+  getLocat: function (e) {
     wx.getLocation({
       type: 'wgs84',
       success (res) {
-        console.log(res)
-        console.log(res.latitude)
-        console.log(res.longitude)
+        console.log(res);
+        console.log(res.latitude);
+        console.log(res.longitude);
         const url = 'http://api.map.baidu.com/geocoder/v2/';
         const ak = 'VhueKFIWhIAjSgU07cYpgfu0I2aTuGTe';
         wx.request({
@@ -82,15 +99,15 @@ Page({
             location: `${res.latitude}, ${res.longitude}`,
             output: 'json'
           },
-          success: function (res) {
-            console.log(res)
-            if (res.data.status == "0") {
-              that.setData({
+          successs: function (res) {
+            console.log(res);
+            if (res.data.status === "0") {
+              this.setData({
                 province: res.data.result.addressComponent.province,
                 city: res.data.result.addressComponent.city
               })
             } else {
-              that.setData({
+              this.setData({
                 city: '未知位置'
               })
             }
@@ -99,48 +116,56 @@ Page({
       }
     })
   },
+
   // 跳转到搜索二级页
-  bindToSearch (e) {
+  bindToSearch: function (e) {
     wx.navigateTo({
       url: "../component/search/search"
     })
   },
+
   // 跳转到我的tabbar页
-bindToMine (e) {
-  wx.showLoading({
-    title: 'loading',
-    success: function () {
-      wx.switchTab({
-        url: '../mine/mine'
-      })
+  bindToLogin: function (e) {
+    wx.showLoading({
+      title: 'loading',
+      success: function () {
+        wx.navigateTo({
+          url: '../login/login'
+        })
+      }
+    });
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 500)
+  },
+
+  bindToGoodsInfo () {
+    wx.navigateTo({
+      url: '../component/goodsInfo/goodsInfo'
+    })
+  },
+
+  bindToView (e) {
+    console.log(e)
+    switch (e.currentTarget.dataset.idx) {
+    case 0:
+      wx.navigateTo({
+        url: './coupons/coupon'
+      });
+      break;
+    case 2:
+      wx.navigateTo({
+        url: '../mall/sets/sets'
+      });
+      break;
     }
-  })
-  setTimeout(function () {
-    wx.hideLoading()
-  }, 500)
-},
+  },
 
-bindToView (e) {
-  console.log(e)
-  switch (e.currentTarget.dataset.idx) {
-  case 0:
+  bindToGoodsList (e) {
     wx.navigateTo({
-      url: './coupons/coupon'
-    });
-    break;
-  case 2:
-    wx.navigateTo({
-      url: '../mall/sets/sets'
-    });
-    break;
-  }
-},
-
-bindToGoodsInfo () {
-  wx.navigateTo({
-    url: '../goodsInfo/goodsInfo'
-  })
-},
+      url: "../component/goodsList/goodsList"
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -155,14 +180,22 @@ bindToGoodsInfo () {
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let that = this;
+    that.getBannerData();
+    user.checkLogin().then((function (res) {
+      if (res) {
+        console.log("已经登录");
+      } else {
+        user.loginByWeChat();
+      }
+    }))
   },
 
   /**
@@ -197,6 +230,10 @@ bindToGoodsInfo () {
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '浙江国网ToC零售商城',
+      desc: '浙江国网ToC零售商城',
+      path: '/pages/home/home'
+    }
   }
-})
+});

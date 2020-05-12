@@ -1,0 +1,23 @@
+/* pages/goodsInfo/goodsInfo.wxss */
+.tab {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 2px solid #F4F4F4;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 99;
+}
+
+.tab_text {
+  color: #999999;
+}
+
+.navActive {
+  color: #FF3C3C;
+  font-weight: bold;
+}

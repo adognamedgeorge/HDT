@@ -1,0 +1,46 @@
+/* pages/login/login.wxss */
+.logo {
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.login_btn {
+  width: 90%;
+  height: 100rpx;
+  line-height: 100rpx;
+  border: 1px solid lightgrey;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.weixin {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+}
+
+.btn {
+  width: 90% !important;
+  background-color: inherit !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+.tel_input {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 20rpx 15rpx;
+  margin-bottom: 20rpx;
+}
+
+.my_btn {
+  background-color: green;
+  color: #ffffff;
+  border-radius: 20rpx;
+  margin: 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}

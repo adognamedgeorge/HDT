@@ -1,0 +1,22 @@
+<!--pages/login/login.wxml-->
+<view>
+  <view class="logo">
+    <image style="width: 100%; height: 100%;" src="../../resources/img/logo2.jpg" />
+  </view>
+  <view>
+    <view class="login_btn" style="display: flex; align-items: center; justify-content: center;">
+      <image class="weixin" src="../../resources/img/weixin.png" />
+      微信登录
+    </view> 
+    <button class="login_btn btn" bindtap="telLogin">手机登录</button>
+  </view>
+  <mp-dialog title="" show="{{isShow}}" buttons="{{oneButton}}" bindbuttontap="tapDialogBtn" ext-class="my_dialog">
+    <view style="width: 500rpx;">
+      <input placeholder="输入手机号码" type="number" value=""  class="tel_input"/>
+      <view>
+        <input placeholder="短信验证码" type="number" value="" class="tel_input"/>
+        <view>发送验证码</view>
+      </view>
+    </view>
+  </mp-dialog>
+</view>

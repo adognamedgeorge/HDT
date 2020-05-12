@@ -1,16 +1,15 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/index/index",
-    "pages/logs/logs",
     "pages/component/search/search",
     "pages/mine/mine",
-    "pages/customer/customer",
+    "pages/component/customer/customer",
     "pages/mall/mall",
     "pages/cart/cart",
     "pages/home/coupons/coupon",
     "pages/mall/sorts/sorts",
-    "pages/mine/myCoupon/myCoupon"
+    "pages/mine/myCoupon/myCoupon",
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",

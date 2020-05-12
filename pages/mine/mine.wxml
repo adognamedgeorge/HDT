@@ -19,7 +19,7 @@
   <view class="myBuy">
     <view class="buy_title">我的购买</view>
     <view class="buy_content">
-      <view>
+      <view  bindtap="bindToOrder">
         <image class="img1" src="../../resources/img/log.png" />
         <view>我的订单</view>
       </view>

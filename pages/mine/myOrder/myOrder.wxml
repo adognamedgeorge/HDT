@@ -1,0 +1,36 @@
+<!--pages/mine/myOrder/myOrder.wxml-->
+<view>
+  <view class="tabbar">
+    <view wx:for="{{tabData}}" wx:key="index" class="tab_text {{index == navActive ? 'navActive' : ''}}" bindtap="bindBar" data-idx="{{index}}">{{item}}</view>
+  </view>
+
+  <view class="content">
+    <view class="content_top">
+      <text>订单编号：1233dd</text>
+      <text style="color: red;">待付款</text>
+    </view>
+
+    <view class="content_mid">
+      <image style="width: 115rpx; height: 115rpx;" src="../../../resources/img/a.jpg" />
+      <view class="mid_rt">
+        <text class="mid_title">家庭洗衣机家庭洗衣机家庭洗衣机家庭洗衣机家庭洗衣机abcdefg</text>
+        <view style="font-size: 25rpx;">DJIAHGOIE-DSAH9</view>
+        <view>￥999</view>
+        <view class="total">×99</view>
+      </view>
+    </view>
+
+    <view class="content_btm">
+      <view>
+        <text>付款金额</text>
+        <text>￥</text>
+        <text style="color: red;">350.00</text>
+      </view>
+      <view style="display: flex; justify-content: space-around;">
+        <view class="btn">取消订单</view>
+        <view class="btn btn2">立即付款</view>
+      </view>
+    </view>
+  </view>
+
+</view>
