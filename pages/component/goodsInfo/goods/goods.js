@@ -12,6 +12,7 @@ Component({
    */
   data: {
     isHid: true,
+    isAddCart: true,
     setsData: [
       {
         title: '厨房电器套餐组合',
@@ -99,7 +100,18 @@ Component({
     },
     close (e) {
       this.setData({
-        isHid: true
+        isHid: true,
+        isAddCart: true
+      })
+    },
+    bindAddCart () {
+      this.setData({
+        isAddCart: false
+      })
+    },
+    bindToOrderConfirm () {
+      wx.navigateTo({
+        url: '../../component/orderConfirm/orderConfirm'
       })
     }
   }

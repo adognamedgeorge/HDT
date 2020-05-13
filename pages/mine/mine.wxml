@@ -36,7 +36,7 @@
     </mp-cell>
   </mp-cells>
   <mp-cells ext-class="my_cells" title="我的信息">
-    <mp-cell value="我的地址" footer="2条地址" link hover>
+    <mp-cell value="我的地址" footer="2条地址" link hover bindtap="bindToAddress">
       <image slot="icon" src="../../resources/img/mine.png" class="cell_img" />
     </mp-cell>
     <mp-cell value="发票信息" link hover>

@@ -1,25 +1,28 @@
 <!--pages/goodsInfo/assess/assess.wxml-->
 <view>
-  <view style="margin-top: 100rpx;">
-    <view>
+  <view style="margin-top: 150rpx;">
+    <view style="padding: 20rpx 30rpx;">
       <view class="title">
-        <image style="width: 70rpx; height: 70rpx; border-radius: 50%;" src="../../../../resources/img/a.jpg" />
-        <view>
-          <text>某某某</text>
-          <view class="grade">
-            <mp-icon icon="star" size="{{25}}" type="field" color="yellow"></mp-icon>
+        <view class="title_lf">
+          <image style="width: 90rpx; height: 90rpx; border-radius: 50%; margin: auto;" src="../../../../resources/img/a.jpg" />
+          <view style="margin-left: 20rpx;">
+            <text style="display: block;">某某某</text>
+            <view class="grade">
+              <mp-icon icon="star" size="{{20}}" type="field" color="yellow"></mp-icon>
+              <mp-icon icon="star" size="{{20}}" type="field" color="yellow"></mp-icon>
+            </view>
           </view>
         </view>
         <view>2020-03-03</view>
       </view>
 
-      <view>电工很热情电工很热情电工很热情电工很热情</view>
+      <view style="padding: 15rpx 50rpx; font-size: 29rpx;">电工很热情电工很热情电工很热情电工很热情</view>
 
-      <view>
-        <image src="../../../../resources/img/a.jpg" style="width: 100rpx; height: 100rpx;"/>
+      <view style="padding: 15rpx 50rpx;">
+        <image src="../../../../resources/img/a.jpg" style="width: 130rpx; height: 130rpx;"/>
       </view>
 
-      <view>
+      <view style="padding: 20rpx; font-size: 25rpx; background-color: #e6e6e6; border-radius: 20rpx;">
         商家回复：DAU噢化工IE好哦我啊就hi大家很过分的哈
       </view>
     </view>

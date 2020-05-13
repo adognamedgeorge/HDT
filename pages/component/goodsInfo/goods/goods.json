@@ -5,6 +5,7 @@
     "mp-cell": "../../../resources/weui/cell/cell",
     "mp-badge": "../../../resources/weui/badge/badge",
     "mp-actionSheet": "../../../resources/weui/actionsheet/actionsheet",
-    "my-coupon": "../../../component/coupon/coupon"
+    "my-coupon": "../../../component/coupon/coupon",
+    "add-cart": "../../../component/addCart/addCart"
   }
 }

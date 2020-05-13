@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "mp-checkbox-group": "../../../resources/weui/checkbox-group/checkbox-group",
+    "mp-checkbox": "../../../resources/weui/checkbox/checkbox"
+  }
+}

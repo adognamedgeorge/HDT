@@ -1,0 +1,57 @@
+<!--pages/component/orderConfirm/orderConfirm.wxml-->
+<view>
+  <mp-form>
+    <view prop="address">
+      <view>
+        <view>默认</view>
+        <text>浙江杭州市江干区</text>
+      </view>
+      <view>
+        <mp-icon type="field" icon="location" size="{{20}}" color="orange"></mp-icon>
+        <text>钱江路利友商务大厦1111</text>
+        <mp-icon icon="arrow" size="{{15}}"></mp-icon>
+      </view>
+      <view>
+        <text>张女士</text>
+        <text>12323334567</text>
+      </view>
+    </view>
+    
+    <view>商品信息</view>
+    <view>
+      <view>123</view>
+      <mp-cells>
+        <mp-cell title="商家发货"></mp-cell>
+        <mp-cell title="买家留言：">
+          <textarea slot="footer" auto-height placeholder="给商家留言，最多100字"></textarea>
+        </mp-cell>
+      </mp-cells>
+    </view>
+
+    <view>
+      <mp-cells>
+        <mp-cell title="优惠券" footer="暂无可用" link hover></mp-cell>
+        <mp-cell title="配送方式" footer="免费配送" link hover></mp-cell>
+      </mp-cells>
+    </view>
+
+    <view>
+      <mp-cells>
+        <mp-cell title="商品金额" footer="￥36.00"></mp-cell>
+        <mp-cell title="运费" footer="+￥0.00"></mp-cell>
+        <mp-cell title="优惠券" footer="-￥0.00"></mp-cell>
+        <mp-cell title="活动优惠" footer="-￥0.00"></mp-cell>
+        <mp-cell title="小计" footer="￥36.00"></mp-cell>
+      </mp-cells>
+    </view>
+
+    <view>
+      <mp-cell title="发票" footer="不开发票" link hover></mp-cell>
+    </view>
+  </mp-form>
+
+  <view>
+    <text>实付款：￥36.00</text>
+    <button type="warn" size="mini">提交订单</button>
+  </view>
+</view>

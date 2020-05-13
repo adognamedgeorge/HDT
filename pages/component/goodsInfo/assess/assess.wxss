@@ -1,1 +1,11 @@
 /* pages/goodsInfo/assess/assess.wxss */
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title_lf {
+  display: flex;
+  justify-content: space-between;
+}

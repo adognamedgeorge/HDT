@@ -10,7 +10,7 @@
       <text style="color: red;">待付款</text>
     </view>
 
-    <view class="content_mid">
+    <view class="content_mid" bindtap="toOrderInfor">
       <image style="width: 115rpx; height: 115rpx;" src="../../../resources/img/a.jpg" />
       <view class="mid_rt">
         <text class="mid_title">家庭洗衣机家庭洗衣机家庭洗衣机家庭洗衣机家庭洗衣机abcdefg</text>

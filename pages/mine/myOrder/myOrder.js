@@ -23,6 +23,11 @@ Component({
       this.setData({
         navActive: e.currentTarget.dataset.idx
       })
+    },
+    toOrderInfor () {
+      wx.navigateTo({
+        url: './orderInfor/orderInfor'
+      })
     }
   }
 })

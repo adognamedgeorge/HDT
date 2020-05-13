@@ -1,0 +1,19 @@
+<!--pages/component/addCart/addCart.wxml-->
+<view class="box_rt">
+        <image class="img_lf" src="../../../resources/img/b.png" />
+        <view class="content_rt">
+          <view class="rt_top">
+            <view class="top_title">产品名称产品名称产品名称</view>
+            <text style="font-size: 26rpx;">型号：123adb-dc</text>
+          </view>
+          <view class="rt_btm">
+            <text>￥666</text>
+            <text style="text-decortaion: line-through;">￥999</text>
+            <view>
+              <text>-</text>
+              <text>1</text>
+              <text>+</text>
+            </view>
+          </view>
+        </view>
+      </view>

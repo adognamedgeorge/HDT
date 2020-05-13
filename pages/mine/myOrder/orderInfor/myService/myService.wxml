@@ -1,0 +1,15 @@
+<!--pages/mine/myService/myService.wxml-->
+<view>
+  <view>方太油烟机</view>
+
+  <view>
+    <mp-cells>
+      <mp-cell title="退款" link hover>
+        <image slot="icon" src="../../../resources/img/tuikuan.png" style="height: 90rpx; width: 90rpx;"/>
+      </mp-cell>
+      <mp-cell title="退货" link hover>
+        <image slot="icon" src="../../../resources/img/tui.png" style="height: 90rpx; width: 90rpx;" />
+      </mp-cell>
+    </mp-cells>
+  </view>
+</view>

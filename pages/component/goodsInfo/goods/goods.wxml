@@ -70,8 +70,8 @@
       <image src="../../../../resources/img/cart2.png" class="btm_cart" />
       <mp-badge content="99+" class="cart_badge"></mp-badge>
     </view>
-    <button size="mini" type="primary" class="btm_btn">加入购物车</button>
-    <button size="mini" type="warn" class="btm_btn" style="background-color: red;">立即购买</button>
+    <button size="mini" type="primary" class="btm_btn" bindtap="bindAddCart">加入购物车</button>
+    <button size="mini" type="warn" class="btm_btn" style="background-color: red;" bindtap="bindToOrderConfirm">立即购买</button>
   </view>
 
   <!-- 弹窗 -->
@@ -80,5 +80,10 @@
     <button bindtap="close" class="dialog_btn">关闭</button>
   </view>
   <!-- 蒙层 -->
-  <view hidden="{{isHid}}" class="mask" bindtap="close"></view>
+  <view wx:if="{{!isHid || !isAddCart}}" class="mask" bindtap="close"></view>
+  <!-- 弹窗2 -->
+  <view hidden="{{isAddCart}}" class="dialog">
+    <add-cart></add-cart>
+    <button class="dialog_btn">关闭</button>
+  </view>
 </view>
