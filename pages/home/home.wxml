@@ -1,5 +1,4 @@
 <!--pages/home/home.wxml-->
-<!--pages/home/home.wxml-->
 <view class="page">
   <view class="top">
     <view class="top_lf">
@@ -13,10 +12,10 @@
   <!-- 轮播 -->
   <view bindtap="bindToGoodsInfo">
    <swiper indicator-dots autoplay interval="2000" duration="500" circular>
-    <block wx:for="{{imgSrc}}" wx:key="*this">
+    <block wx:for="{{banner}}" wx:key="*this">
       <swiper-item>
         <view class="swiper_item">
-          <image class="swiper_img" src="{{item}}" />
+          <image class="swiper_img" src="{{imagePath+item.src}}" />
         </view>
       </swiper-item>
     </block>
@@ -33,14 +32,14 @@
   </view>
   <!-- 新零售等大类目 -->
   <view class="sort_box">
-    <view class="sort" wx:for="{{sortData}}" wx:key="index">
+    <view class="sort" wx:for="{{plateData}}" wx:key="index">
       <view class="sort_content">
         <view class="sort_title">
-          <text class="lf_title">{{item.title}}</text>
+          <text class="lf_title">{{item.name}}</text>
           <text class="rt_title">了解更多></text>
         </view>
         <view class="sort_img_box">
-          <image class="sort_img" src="{{item.imgSrc}}" />
+          <image class="sort_img" src="{{imagePath+item.src}}" />
         </view>
       </view>
     </view>
@@ -53,17 +52,17 @@
     </view>
     <view class="rec_content" wx:for="{{recData.length < 3 ? recData : newRecData}}" wx:key="index">
       <view class="content_lf">
-        <image class="content_lf_img" src="{{item.imgSrc}}" />
+        <image class="content_lf_img" src="{{imagePath+item.src}}" />
       </view>
       <view class="content_rt">
         <view class="content_rt_name">{{item.name}}</view>
-        <view class="content_rt_title">{{item.title}}</view>
-        <view>
+        <view class="content_rt_title">{{item.model}}</view>
+        <!-- <view>
           <view class="label1">{{item.label}}</view>
           <view wx:for="{{item.tags}}" wx:key="index" style="display: inline-block;">
             <view class="label2">{{item}}</view>
           </view>
-        </view>
+        </view>-->
       </view>
     </view>
     <view class="content_bottom" wx:if="{{recData.length > 2}}">
@@ -76,14 +75,14 @@
     <view class="category_content">
       <view class="category" wx:for="{{cateData}}" wx:key="index" bindtap="bindToGoodsList">
         <view class="cate_img_box">
-          <image class="cate_img" src="{{item.imgSrc}}"/>
+          <image class="cate_img" src="{{imagePath+item.src}}"/>
         </view>
         <text>{{item.name}}</text>
       </view>
     </view>
   </view>
   <!-- 登录 -->
-  <view class="login">
+  <view class="login" hidden="{{isLoginShow}}" >
     <text class="login_text">登录有礼，享尽海量福利</text>
     <view class="login_btn" bindtap="bindToLogin">立刻登录</view>
   </view>

@@ -1,21 +1,21 @@
 <!--pages/mine/myAddress/myAddress.wxml-->
 <view>
   <view>
-    <checkbox-group prop="radio">
-      <checkbox label="">
+    <radio-group>
+      <radio>
         <view style="display: flex; justify-content: space-around; align-items: center;">
           <view>
-            <text>张女士</text>
+            <view>张女士</view>
             <text>默认</text>
           </view>
           <view>
             <text>1308899999</text>
-            <text>浙江杭州江干区利友大厦1201</text>
+            <view>浙江杭州江干区利友大厦1201</view>
           </view>
           <view>编辑</view>
         </view>
-      </checkbox>
-    </checkbox-group>
+      </radio>
+    </radio-group>
   </view>
   <button type="primary" bindtap="addAddress">添加收货人</button>
 </view>

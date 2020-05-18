@@ -1,0 +1,33 @@
+<!--pages/mine/userManager/userManager.wxml-->
+<view style="background-color: #F6F6F7;">
+  <form>
+    <view class="img_box">
+      <image class="user_img" src="{{userImg}}" />
+      <view class="user_txt">点击修改头像</view>
+    </view>
+
+    <mp-cells ext-class="my_cells">
+      <mp-cell title="昵称" footer="{{nickName}}"></mp-cell>
+      <mp-cell title="真实姓名" footer="张女士"></mp-cell>
+      <mp-cell title="手机号码" footer="130777777777"></mp-cell>
+      <mp-cell title="性别">
+        <view slot="footer">
+          <radio-group bindChange="radioChange" class="my_radio">
+            <label wx:for="{{radioData}}" wx:key="index" style="margin: 0 16rpx;">
+              <radio value="{{item.value}}" checked="true" />{{item.name}}
+            </label>
+          </radio-group>
+        </view>
+      </mp-cell>
+      <mp-cell title="生日" link hover>
+        <picker mode="date" value="{{date}}" start="1900-01-01" end="2020-12-31" bindchange="bindDateChange">
+          <view class="picker">
+            {{date}}
+          </view>
+        </picker>
+      </mp-cell>
+    </mp-cells>
+  </form>
+
+  <button type="" bindtap="saveUserInfor" class="my_btn">保存</button>
+</view>

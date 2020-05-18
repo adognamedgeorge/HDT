@@ -10,7 +10,7 @@
     </view>
 
     <view class="content_flex">
-      <view class="content" wx:for="{{itemName.content}}">
+      <view class="content" wx:for="{{itemName.content}}" wx:key="index">
         <image class="content_img" src="{{item.imgSrc}}" />
         <view>￥{{item.price}}</view>
       </view>

@@ -64,10 +64,10 @@
   height: 50rpx;
 }
 
-.bg1 {background-image: linear-gradient(to bottom, #ffc0cb,#c0344b);}
-.bg2 {background-image: linear-gradient(to bottom, #cf5555, #ff0000);}
-.bg3 {background-image: linear-gradient(to bottom, #7575df, #4343e4)}
-.bg4 {background-image: linear-gradient(to bottom, #ecec4a, #ffff00);}
+.bg1 {background-image: linear-gradient(to bottom, #FF9FA2, #FF6987);}
+.bg2 {background-image: linear-gradient(to bottom, #FFAC9B, #DB4934);}
+.bg3 {background-image: linear-gradient(to bottom, #96C2FF, #4C96FD);}
+.bg4 {background-image: linear-gradient(to bottom, #FFBE71, #FFA934);}
 
 .sort_box, .sort {
   background-color: #eee6e6;

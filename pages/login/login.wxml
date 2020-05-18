@@ -12,10 +12,10 @@
   </view>
   <mp-dialog title="" show="{{isShow}}" buttons="{{oneButton}}" bindbuttontap="tapDialogBtn" ext-class="my_dialog">
     <view style="width: 500rpx;">
-      <input placeholder="输入手机号码" type="number" value=""  class="tel_input"/>
+      <input placeholder="输入手机号码" type="number" bindinput="phoneInput"  class="tel_input" value="{{phone}}" />
       <view>
-        <input placeholder="短信验证码" type="number" value="" class="tel_input"/>
-        <view>发送验证码</view>
+        <input placeholder="短信验证码" type="number" bindinput="codeInput" class="tel_input" value="{{code}}" />
+        <button bindtap="sendBtn" type="{{btnType}}" size="mini" disabled="{{isDisable}}">{{btnIner}}</button>
       </view>
     </view>
   </mp-dialog>

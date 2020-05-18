@@ -58,7 +58,7 @@
   height: 45rpx; 
   position: absolute; 
   right: -5rpx; 
-  top: 0;
+  top: -10rpx;
 }
 
 .my_check {

@@ -13,10 +13,10 @@
   <!-- 轮播 -->
   <view class="swiper_box">
     <swiper indicator-dots autoplay interval="2000" duration="500" circular>
-      <block wx:for="{{swiperData}}" wx:key="index">
+      <block wx:for="{{swiperBanner}}" wx:key="index">
         <swiper-item>
           <view class="swiper_item">
-            <image class="swiper_img" src="{{item}}" />
+            <image class="swiper_img" src="{{imgPath + item.src}}" />
           </view>
         </swiper-item>
       </block>
@@ -36,9 +36,9 @@
             <view class="flex_box">
               <view class="flex_content" wx:for="{{itemName}}" wx:key="index">
                 <view class="img_box">
-                  <image class="flex_img" src="{{item.imgSrc}}" />
+                  <image class="flex_img" src="{{imgPath + item.src}}" />
                 </view>
-                <text>{{item.txt}}</text>
+                <text>{{item.name}}</text>
               </view>
             </view>
           </swiper-item>

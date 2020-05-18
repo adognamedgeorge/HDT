@@ -61,8 +61,9 @@ function checkLogin() {
     return new Promise(function (resolve, reject) {
         let result = false;
         let userId = wx.getStorageSync('userId');
+        let token = wx.getStorageSync('mini_token');
         console.log("userId--->" + userId);
-        if (userId) {
+        if (userId && token) {
             result = true;
         }
         resolve(result);
@@ -107,7 +108,6 @@ function sendSms(phone) {
         ).then(res => {
             if (res.success) {
                 resolve(res);
-                //loginBySms("15999933177",)
             }
         }).catch((err) => {
             reject(err);

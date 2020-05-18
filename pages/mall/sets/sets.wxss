@@ -8,6 +8,7 @@
   border-radius: 40rpx;
   padding: 0 15rpx;
   background-color: #ffffff;
+  margin-bottom: 15px;
 }
 
 .title, .bottom {

@@ -1,27 +1,17 @@
 // pages/mall/mall.js
-const computedBehavior = require('miniprogram-computed')
+// 计算属性
+const computedBehavior = require('miniprogram-computed');
+const util = require('../../utils/util');
+const api = require('../../config/api');
 Page({
   behaviors: [computedBehavior],
   /**
    * 页面的初始数据
    */
   data: {
-    swiperData: [
-      '../../resources/img/c.png',
-      '../../resources/img/b.png',
-      '../../resources/img/a.jpg'
-    ],
-    goodsData: [
-      {imgSrc: '../../resources/img/d.png', txt: '家电'},
-      {imgSrc: '../../resources/img/d.png', txt: '厨卫家电'},
-      {imgSrc: '../../resources/img/d.png', txt: '生活电器'},
-      {imgSrc: '../../resources/img/d.png', txt: '个人健康'},
-      {imgSrc: '../../resources/img/d.png', txt: '家电'},
-      {imgSrc: '../../resources/img/d.png', txt: '厨卫家电'},
-      {imgSrc: '../../resources/img/d.png', txt: '生活电器'},
-      {imgSrc: '../../resources/img/d.png', txt: '个人健康'},
-      {imgSrc: '../../resources/img/all.png', txt: '老胡'}
-    ],
+    imgPath: api.ImageUrl,
+    swiperBanner: [],
+    goodsData: [],
     a: 1,
     b: 1,
     packageData: [
@@ -29,38 +19,39 @@ Page({
         title: '汽车活动套餐',
         price: '2723.00',
         content: [
-          {imgSrc: '../../resources/img/a.jpg'},
-          {imgSrc: '../../resources/img/a.jpg'},
-          {imgSrc: '../../resources/img/a.jpg'},
-          {imgSrc: '../../resources/img/a.jpg'}
+          {imgSrc: '../../resources/img/a.png'},
+          {imgSrc: '../../resources/img/a.png'},
+          {imgSrc: '../../resources/img/a.png'},
+          {imgSrc: '../../resources/img/a.png'}
         ]
       },
       {
         title: '家电活动套餐',
         price: '1234.00',
         content: [
-          {imgSrc: '../../resources/img/a.jpg'},
-          {imgSrc: '../../resources/img/a.jpg'},
-          {imgSrc: '../../resources/img/a.jpg'},
-          {imgSrc: '../../resources/img/a.jpg'}
+          {imgSrc: '../../resources/img/a.png'},
+          {imgSrc: '../../resources/img/a.png'},
+          {imgSrc: '../../resources/img/a.png'},
+          {imgSrc: '../../resources/img/a.png'}
         ]
       }
     ],
     recommendData: [
-      {imgSrc: '../../resources/img/a.jpg', text: '炒锅砂锅aaaaa', price: '345'},
-      {imgSrc: '../../resources/img/b.png', text: '炒锅砂锅aaaaa', price: '345'},
-      {imgSrc: '../../resources/img/a.jpg', text: '炒锅砂锅aaaaa', price: '345'},
-      {imgSrc: '../../resources/img/c.png', text: '炒锅砂锅aaaaa', price: '345'},
-      {imgSrc: '../../resources/img/a.jpg', text: '炒锅砂锅aaaaa', price: '345'},
-      {imgSrc: '../../resources/img/a.jpg', text: '炒锅砂锅aaaaa', price: '345'},
-      {imgSrc: '../../resources/img/a.jpg', text: '炒锅砂锅aaaaa', price: '345'},
-      {imgSrc: '../../resources/img/a.jpg', text: '炒锅砂锅aaaaa', price: '345'}
+      {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'},
+      {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'},
+      {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'},
+      {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'},
+      {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'},
+      {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'},
+      {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'},
+      {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'}
     ]
   },
   computed: {
     sum (data) {
       return data.a + data.b
     },
+    // 商品类别分页轮播
     goodsData2 (data) {
       const pages = []
       data.goodsData.forEach((item, index) => {
@@ -86,11 +77,63 @@ Page({
     })
   },
 
+  // 获取轮播图
+  getBanner () {
+    util.request(api.MallBannerUrl, {}, "GET").then((res) => {
+      if (res.success) {
+        this.setData({
+          swiperBanner: res.datas
+        })
+      }
+    })
+  },
+
+  // 获取优惠券
+  getCoupon () {
+    util.request(api.MallCouponImageUrl, {}, "GET").then((res) => {
+      if (res.success) {
+        console.log(res)
+      }
+    })
+  },
+
+  // 获取商品类别
+  getCategory () {
+    util.request(api.MallCategoriesUrl, {}, "GET").then((res) => {
+      if (res.success) {
+        this.setData({
+          goodsData: res.datas
+        })
+      }
+    })
+  },
+
+  // 获取套餐数据
+  getPackage () {
+    util.request(api.MallSetMealUrl, {}, "GET").then((res) => {
+      if (res.success) {
+        console.log(res)
+      }
+    })
+  },
+
+  // 获取商品推荐数据
+  getRec () {
+    util.request(api.MallRecommendedUrl, {}, "GET").then((res) => {
+      console.log(res)
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    
+  onLoad: function () {
+    let that = this
+    that.getBanner()
+    that.getCoupon()
+    that.getCategory()
+    that.getPackage()
+    that.getRec()
   },
 
   /**

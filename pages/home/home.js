@@ -2,77 +2,28 @@ const api = require('../../config/api.js');
 const util = require('../../utils/util.js');
 const user = require('../../services/user.js');
 
+//获取应用实例
+const app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
+    imagePath: api.ImageUrl,
+    isLoginShow:true,
     province: '',
     city: '杭州',
-    imgSrc: [
-      "../../resources/img/a.jpg",
-      "../../resources/img/b.png",
-      "../../resources/img/c.png"
-    ],
+    banner: [],
     tabContent: [
-      {imgSrc: '../../resources/img/all.png', txt: '领券中心', bg: 'bg1'},
-      {imgSrc: '../../resources/img/fix.png', txt: '限时团购', bg: 'bg2'},
-      {imgSrc: '../../resources/img/home.png', txt: '套餐专区', bg: 'bg3'},
-      {imgSrc: '../../resources/img/assess.png', txt: '信息完善', bg: 'bg4'}
+      {imgSrc: '../../resources/img/money-ticket.png', txt: '领券中心', bg: 'bg1'},
+      {imgSrc: '../../resources/img/tuangou.png', txt: '限时团购', bg: 'bg2'},
+      {imgSrc: '../../resources/img/shopping-bag.png', txt: '套餐专区', bg: 'bg3'},
+      {imgSrc: '../../resources/img/message-fill.png', txt: '信息完善', bg: 'bg4'}
     ],
-    sortData: [
-      {title: '新零售', imgSrc: '../../resources/img/a.jpg'},
-      {title: '用电服务', imgSrc: '../../resources/img/b.png'},
-      {title: '户用光伏', imgSrc: '../../resources/img/c.png'}
-    ],
-    recData: [
-      {
-        imgSrc: '../../resources/img/a.jpg',
-        name: '商品名称商品名称商品名称aaaa',
-        title: '辅助说明辅助说明辅助说明bbb',
-        label: '自营店面',
-        tags: ['标签内容1', '标签内容2', '标签内容3']
-      },
-      {
-        imgSrc: '../../resources/img/b.png',
-        name: '商品名称商品名称商品名称aaaa',
-        title: '辅助说明辅助说明辅助说明bbb',
-        label: '自营店面',
-        tags: ['标签内容1', '标签内容2']
-      },
-      {
-        imgSrc: '../../resources/img/c.png',
-        name: '商品名称商品名称商品名称aaaa',
-        title: '辅助说明辅助说明辅助说明bbb',
-        label: '自营店面',
-        tags: ['标签内容1']
-      }
-    ],
+    plateData: [],
+    recData: [],
     newRceData: [],
-    cateData: [
-      {imgSrc: '../../resources/img/d.png', name: '手机'},
-      {imgSrc: '../../resources/img/d.png', name: '平板'},
-      {imgSrc: '../../resources/img/d.png', name: '冰箱'},
-      {imgSrc: '../../resources/img/d.png', name: '洗衣机'},
-      {imgSrc: '../../resources/img/d.png', name: '手机'},
-      {imgSrc: '../../resources/img/d.png', name: '平板'},
-      {imgSrc: '../../resources/img/d.png', name: '冰箱'},
-      {imgSrc: '../../resources/img/d.png', name: '洗衣机'}
-    ]
-  },
-
-  //获取轮播图片
-  getBannerData: function (){
-    let that = this;
-    //查询首页轮播图片
-    util.request(api.BannerUrl, {channel: "MOBILE"}, "GET").then(function (res) {
-      if (res.success) {
-        /*that.setData({
-          banner: carousels
-        })*/
-      }
-    });
+    cateData: []
   },
 
   // 点击显示推荐商品
@@ -183,19 +134,92 @@ Page({
 
   },
 
+  //获取轮播图片
+  getBannerData: function (){
+    let that = this;
+    //查询首页轮播图片
+    util.request(api.BannerUrl, {}, "GET").then(function (res) {
+      if (res.success) {
+        that.setData({
+          banner: res.datas
+        })
+      }
+    });
+  },
+
+  //获取栏位横幅
+  getPlateData: function (){
+    let that = this;
+    //查询栏位横幅
+    util.request(api.PlateUrl, {}, "GET").then(function (res) {
+      if (res.success) {
+        let plates = res.datas;
+        for (let i in plates) {
+          if(plates[i].type==='JDLS'){
+            plates[i].name = "家电零售"
+          }else if(plates[i].type==='YDFW'){
+            plates[i].name = "用电服务"
+          }else if(plates[i].type==='HYGF'){
+            plates[i].name = "户用光伏"
+          }
+        }
+        that.setData({
+          plateData: plates
+        })
+      }
+    });
+  },
+
+  //获取推荐商品
+  getRecommendedData: function (){
+    let that = this;
+    //查询推荐商品
+    util.request(api.ProductRecommendedUrl, {}, "GET").then(function (res) {
+      if (res.success) {
+        that.setData({
+          recData: res.datas
+        })
+      }
+    });
+  },
+
+  //获取商品类别
+  getCategoriesData: function (){
+    let that = this;
+    //查询商品类别
+    util.request(api.ProductCategoriesUrl, {}, "GET").then(function (res) {
+      if (res.success) {
+        that.setData({
+          cateData: res.datas
+        })
+      }
+    });
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
     let that = this;
-    that.getBannerData();
     user.checkLogin().then((function (res) {
+      that.getBannerData();
+      that.getPlateData();
+      that.getRecommendedData();
+      that.getCategoriesData();
       if (res) {
-        console.log("已经登录");
+        that.setData({
+          isLoginShow:true
+        });
       } else {
-        user.loginByWeChat();
+        //跳转到登录页面
+        /*wx.navigateTo({
+          url: '/pages/login/login',
+        })*/
+        that.setData({
+          isLoginShow:false
+        })
       }
-    }))
+    }));
   },
 
   /**

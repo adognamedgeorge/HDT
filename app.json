@@ -1,14 +1,15 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/component/search/search",
     "pages/mine/mine",
+    "pages/component/customer/customer",
     "pages/mall/mall",
     "pages/cart/cart",
     "pages/home/coupons/coupon",
     "pages/mall/sorts/sorts",
     "pages/mine/myCoupon/myCoupon",
-    "pages/login/login",
-    "pages/component/orderConfirm/orderConfirm"
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,14 +25,14 @@
     }
   },
   "tabBar": {
-    "color": "#8a8a8a",
-    "selectedColor": "#d81e06",
+    "color": "#868A92",
+    "selectedColor": "#F50000",
     "list": [
       {
         "pagePath": "pages/home/home",
         "text": "首页",
-        "iconPath": "./resources/img/home.png",
-        "selectedIconPath": "./resources/img/homed.png"
+        "iconPath": "./resources/img/logo.png",
+        "selectedIconPath": "./resources/img/logo.png"
       },
       {
         "pagePath": "pages/mall/mall",

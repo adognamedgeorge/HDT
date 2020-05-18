@@ -33,7 +33,7 @@
 
   <view>
     <text>实付金额：￥36.00</text>
-    <button size="mini">查看物流</button>
+    <button size="mini" bindtap="bindToLogistics">查看物流</button>
     <button size="mini">确认收货</button>
   </view>
 </view>

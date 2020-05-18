@@ -1,4 +1,5 @@
 // pages/login/login.js
+const user = require('../../services/user.js');
 Page({
 
   /**
@@ -6,18 +7,70 @@ Page({
    */
   data: {
     isShow: false,
-    oneButton: [{text: '登录', extClass: 'my_btn'}]
+    phone:'',
+    code:'',
+    oneButton: [{text: '登录', extClass: 'my_btn'}],
+    btnIner: '发送验证码',
+    btnType: 'primary',
+    time: 60,
+    isDisable: false
   },
-
+  phoneInput(e){
+    this.setData({
+      phone: e.detail.value
+    })
+  },
+  codeInput(e){
+    this.setData({
+      code: e.detail.value
+    })
+  },
   telLogin (e) {
     this.setData({
       isShow: true
     })
   },
 
+  sendBtn(e){
+    let that = this
+    user.sendSms(that.data.phone).then(function (res) {
+      if (res.success) {
+        console.log("已经发送");
+        that.codeTime()
+      }
+    });
+  },
+
+  // 验证码时间间隔
+  codeTime () {
+    let that = this
+    let timer = that.data.time--
+    if (timer > 0) {
+      that.setData({
+        btnIner: timer + 's秒后重发',
+        isDisable: true
+      })
+      setTimeout(that.codeTime, 1000)
+    } else {
+      that.setData({
+        btnIner: "发送验证码",
+        isDisable: false,
+        time: 60
+      })
+    }
+  },
+
   tapDialogBtn () {
-    this.setData({
-      isShow: false
+    let that = this;
+    user.loginBySms(this.data.phone,this.data.code).then(function (res) {
+        if (res.success){
+          that.setData({
+            isShow: false
+          });
+          wx.navigateBack({
+            delta: 1
+          });
+        }
     })
   },
 

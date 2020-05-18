@@ -1,0 +1,49 @@
+/* pages/mine/userManager/userManager.wxss */
+.img_box {
+  padding: 32rpx 0;
+  margin: 0 auto;
+  margin-bottom: 30rpx;
+  background-color: #ffffff;
+}
+
+.user_img {
+  width: 144rpx;
+  height: 144rpx;
+  display: block;
+  border-radius: 50%;
+  margin: 16rpx auto 32rpx;
+}
+
+.user_txt {
+  margin: 0 auto;
+  font-size: 28rpx;
+  color: #999999;
+  text-align: center;
+}
+
+.my_cells {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.my_radio {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.my_btn {
+  background-color: #2875E1;
+  font-size: 32rpx;
+  width: 90% !important;
+  border-radius: 44rpx;
+  position: fixed;
+  bottom: 15rpx;
+  left: 0;
+  right: 0;
+  color: #ffffff;
+}
+
+.picker {
+  text-align: right;
+}

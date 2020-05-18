@@ -1,5 +1,7 @@
 // pages/mine/mine.js
 const app = getApp()
+const util = require('../../utils/util.js');
+const api = require('../../config/api.js');
 Page({
 
   /**
@@ -50,6 +52,7 @@ Page({
       hasUserInfo: true
     })
   },
+
   getPhoneNumber (e) {
     console.log(e)
   },
@@ -63,6 +66,20 @@ Page({
   bindToAddress () {
     wx.navigateTo({
       url: './myAddress/myAddress'
+    })
+  },
+
+  toUserManager () {
+    wx.navigateTo({
+      url: './userManager/userManager',
+      // events: {
+      //   acceptDataFromOpenPage: function (data) {
+      //     console.log(data)
+      //   }
+      // },
+      success (res) {
+        res.eventChannel.emit('acceptDataFromOpenPage', {data: app.globalData.userInfo})
+      }
     })
   },
 

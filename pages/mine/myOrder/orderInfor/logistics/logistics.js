@@ -1,4 +1,4 @@
-// pages/mine/myOrder/orderInfor/orderInfor.js
+// pages/mine/myOrder/orderInfor/logistics/logistics.js
 Component({
   /**
    * 组件的属性列表
@@ -18,14 +18,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    toMyService () {
+    toLogisticsDetail () {
       wx.navigateTo({
-        url: './myService/myService'
-      })
-    },
-    bindToLogistics () {
-      wx.navigateTo({
-        url: './logistics/logistics'
+        url: './logisticsDetail/logisticsDetail'
       })
     }
   }

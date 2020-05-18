@@ -1,25 +1,36 @@
 
 <view style="padding: 20rpx;">
-  <view class="wrap" wx:for="{{couponData}}" wx:key="index">
-    <view class="left">
-      <view class="left_price">
-        <text style="font-size: 30rpx;">￥</text>{{item.price}}
+  <scroll-view 
+    scroll-y 
+    refresher-enabled="true"
+    refresher-threshold="100"
+    refresher-triggered="{{triggered}}"
+    bindrefresherrefresh="onRefresh"
+    bindscrolltolower="scrollToLower" 
+    style="height: 100vh;">
+    <view style="min-height: 100%;">
+      <view class="wrap" wx:for="{{couponData}}" wx:key="index">
+        <view class="left">
+          <view class="left_price">
+            <text style="font-size: 30rpx;">￥</text>{{item.price}}
+          </view>
+          <view class="left_btm">满{{item.full}}元可用</view>
+        </view>
+
+        <view class="middle">
+          <text class="midtext">{{item.title}}</text>
+          <text class="midtext">「{{item.txt}}」</text>
+          <text class="midtext">{{item.time}}</text>
+        </view>
+
+        <view class="right" wx:if="{{item.type == 0}}">立即领取</view>
+        <view class="right geted" wx:if="{{item.type == 1}}">已领取</view>
+        <view class="right noleft" wx:if="{{item.type == 2}}">
+          立即领取
+          <image class="right_img" src="../../../resources/img/overdue.png" />
+        </view>
       </view>
-      <view class="left_btm">满{{item.full}}元可用</view>
     </view>
-
-    <view class="middle">
-      <text class="midtext">{{item.title}}</text>
-      <text class="midtext">「{{item.txt}}」</text>
-      <text class="midtext">{{item.time}}</text>
-    </view>
-
-    <view class="right" wx:if="{{item.type == 0}}">立即领取</view>
-    <view class="right geted" wx:if="{{item.type == 1}}">已领取</view>
-    <view class="right noleft" wx:if="{{item.type == 2}}">
-      立即领取
-      <image class="right_img" src="../../../resources/img/overdue.png" />
-    </view>
-  </view>
+  </scroll-view>
 </view>
 

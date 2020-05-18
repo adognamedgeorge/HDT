@@ -84,6 +84,6 @@
   <!-- 弹窗2 -->
   <view hidden="{{isAddCart}}" class="dialog">
     <add-cart></add-cart>
-    <button class="dialog_btn">关闭</button>
+    <button class="dialog_btn">确认</button>
   </view>
 </view>

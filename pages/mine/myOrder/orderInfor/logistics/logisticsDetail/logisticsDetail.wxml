@@ -1,0 +1,23 @@
+<!--pages/mine/myOrder/orderInfor/logistics/logisticsDetail/logisticsDetail.wxml-->
+<view>
+  <view>
+    <mp-cells>
+      <mp-cell title="订单编号" footer="1233r4787389"></mp-cell>
+      <mp-cell title="运单号" footer="37948798475"></mp-cell>
+      <mp-cell title="物流公司" footer="中通快递"></mp-cell>
+    </mp-cells>
+  </view>
+
+  <view>
+    <image src="../../../../../../resources/img/b.png" style="width: 200rpx; height: 200rpx;" />
+    <view>
+      <text>商品名称</text>
+      <text>￥36.00</text>
+      <text>支持7天无理由退换</text>
+    </view>
+  </view>
+
+  <view>
+    <slider>123</slider>
+  </view>
+</view>

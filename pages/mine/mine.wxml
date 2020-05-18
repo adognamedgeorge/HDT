@@ -3,14 +3,16 @@
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
-      <view class="user_photo">
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="user_photo" bindtap="toUserManager">
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
         <view>
-          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-          <view>123456789</view>
+          <text class="userinfo-nickname" style="font-size: 40rpx; color: #2D313A;">{{userInfo.nickName}}</text>
+          <view style="font-size: 34rpx; color: #2D313A;">123456789</view>
         </view>
       </view>
-      <view class="photo_rt">></view>
+      <view class="photo_rt" bindtap="toUserManager">
+        <mp-icon icon="arrow" size="{{16}}" color="#BEC2CB"></mp-icon>
+      </view>
     </block>
     <button hidden open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权绑定手机号
     </button>
@@ -20,30 +22,30 @@
     <view class="buy_title">我的购买</view>
     <view class="buy_content">
       <view  bindtap="bindToOrder">
-        <image class="img1" src="../../resources/img/log.png" />
-        <view>我的订单</view>
+        <image class="img1" src="../../resources/img/bag.png" />
+        <view class="img1_title">我的订单</view>
       </view>
       <view>
-        <image class="img1" src="../../resources/img/mine.png" />
-        <view>我的服务</view>
+        <image class="img1" src="../../resources/img/my-service.png" />
+        <view class="img1_title">我的服务</view>
       </view>
     </view>
   </view>
 
   <mp-cells ext-class="my_cells" title="我的资产">
     <mp-cell value="我的优惠券" footer="3张可用" link hover bindtap="bindToMypon">
-      <image slot="icon" src="../../resources/img/log.png" class="cell_img"/>
+      <image slot="icon" src="../../resources/img/tag.png" class="cell_img"/>
     </mp-cell>
   </mp-cells>
   <mp-cells ext-class="my_cells" title="我的信息">
     <mp-cell value="我的地址" footer="2条地址" link hover bindtap="bindToAddress">
-      <image slot="icon" src="../../resources/img/mine.png" class="cell_img" />
+      <mp-icon icon="location" color="orange" size="{{17}}" slot="icon" class="cell_img"></mp-icon>
     </mp-cell>
     <mp-cell value="发票信息" link hover>
-      <image slot="icon" src="../../resources/img/loged.png" class="cell_img" />
+      <image slot="icon" src="../../resources/img/tag.png" class="cell_img" />
     </mp-cell>
     <mp-cell value="家庭信息" link hover>
-      <image slot="icon" src="../../resources/img/mined.png" class="cell_img" />
+      <mp-icon slot="icon" icon="group-detail" size="{{17}}" color="orange" class="cell_img"></mp-icon>
     </mp-cell>
   </mp-cells>
 </view>

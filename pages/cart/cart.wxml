@@ -9,7 +9,7 @@
           <view class="rt_top">
             <view class="top_title">{{item.title}}</view>
             <text style="font-size: 26rpx;">型号：{{item.type}}</text>
-            <image class="top_icon" src="../../resources/img/del.png" />
+            <mp-icon class="top_icon" icon="delete" size="{{20}}" color="grey"></mp-icon>
           </view>
           <view class="rt_btm">
             <text>￥{{item.price}}</text>
