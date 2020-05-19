@@ -12,7 +12,7 @@ Component({
    */
   data: {
     region: ['浙江省', '杭州市', '江干区'],
-    customItem: '全部'
+    customItem: ''
   },
 
   /**

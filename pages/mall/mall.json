@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "mp-icon": "../../resources/weui/icon/icon"
+  },
   "navigationBarTitleText": "惠电通",
   "navigationBarTextStyle": "black"
 }

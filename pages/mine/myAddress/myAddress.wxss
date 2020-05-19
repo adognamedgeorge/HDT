@@ -1,1 +1,48 @@
 /* pages/mine/myAddress/myAddress.wxss */
+.my_radio {
+  display: flex; 
+  justify-content: space-around; 
+  align-items: center;
+  font-size: 24rpx;
+  color: #868A92;
+  width: 90%;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+}
+
+radio {
+  position: relative;
+  width: 90%;
+  padding: 18rpx 15rpx;
+}
+
+.page {
+  background-color: #F6F6F7;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.radio_box {
+  background-color: #ffffff;
+  padding: 18rpx 15rpx;
+  border-bottom: 1px solid #F6F6F7;
+}
+
+.add_btn {
+  position: fixed;
+  bottom: 28rpx;
+  height: 80rpx;
+  border-radius: 44rpx;
+  color: #ffffff;
+  background-color: #2875E1;
+  left: 0;
+  right: 0;
+  width: 90% !important;
+}
+
+.radio_txt {
+  font-size: 32rpx;
+  color: #2D313A;
+}

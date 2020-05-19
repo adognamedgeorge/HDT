@@ -1,21 +1,24 @@
 <!--pages/mine/myAddress/myAddress.wxml-->
-<view>
-  <view>
+<view class="page">
+  <view class="radio_box">
     <radio-group>
-      <radio>
-        <view style="display: flex; justify-content: space-around; align-items: center;">
+      <radio class="radio">
+        <view class="my_radio">
           <view>
-            <view>张女士</view>
-            <text>默认</text>
+            <view class="radio_txt">张女士</view>
+            <text style="font-size: 20rpx;">默认</text>
           </view>
           <view>
-            <text>1308899999</text>
+            <text class="radio_txt">1308899999</text>
             <view>浙江杭州江干区利友大厦1201</view>
           </view>
-          <view>编辑</view>
+          <view>
+            <view>编辑</view>
+            <mp-icon size="{{16}}" color="#868A92" icon="delete"></mp-icon>
+          </view>
         </view>
       </radio>
     </radio-group>
   </view>
-  <button type="primary" bindtap="addAddress">添加收货人</button>
+  <button type="" bindtap="addAddress" class="add_btn">添加收货人</button>
 </view>

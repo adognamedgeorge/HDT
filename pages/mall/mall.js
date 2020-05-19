@@ -37,7 +37,7 @@ Page({
       }
     ],
     recommendData: [
-      {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'},
+      {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa炒锅炒锅', price: '345'},
       {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'},
       {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'},
       {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'},
@@ -55,7 +55,7 @@ Page({
     goodsData2 (data) {
       const pages = []
       data.goodsData.forEach((item, index) => {
-        const page = Math.floor(index / 8)
+        const page = Math.floor(index / 10)
         if (!pages[page]) {
           pages[page] = []
         }

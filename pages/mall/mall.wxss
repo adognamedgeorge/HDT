@@ -1,13 +1,17 @@
 /* pages/mall/mall.wxss */
 .page {
-  padding: 0 20rpx;
+  padding: 0 26rpx;
+  background-color: #F6F6F7;
 }
 
 .top {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 30rpx;
+  background-color: #ffffff;
+  margin: 0 -26rpx;
+  height: 116rpx;
+  line-height: 116rpx;
 }
 
 .top_lf {
@@ -16,32 +20,40 @@
 }
 
 .lf_input {
-  background-color: #dbdbdb;
-  border-radius: 40rpx;
-  padding: 10rpx 40rpx;
+  background-color: #F5F6F7;
+  border-radius: 36rpx;
+  padding: 16rpx 24rpx;
   font-size: 30rpx;
 }
 
 .lf_img {
   position: absolute;
-  top: 12rpx;
+  top: -20rpx;
   right: 30rpx;
 }
 
-.lf_img, .top_rt {
-  width: 50rpx;
-  height: 50rpx;
+.top_rt {
+  width: 28rpx;
+  height: 28rpx;
+  color: #666666;
+  margin-right: 26rpx;
 }
 
 .rt_img {
-  width: 100%;
-  height: 100%;
+  width: 28rpx;
+  height: 28rpx;
+  display: block;
 }
 
 .swiper_box {
   border-radius: 20rpx;
   overflow: hidden;
-  box-shadow: 0rpx 10rpx 20rpx 5rpx grey;
+  box-shadow: 0 6px 7px 0 rgba(113,113,113,0.50);
+  height: 352rpx;
+}
+
+.my_swiper {
+  height: 352rpx;
 }
 
 .swiper_item, .swiper_img {
@@ -51,21 +63,27 @@
 
 .coupon {
   width: 100%;
-  height: 180rpx;
+  height: 198rpx;
   background-color: #dbdbdb;
   border-radius: 5rpx;
-  margin-top: 60rpx;
-  box-shadow: 0 10rpx 30rpx 5rpx grey;
+  margin-top: 36rpx;
+}
+
+.my_goods_swiper {
+  height: 400rpx;
 }
 
 .goods {
-  margin: 40rpx 0;
+  margin-bottom: 40rpx;
+  border-top: 22rpx solid #F6F6F7;
+  background-color: #ffffff;
 }
 
 .goods_title {
-  margin: 40rpx 0 25rpx 0;
-  padding: 0 10rpx;
-  font-weight: bold;
+  margin: 24rpx 0 34rpx 0;
+  padding: 0 26rpx;
+  font-size: 36rpx;
+  color: #333333;
 }
 
 .flex_box {
@@ -78,12 +96,13 @@
 }
 
 .flex_content {
-  width: 24%;
-  font-size: 30rpx;
+  width: 19%;
+  font-size: 24rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 32rpx;
 }
 
 .img_box {
@@ -91,7 +110,7 @@
   height: 100rpx;
   border-radius: 50%;
   overflow: hidden;
-  margin-bottom: 20rpx;
+  margin-bottom: 16rpx;
 }
 
 .flex_img {
@@ -100,54 +119,56 @@
 }
 
 .package_wrap {
-  margin-bottom: 30rpx;
+  padding-bottom: 24rpx;
 }
 
 .package_title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 40rpx;
-  font-weight: bold;
-  padding: 20rpx 0;
+  font-size: 36rpx;
+  padding: 18rpx 26rpx;
 }
 
 .package_title_rt {
-  font-size: 30rpx;
-  color: lightgrey;
-  font-weight: lighter;
+  font-size: 24rpx;
+  color: #868A92;
 }
 
 .wrap_title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30rpx 0;
+  padding: 32rpx 20rpx 32rpx 46rpx;
+  font-size: 32rpx;
+  color: #2D313A;
 }
 
 .wrap_title_rt {
-  color: red;
+  color: #F00707;
+  font-size: 36rpx;
 }
 
 .rt_text {
-  font-size: 35rpx;
+  font-size: 24rpx;
 }
 
 .wrap_content {
-  width: 100%;
+  width: 94%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  background-color: #e6e6e6;
+  background-color: #F7F7F7;
+  margin: 0 auto;
 }
 
 .content_imgBox {
-  width: 45%;
-  height: 220rpx;
+  width: 47%;
+  height: 232rpx;
   overflow: hidden;
-  padding: 20rpx 0;
-  border-radius: 30rpx;
+  padding: 12rpx 0;
+  border-radius: 8rpx;
 }
 
 .content_img {
@@ -162,14 +183,15 @@
 
 .recommend_title {
   justify-content: space-between;
-  font-weight: bold;
-  font-size: 40rpx;
-  padding: 20rpx 0;
+  font-size: 36rpx;
+  padding: 32rpx 18rpx;
+  color: #333333;
+  border-top: 24rpx solid #F6F6F7;
 }
 
 .retitle_rt {
-  font-size: 35rpx;
-  color: lightgrey;
+  font-size: 24rpx;
+  color: #868A92;
 }
 
 .recommend_content {
@@ -181,14 +203,15 @@
 .recontent_box {
   width: 33%;
   height: 300rpx;
+  margin-bottom: 17rpx;
 }
 
 .recontent_img {
-  width: 170rpx;
-  height: 170rpx;
+  width: 211rpx;
+  height: 211rpx;
   display: block;
   margin: 0 auto;
-  border-radius: 40rpx;
+  border-radius: 8rpx;
 }
 
 .recontent_text {
@@ -196,4 +219,12 @@
   width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 30rpx;
+  color: #333333;
+  text-align: left;
+}
+
+.re_price {
+  color: #FF3B30 ;
+  font-size: 36rpx;
 }

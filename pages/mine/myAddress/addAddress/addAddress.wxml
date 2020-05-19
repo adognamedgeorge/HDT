@@ -1,24 +1,32 @@
 <!--pages/mine/myAddress/addAddress/addAddress.wxml-->
-<view>
-  <form>
-    <view>
-      <input name="input1" placeholder="收货人" />
+<view style="border-top: 16rpx solid #F6F6F7;">
+  <form class="my_form">
+    <view class="my_input">
+      <text>收货人</text>
+      <input class="input" name="input1" placeholder="" value="" type="text"/>
     </view>
-    <view>
-      <input name="input2" placeholder="手机号码" />
+
+    <view class="my_input">
+      <text>手机号码</text>
+      <input class="input" name="input2" placeholder="" value="" type="number" maxlength="11"/>
     </view>
-    <view>
+
+    <view class="my_input">
       <picker mode="region" value="{{region}}" custom-item="{{customItem}}" bindchange="bindRegionChange">
-        <view>
-          所在地区: {{region[0]}},{{region[1]}},{{region[2]}}
+        <view class="area">
+          <text>所在地区：</text>
+          <view style="width: 500rpx;">{{region[0]}},{{region[1]}},{{region[2]}}</view>
         </view>
       </picker>
+      <mp-icon icon="arrow" size="{{8}}" color="#BEC2CB "></mp-icon>
     </view>
-    <textarea value="" placeholder="详细地址：如道路、门牌号、小区、楼栋号、单元室等"></textarea>
-    <view>
+
+    <textarea class="my_textarea" value="" placeholder="详细地址：如道路、门牌号、小区、楼栋号、单元室等" placeholder-style="color: #BEC2CB;"></textarea>
+
+    <view class="my_switch">
       <text>设为默认地址</text>
       <switch checked></switch>
     </view>
   </form>
-  <button type="primary">保存</button>
+  <button type="primary" class="my_btn">保存</button>
 </view>

@@ -1,15 +1,17 @@
 /* pages/mall/sorts/sorts.wxss */
 .page {
-  padding: 0 30rpx;
+  padding: 0 32rpx;
+  color: #333333;
+  font-size: 32rpx;
 }
 
 .title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30rpx 0;
-  font-size: 40rpx;
-  font-weight: bold;
+  padding: 34rpx 0;
+  font-size: 32rpx;
+  color: #333333;
 }
 
 .title_icon {
@@ -27,8 +29,14 @@
 
 .content {
   width: 27%;
-  background: #e6e6e6;
-  height: 70rpx;
+  background: #F2F2F2;
+  height: 88rpx;
+  line-height: 88rpx;
   margin: 3%;
   text-align: center;
+}
+
+.check_all {
+  color: #868A92;
+  font-size: 24rpx;
 }

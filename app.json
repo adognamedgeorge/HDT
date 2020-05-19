@@ -9,7 +9,8 @@
     "pages/home/coupons/coupon",
     "pages/mall/sorts/sorts",
     "pages/mine/myCoupon/myCoupon",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/mine/myAddress/myAddress"
   ],
   "window": {
     "backgroundTextStyle": "light",
