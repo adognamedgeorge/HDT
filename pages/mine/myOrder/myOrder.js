@@ -10,20 +10,6 @@ Component({
   },
   /**
    * 组件的初始数据
-   * <property name="pk" type="java.lang.String"/>
-   <property name="code" type="java.lang.String"/>
-   <property name="status" type="java.lang.String"/>
-   <property name="statusDes" type="java.lang.String"/>
-   <property name="totalPrice" type="java.lang.String"/>
-
-   <property name="entryNumber" type="java.lang.Long"/>
-   <property name="productCode" type="java.lang.String"/>
-   <property name="productName" type="java.lang.String"/>
-   <property name="productModel" type="java.lang.String"/>
-   <property name="productImage" type="java.lang.String"/>
-   <property name="basePrice" type="java.lang.String"/>
-   <property name="quantity" type="java.lang.Long"/>
-   <property name="amount" type="java.lang.String"/><!--行上退款金额-->
    */
   data: {
     pageSize: 10,
@@ -48,9 +34,9 @@ Component({
         this.getOrderList();
       }
     },
-    toOrderInfor () {
+    toOrderInfor (event) {
       wx.navigateTo({
-        url: './orderInfor/orderInfor'
+        url: './orderInfor/orderInfor?code='+event.currentTarget.dataset.code
       })
     },
     getOrderList(){
@@ -104,13 +90,6 @@ Component({
     ready() {
       console.log("在组件在视图层布局完成后执行")
       this.getOrderList();
-      /*util.request(api.MyOrderDetail,
-          {
-            code: '100',
-          },
-          'GET',
-          'application/x-www-form-urlencoded'
-      );*/
     },
     moved() {
       console.log("在组件实例被移动到节点树另一个位置时执行")

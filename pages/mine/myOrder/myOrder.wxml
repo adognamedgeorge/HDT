@@ -9,7 +9,7 @@
               <text>订单编号：{{item.code}}</text>
               <text style="color: red;">{{item.statusDes}}</text>
             </view>
-            <view wx:for="{{item.entries}}" wx:for-index="idx" wx:for-item="entry" class="content_mid" bindtap="toOrderInfor">
+            <view wx:for="{{item.entries}}" wx:for-index="idx" wx:for-item="entry" class="content_mid" bindtap="toOrderInfor" data-code='{{item.code}}'>
               <image style="width: 115rpx; height: 115rpx;" src="../../../resources/img/a.jpg" />
               <view class="mid_rt">
                 <text class="mid_title">{{entry.productName}}</text>

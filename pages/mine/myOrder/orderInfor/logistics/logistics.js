@@ -11,7 +11,26 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    logData: [
+      {
+        name: '中通快递',
+        number: '123483487u904',
+        img: [
+          '../../../../../resources/img/a.png',
+          '../../../../../resources/img/a.png',
+          '../../../../../resources/img/a.png',
+          '../../../../../resources/img/a.png'
+        ]
+      },
+      {
+        name: '顺丰快递',
+        number: '98903783487u904',
+        img: [
+          '../../../../../resources/img/a.png',
+          '../../../../../resources/img/a.png'
+        ]
+      }
+    ]
   },
 
   /**

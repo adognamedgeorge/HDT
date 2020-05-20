@@ -1,15 +1,14 @@
 <!--pages/component/orderConfirm/orderConfirm.wxml-->
-<view>
+<view class="page">
   <mp-form>
-    <view prop="address">
+    <view prop="address" class="address">
       <view>
-        <view>默认</view>
-        <text>浙江杭州市江干区</text>
+        浙江杭州市江干区
       </view>
       <view>
         <mp-icon type="field" icon="location" size="{{20}}" color="orange"></mp-icon>
-        <text>钱江路利友商务大厦1111</text>
-        <mp-icon icon="arrow" size="{{15}}"></mp-icon>
+        <text class="location">钱江路利友商务大厦1111</text>
+        <mp-icon icon="arrow" size="{{8}}" color="#BEC2CB;"></mp-icon>
       </view>
       <view>
         <text>张女士</text>
@@ -17,41 +16,35 @@
       </view>
     </view>
     
-    <view>商品信息</view>
-    <view>
-      <view>123</view>
-      <mp-cells>
-        <mp-cell title="商家发货"></mp-cell>
-        <mp-cell title="买家留言：">
-          <textarea slot="footer" auto-height placeholder="给商家留言，最多100字"></textarea>
-        </mp-cell>
-      </mp-cells>
+    <view class="info_title">商品信息</view>
+    <view class="goods_info">
+      <image class="goods_img" src="../../../resources/img/a.png" />
+      <view style="margin-left: 32rpx; flex: 1;">
+        <view style="font-size: 34rpx;">欧舒丹甜蜜樱花沐浴啫喱/身体乳套装</view>
+        <text style="color: #999999;">DNFJ-90-BVJ</text>
+        <view style="font-size: 40rpx; color: #FF3B30;">¥378</view>
+      </view>
     </view>
 
-    <view>
+    <view class="my_textarea">
+      <view style="width: 25%;">买家留言：</view>
+      <textarea slot="footer" auto-height placeholder="给商家留言，最多100字" maxlength="100"></textarea>
+    </view>
+
+    <view class="my_cells">
       <mp-cells>
         <mp-cell title="优惠券" footer="暂无可用" link hover></mp-cell>
-        <mp-cell title="配送方式" footer="免费配送" link hover></mp-cell>
-      </mp-cells>
-    </view>
-
-    <view>
-      <mp-cells>
         <mp-cell title="商品金额" footer="￥36.00"></mp-cell>
-        <mp-cell title="运费" footer="+￥0.00"></mp-cell>
+        <mp-cell title="运费" footer="+￥0.00" link hover></mp-cell>
         <mp-cell title="优惠券" footer="-￥0.00"></mp-cell>
         <mp-cell title="活动优惠" footer="-￥0.00"></mp-cell>
-        <mp-cell title="小计" footer="￥36.00"></mp-cell>
+        <mp-cell title="发票" footer="不开发票" link hover></mp-cell>
       </mp-cells>
-    </view>
-
-    <view>
-      <mp-cell title="发票" footer="不开发票" link hover></mp-cell>
     </view>
   </mp-form>
 
-  <view>
-    <text>实付款：￥36.00</text>
-    <button type="warn" size="mini">提交订单</button>
+  <view class="btn">
+    <text>应付金额：￥36.00</text>
+    <button class="my_btn" type="" size="mini">提交订单</button>
   </view>
 </view>

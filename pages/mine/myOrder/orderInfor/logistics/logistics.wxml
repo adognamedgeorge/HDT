@@ -1,13 +1,13 @@
 <!--pages/mine/myOrder/orderInfor/logistics/logistics.wxml-->
 <view>
-  <view bindtap="toLogisticsDetail">
-    <view>
-      <image src="../../../../../resources/img/a.jpg" style="width: 200rpx; height: 200rpx;"/>
+  <view class="logistics" wx:for="{{logData}}" wx:key="index" wx:for-item="itemName">
+    <view bindtap="toLogisticsDetail" style="margin-bottom: 64rpx;">
+      <view style="margin-bottom: 38rpx;">物流公司 | {{itemName.name}}</view>
+      <text>运单号：{{itemName.number}}</text>
     </view>
-    <view>
-      <text>物流公司|中通快递</text>
-      <text>运单号：123234444455566</text>
+
+    <view class="img_box">
+      <image class="log_img"  wx:for="{{itemName.img}}" wx:key="index" src="{{item}}" />
     </view>
-    <view>在途中</view>
   </view>
 </view>

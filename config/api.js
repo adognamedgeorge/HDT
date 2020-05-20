@@ -1,5 +1,7 @@
 var HybrisApiUrl = "https://api.cx2k-custstate1-d1-public.model-t.ccv2prod.sapcloud.cn/zddsws/"; //sgp测试环境
 var ImageUrl = "https://api.cx2k-custstate1-d1-public.model-t.ccv2prod.sapcloud.cn";//图片地址
+var HybrisApiUrl1 = "https://electronics.local:9002/zddswebservices/"; //sgp测试环境
+var ImageUrl1 = "https://electronics.local:9002/images/";//图片地址
 
 module.exports = {
   //ImageUrl
@@ -27,9 +29,13 @@ module.exports = {
   SmsLogin: HybrisApiUrl + "miniprogram/b2c/login/loginBySms", //短信登录
   SmsSend: HybrisApiUrl + "miniprogram/b2c/login/sendSms",//发送短信
 
+  //商品
+  ProductList:HybrisApiUrl +"miniprogram/b2c/product/products",//商品列表
+  ProductDetail:HybrisApiUrl +"miniprogram/b2c/product/ProductDetail",//商品详情
+
   //商城个人中心
   MyOrder: HybrisApiUrl + "miniprogram/b2c/order/myOrder",//我的订单
-
   MyOrderDetail: HybrisApiUrl + "miniprogram/b2c/order/myOrderDetail",//我的订单详情
+
 
 };

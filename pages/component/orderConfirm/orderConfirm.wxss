@@ -1,1 +1,65 @@
 /* pages/component/orderConfirm/orderConfirm.wxss */
+.page {
+  color: #333333;
+  font-size: 24rpx;
+}
+
+.address {
+  padding: 30rpx 32rpx;
+}
+
+.location {
+  font-size: 32rpx;
+  padding: 12rpx 0 16rpx 0;
+}
+
+.info_title {
+  padding: 16rpx 32rpx;
+  color: #666666;
+  font-size: 28rpx;
+  background-color: #F6F6F7;
+}
+
+.goods_info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36rpx 32rpx 52rpx 32rpx;
+  border-bottom: 1px solid #F6F6F7;
+}
+
+.my_textarea {
+  padding: 26rpx 32rpx;
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 16rpx solid #F6F6F7;
+}
+
+.goods_img {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 8rpx;
+}
+
+.my_cells {
+  font-size: 28rpx;
+  border-bottom: 16rpx solid #F6F6F7;
+}
+
+.btn {
+  padding: 14rpx 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+  color: #FF3C3C;
+}
+
+.my_btn {
+  width: 246rpx;
+  color: #FFFFFF;
+  background-image: linear-gradient(99deg, #FC3A3A 0%, #E12828 97%);
+  border-radius: 200rpx;
+  margin: 0 !important;
+  padding: 18rpx 60rpx !important;
+}

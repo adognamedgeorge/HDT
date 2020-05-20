@@ -1,18 +1,18 @@
 <!--pages/mine/myOrder/orderInfor/orderInfor.wxml-->
 <view>
   <view class="infor_top">
-    <view>卖家已发货</view>
+    <view>{{orderDetail.statusDes}}</view>
     <view>还剩8天2小时自动确认</view>
   </view>
 
   <view>
     <view>
-      张女士
-      <text>13077777777</text>
+      {{orderDetail.deliveryAddressName}}
+      <text>{{orderDetail.deliveryAddressPhone}}</text>
     </view>
     <view>
       <mp-icon size="{{15}}" color="orange" icon="location" type="field"></mp-icon>
-      <text>浙江省杭州市江干区利有大厦1105</text>
+      <text>{{orderDetail.deliveryAddressAdd}}</text>
     </view>
   </view>
 
@@ -25,14 +25,14 @@
   <view>
     <mp-cells>
       <mp-cell title="订单信息"></mp-cell>
-      <mp-cell title="商品总价" footer="￥2000.00"></mp-cell>
-      <mp-cell title="运费" footer="￥0.00"></mp-cell>
-      <mp-cell title="优惠金额" footer="￥0.00"></mp-cell>
+      <mp-cell title="商品总价" footer="￥{{orderDetail.subtotal}}"></mp-cell>
+      <mp-cell title="运费" footer="￥{{orderDetail.deliveryCost}}"></mp-cell>
+      <mp-cell title="优惠金额" footer="￥{{orderDetail.couponAmount}}"></mp-cell>
     </mp-cells>
   </view>
 
   <view>
-    <text>实付金额：￥36.00</text>
+    <text>实付金额：￥{{orderDetail.totalPrice}}</text>
     <button size="mini" bindtap="bindToLogistics">查看物流</button>
     <button size="mini">确认收货</button>
   </view>

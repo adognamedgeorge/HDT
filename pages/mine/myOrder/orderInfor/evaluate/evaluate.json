@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "mp-uploader": "../../../../../resources/weui/uploader/uploader",
+    "mp-cells": "../../../../../resources/weui/cells/cells",
+    "mp-cell": "../../../../../resources/weui/cell/cell",
+    "mp-icon": "../../../../../resources/weui/icon/icon"
+  }
+}

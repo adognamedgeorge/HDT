@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/component/orderConfirm/orderConfirm",
     "pages/home/home",
     "pages/component/search/search",
     "pages/mine/mine",
@@ -10,7 +11,9 @@
     "pages/mall/sorts/sorts",
     "pages/mine/myCoupon/myCoupon",
     "pages/login/login",
-    "pages/mine/myAddress/myAddress"
+    "pages/mine/myAddress/myAddress",
+    "pages/mine/myOrder/orderInfor/logistics/logistics",
+    "pages/mine/myOrder/orderInfor/logistics/logisticsDetail/logisticsDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

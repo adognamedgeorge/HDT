@@ -1,7 +1,7 @@
 <!--pages/component/goodsList/goodsList.wxml-->
 <view>
   <view class="tabbar">
-    <view wx:for="{{tabData}}" wx:key="index">
+    <view wx:for="{{tabData}}" wx:key="index" bindtap="bindBar" data-idx="{{index}}">
       <view>
         {{item}}
         <image src="../../../resources/img/arrow.png" style="width: 20rpx; height: 20rpx;" />
@@ -10,16 +10,16 @@
   </view>
 
   <view>
-    <view class="content">
+    <view wx:for="{{list}}" class="content" >
       <view class="content_lf">
-        <image class="lf_img" src="../../../resources/img/a.jpg" />
+        <image class="lf_img" src="{{imagePath+item.src}}" />
       </view>
       <view class="content_rt">
-        <view class="rt_top">美的美的美的美的美的ddddaa美的</view>
-        <text class="rt_mid">DAG-KQWEK-DA2</text>
+        <view class="rt_top">{{item.name}}</view>
+        <text class="rt_mid">{{item.model}}</text>
         <view>
-          <text class="price">￥666</text>
-          <text class="del_price">￥999</text>
+          <text class="price">￥{{item.actualPrice}}</text>
+          <text class="del_price">￥{{item.linePrice}}</text>
           <image src="../../../resources/img/cart2.png" class="btm_img"/>
         </view>
       </view>

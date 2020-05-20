@@ -1,0 +1,66 @@
+/* pages/mine/myOrder/orderInfor/evaluate/evaluate.wxss */
+.page {
+  background-color: #F6F6F7;
+  padding: 16rpx 22rpx;
+}
+
+.evaluate_box {
+  padding: 24rpx;
+  background-color: #ffffff;
+}
+
+.eva_top {
+  border-bottom: 1px solid #EEEEEE;
+  padding-bottom: 23rpx;
+}
+
+.top_img {
+  width: 164rpx;
+  height: 164rpx;
+  border-radius: 8rpx;
+}
+
+.top_txt {
+  color: #333333;
+  font-size: 28rpx;
+  margin-left: 19rpx;
+  width: 70%;
+  white-space: wrap;
+  height: 164rpx;
+  float: right;
+  overflow: hidden;
+  padding: 5rpx;
+}
+
+.eva_mid {
+  padding: 24rpx;
+}
+
+.my_textarea {
+  min-height: 156rpx;
+}
+
+.eva_btm {
+  color: #333333;
+  font-size: 28rpx;
+}
+
+.stars {
+  display: inline-block;
+  margin-left: 16rpx;
+}
+
+.my_star {
+  padding: 0 10rpx;
+}
+
+.my_btn {
+  width: 90% !important;
+  margin: 0 auto;
+  border-radius: 44rpx;
+  height: 80rpx;
+  color: #ffffff;
+  font-size: 32rpx;
+  background-image: linear-gradient(99deg, #FC3A3A 0%, #E12828 97%);
+  margin-top: 132rpx;
+}

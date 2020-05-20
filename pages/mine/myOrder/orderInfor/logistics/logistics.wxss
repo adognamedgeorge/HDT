@@ -1,1 +1,24 @@
 /* pages/mine/myOrder/orderInfor/logistics/logistics.wxss */
+.logistics {
+  padding: 40rpx 32rpx;
+  color: #333333;
+  font-size: 32rpx;
+  border-bottom: 1px solid #F6F6F7;
+}
+
+.img_box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 96%;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding-left: 16rpx;
+}
+
+.log_img {
+  width: 30%;
+  height: 164rpx;
+  border-radius: 8rpx;
+  margin: 8rpx;
+}

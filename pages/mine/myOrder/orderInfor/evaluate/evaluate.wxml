@@ -1,0 +1,34 @@
+<!--pages/mine/myOrder/orderInfor/evaluate/evaluate.wxml-->
+<view class="page">
+  <view class="evaluate_box">
+    <view class="eva_top">
+      <image class="top_img" src="../../../../../resources/img/a.png" />
+      <view class="top_txt">方太油烟机EGM油烟机方太油烟机EGM油烟机方太油烟机EGM油烟机方太油烟机EGM油烟机方太油烟机EGM油烟机方太油烟机EGM油烟机方太油烟机EGM油烟机</view>
+    </view>
+
+    <view class="eva_mid">
+      <textarea value="" placeholder-style="font-size: 28rpx; color: #868A92;" placeholder="请输入您的评论" auto-height></textarea>
+
+      <mp-uploader max-count="5" tips="上传买家秀" title="" upload="{{uploadFile}}" files="{{files}}" select="{{selectFile}}" bindfail="uploadError" bindSuccess="uploadSuccess" ext-class="my_uploader"></mp-uploader>
+    </view>
+
+    <view class="eva_btm">
+      <view style="padding: 14rpx;">
+        <text>商品评分</text>
+        <view class="stars">
+          <mp-icon icon="star" size="{{20}}" type="field" color="{{starColor}}" bindtap="changeColor"></mp-icon>
+          <mp-icon icon="star" size="{{20}}" type="field" color="orange"></mp-icon>
+        </view>
+      </view>
+
+      <view style="padding: 14rpx;">
+        <text>物流服务</text>
+        <view class="stars">
+          <mp-icon icon="star" size="{{20}}" type="field" color="orange"></mp-icon>
+        </view>
+      </view>
+    </view>
+
+  </view>
+  <button type="" class="my_btn">提交评价</button>
+</view>

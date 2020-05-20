@@ -1,1 +1,61 @@
 /* pages/mine/myOrder/orderInfor/logistics/logisticsDetail/logisticsDetail.wxss */
+.page {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.my_cells {
+  font-size: 28rpx;
+}
+
+.weui-cells:after {
+  border-bottom: 1px dashed #F6F6F7;
+}
+
+
+.imgs {
+  overflow-x: scroll;
+  height: 160rpx;
+  margin: 41rpx auto 0 auto;
+  box-shadow: 0 4px 15px 0 rgba(108,130,190,0.16);
+  border-radius: 8rpx;
+  padding: 26rpx 0;
+  width: 90%;
+  margin-bottom: 80rpx;
+}
+
+.imgs_box {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.my_img {
+  width: 160rpx;
+  height: 160rpx;
+  margin: 0 45rpx;
+}
+
+.slider_program {
+  background: white;
+}
+
+.log_program {
+  padding-left: 140rpx;
+}
+
+.width_limit {
+  width: 95%;
+  margin-bottom: 80rpx;
+}
+
+.log_txt {
+  color: #888888;
+}
+
+.navActive {
+  color: #E91010;
+  font-size: 34rpx;
+}
