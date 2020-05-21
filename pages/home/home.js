@@ -109,6 +109,11 @@ Page({
         url: '../mall/sets/sets'
       });
       break;
+    case 3: 
+      wx.navigateTo({
+        url: '../component/familyInfo/familyInfo'
+      });
+      break;
     }
   },
 

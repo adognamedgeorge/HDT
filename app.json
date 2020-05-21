@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/component/orderConfirm/orderConfirm",
     "pages/home/home",
     "pages/component/search/search",
     "pages/mine/mine",
@@ -13,7 +12,16 @@
     "pages/login/login",
     "pages/mine/myAddress/myAddress",
     "pages/mine/myOrder/orderInfor/logistics/logistics",
-    "pages/mine/myOrder/orderInfor/logistics/logisticsDetail/logisticsDetail"
+    "pages/mine/myOrder/orderInfor/logistics/logisticsDetail/logisticsDetail",
+    "pages/component/bill/bill",
+    "pages/component/orderConfirm/orderConfirm",
+    "pages/component/familyInfo/familyInfo",
+    "pages/mine/myOrder/orderInfor/orderInfor",
+    "pages/mine/myOrder/orderInfor/myService/myService",
+    "pages/mine/myOrder/orderInfor/myService/regoods/regoods",
+    "pages/mine/myOrder/orderInfor/myService/refund/refund",
+    "pages/mine/myOrder/orderInfor/myService/refund/refundDetail/refundDetail",
+    "pages/mine/myOrder/orderInfor/myService/regoods/regoodsDetail/regoodsDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

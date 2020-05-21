@@ -14,7 +14,24 @@ Component({
    */
   data: {
     orderDetail:{},
-    code:""
+    code:"",
+    // 商品信息数据
+    goodsData: [
+      {
+        imgSrc: '../../../../resources/img/a.png',
+        title: '方太叮叮当当地地道道的叮叮当当',
+        num: 99,
+        secTitle: 'DNFJ-90-BVJ',
+        price: '999'
+      },
+      {
+        imgSrc: '../../../../resources/img/a.png',
+        title: 'aaaaaaaaaaaaaaaaab',
+        num: 999,
+        secTitle: 'DNFJ-90-BVJ',
+        price: '666'
+      }
+    ]
   },
 
   /**
@@ -31,6 +48,21 @@ Component({
         url: './logistics/logistics'
       })
     },
+
+    // 跳转商品评价页
+    bindToEvaluate () {
+      wx.navigateTo({
+        url: './evaluate/evaluate'
+      })
+    },
+
+    // 跳转售后页
+    bindToServe () {
+      wx.navigateTo({
+        url: './myService/myService'
+      })
+    },
+
     onLoad:function(options){
       console.log(options);
       this.setData({

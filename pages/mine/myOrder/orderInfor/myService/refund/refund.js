@@ -1,4 +1,4 @@
-// pages/mine/myService/myService.js
+// pages/mine/myOrder/orderInfor/myService/refund/refund.js
 Component({
   /**
    * 组件的属性列表
@@ -11,23 +11,18 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    files: [
+      {loading: true}, {error: true}
+    ]
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    // 退款页
-    bindtoRefund () {
+    bindToDetail () {
       wx.navigateTo({
-        url: './refund/refund'
-      })
-    },
-    // 退款退货
-    bindtoRegoods () {
-      wx.navigateTo({
-        url: './regoods/regoods'
+        url: './refundDetail/refundDetail'
       })
     }
   }

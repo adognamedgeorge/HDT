@@ -1,4 +1,4 @@
-// pages/mine/myService/myService.js
+// pages/mine/myOrder/orderInfor/myService/regoods/regoodsDetail/regoodsDetail.js
 Component({
   /**
    * 组件的属性列表
@@ -18,16 +18,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    // 退款页
-    bindtoRefund () {
+    toRegoodsLog () {
       wx.navigateTo({
-        url: './refund/refund'
-      })
-    },
-    // 退款退货
-    bindtoRegoods () {
-      wx.navigateTo({
-        url: './regoods/regoods'
+        url: './regoodsLog/regoodsLog'
       })
     }
   }

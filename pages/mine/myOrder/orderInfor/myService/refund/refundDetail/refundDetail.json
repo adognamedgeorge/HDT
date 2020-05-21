@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "mp-cells": "../../../../../../../resources/weui/cells/cells",
+    "mp-cell": "../../../../../../../resources/weui/cell/cell"
+  },
+  "navigationBarTitleText": "退款详情"
+}

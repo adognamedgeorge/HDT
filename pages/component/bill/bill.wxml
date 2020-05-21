@@ -1,0 +1,53 @@
+<!--pages/component/bill/bill.wxml发票-->
+<view class="page">
+  <form>
+    <view class="type">
+      <text>发票类型</text>
+      <view class="my_picker">
+        <picker range="{{typeArr}}" value="{{idx}}" bindchange="bindPickerChange">
+          <text>{{typeArr[idx]}}</text>
+          <mp-icon size="{{12}}" color="grey" icon="arrow" style="margin-left: 10rpx;"></mp-icon>
+        </picker>
+      </view>
+    </view>
+
+    <view class="title_type">
+      <text>抬头类型</text>
+      <view>
+        <radio-group bindchange="radioChange">
+          <label >
+            <radio wx:for="{{items}}" wx:key="index" value="{{index}}" checked="{{item.checked}}" data-id="index">{{item.value}}</radio>
+          </label>
+        </radio-group>
+      </view>
+    </view>
+
+    <view>
+      <mp-cells>
+        <mp-cell title="{{item.title}}" wx:for="{{cellsData}}" wx:key="index">
+          <input slot="footer" placeholder="{{item.footer}}" type="text" value=""/>
+        </mp-cell>
+      </mp-cells>
+    </view>
+
+    <view>
+      <view class="phone">接收方式</view>
+      <mp-cell title="收票人手机">
+        <input slot="footer" type="number" placeholder="输入你的手机号" maxlength="11" value="" />
+      </mp-cell>
+    </view>
+  </form>
+
+  <view class="note">
+    <button class="submit" type="">提交申请</button>
+    <button class="nobill" type="primary">不开发票</button>
+
+    <view class="note_text">
+      <view> <view class="mark">!</view>发票须知：</view>
+      <view>
+        1.开票金额为用户实际支付金额(不含优惠金额)
+        2.电子发票可在确认收货后，在“订单详情“查看
+      </view>
+    </view>
+  </view>
+</view>

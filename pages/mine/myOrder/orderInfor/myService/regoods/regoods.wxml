@@ -1,0 +1,27 @@
+<!--pages/mine/myOrder/orderInfor/myService/regoods/regoods.wxml-->
+<view class="page">
+  <form>
+    <mp-cells>
+      <mp-cell title="退货原因" link hover>
+        <picker slot="footer">
+          <text>请选择</text>
+        </picker>
+      </mp-cell>
+      <mp-cell title="退款金额">
+        <text style="font-size: 32rpx; color: #E02020;">￥999</text>
+      </mp-cell>
+      <mp-cell title="退货数量" footer="1"></mp-cell>
+    </mp-cells>
+
+    <view class="my_textarea">
+      <text style="width: 30%;">退货说明:</text>
+      <textarea auto-height placeholder="请输入内容" maxlength=""></textarea>
+    </view>
+
+    <view class="my_uploader">
+      <mp-uploader delete title="上传证明" max-count="5" files="{{files}}"></mp-uploader>
+    </view>
+  </form>
+
+  <button class="my_btn">提交申请</button>
+</view>

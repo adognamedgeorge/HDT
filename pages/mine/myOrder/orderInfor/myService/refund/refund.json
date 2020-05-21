@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "mp-cells": "../../../../../../resources/weui/cells/cells",
+    "mp-cell": "../../../../../../resources/weui/cell/cell",
+    "mp-uploader": "../../../../../../resources/weui/uploader/uploader"
+  },
+  "navigationBarTitleText": "申请退款"
+}

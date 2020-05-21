@@ -1,0 +1,48 @@
+<!--pages/component/familyInfo/familyInfo.wxml-->
+<view class="page">
+  <form>
+    <view>
+      <mp-cells>
+        <mp-cell title="所在地区：" link hover>
+          <picker mode="region" value="{{region}}" bindchange="bindRegionChange">
+            <view class="footer" slot="footer">{{region[0]}}, {{region[1]}}, {{region[2]}}</view>
+          </picker>
+        </mp-cell>
+
+        <mp-cell title="电力户号：">
+          <input slot="footer" placeholder="请输入您的电力户号" />
+        </mp-cell>
+
+        <mp-cell title="房间面积：">
+          <view slot="footer">
+            <input placeholder="请输入您的房屋面积" style="display: inline-block;" />
+            <text style="margin-left: 10rpx; color: #000000;">m²</text>
+          </view>
+        </mp-cell>
+
+        <mp-cell title="房屋户型：" link hover>
+          <input slot="footer" placeholder="房屋户型" />
+        </mp-cell>
+
+        <mp-cell title="性别" link hover>
+          <picker value="{{index}}" range="{{male}}" bindchange="bindMaleChange">
+            <view slot="footer" class="footer">{{male[idx]}}</view>
+          </picker>
+        </mp-cell>
+
+        <mp-cell title="年龄段：" link>
+          <input slot="footer" />
+        </mp-cell>
+
+        <mp-cell title="家庭人口">
+          <input slot="footer" placeholder="请输入数字" type="text" />
+        </mp-cell>
+
+        <mp-cell title="家庭收入：" link>
+          <input slot="footer" />
+        </mp-cell>
+      </mp-cells>
+    </view>
+  </form>
+  <button type="" class="my_btn">保存</button>
+</view>

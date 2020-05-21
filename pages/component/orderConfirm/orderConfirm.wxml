@@ -38,7 +38,7 @@
         <mp-cell title="运费" footer="+￥0.00" link hover></mp-cell>
         <mp-cell title="优惠券" footer="-￥0.00"></mp-cell>
         <mp-cell title="活动优惠" footer="-￥0.00"></mp-cell>
-        <mp-cell title="发票" footer="不开发票" link hover></mp-cell>
+        <mp-cell title="发票" footer="不开发票" link hover bindtap="bindToBill"></mp-cell>
       </mp-cells>
     </view>
   </mp-form>

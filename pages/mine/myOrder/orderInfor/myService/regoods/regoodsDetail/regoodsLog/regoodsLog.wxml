@@ -1,0 +1,13 @@
+<!--pages/mine/myOrder/orderInfor/myService/regoods/regoodsDetail/regoodsLog/regoodsLog.wxml-->
+<view>
+  <mp-cells>
+    <mp-cell title="物流单号">
+      <input slot="footer" placeholder="请输入" />
+    </mp-cell>
+    <mp-cell title="物流公司" link hover>
+      <picker slot="footer">
+        <view>请选择</view>
+      </picker>
+    </mp-cell>
+  </mp-cells>
+</view>

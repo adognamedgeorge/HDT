@@ -1,0 +1,40 @@
+<!--pages/mine/myOrder/orderInfor/myService/regoods/regoodsDetail/regoodsDetail.wxml-->
+<!--pages/mine/myOrder/orderInfor/myService/refund/refundDetail/refundDetail.wxml-->
+<view>
+  <view class="top">
+    <text>售后申请审核中</text>
+    <image class="top_img" src="../../../../../../../resources/img/backDetail.png" />
+  </view>
+
+  <view class="mid">
+    <image class="mid_img" src="../../../../../../../resources/img/a.png" />
+    <view>
+      <view class="mid_title">方太EGM环吸油烟机</view>
+      <text style="font-size: 24rpx; color: #999999;">DNFJ-90-BVJ</text>
+      <view style="font-size: 40rpx; color: #FF3B30;">￥999</view>
+    </view>
+  </view>
+
+  <view>
+    <mp-cells ext-class="my_cells">
+      <mp-cell title="退款原因" footer="退运费"></mp-cell>
+      <mp-cell title="退款金额" footer="￥999.00"></mp-cell>
+      <mp-cell title="退货数量" footer="1"></mp-cell>
+      <mp-cell title="退款说明" footer="缺少零件"></mp-cell>
+      <mp-cell title="申请时间" footer="2020-05-20 13:00:00"></mp-cell>
+      <mp-cell title="退货物流" footer="圆通快递yt2345632224"></mp-cell>
+    </mp-cells>
+  </view>
+
+  <view class="contact">
+    <text class="my_icon">!</text>
+    请联系客服获取退货渠道
+  </view>
+
+  <view class="btn_box">
+    <button class="my_btn" size="mini">修改申请</button>
+    <button class="my_btn" size="mini">撤销申请</button>
+    <button class="my_btn" size="mini" bindtap="toRegoodsLog">填写物流</button>
+  </view>
+</view>
+
