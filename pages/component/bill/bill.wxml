@@ -1,11 +1,10 @@
-<!--pages/component/bill/bill.wxml发票-->
 <view class="page">
   <form>
     <view class="type">
       <text>发票类型</text>
       <view class="my_picker">
-        <picker range="{{typeArr}}" value="{{idx}}" bindchange="bindPickerChange">
-          <text>{{typeArr[idx]}}</text>
+        <picker range="{{invoiceTypeItems}}" value="{{invoiceTypeIndex}}" bindchange="bindPickerChange" range-key="name">
+          <text>{{invoiceTypeItems[invoiceTypeIndex].name}}</text>
           <mp-icon size="{{12}}" color="grey" icon="arrow" style="margin-left: 10rpx;"></mp-icon>
         </picker>
       </view>
@@ -16,7 +15,8 @@
       <view>
         <radio-group bindchange="radioChange">
           <label >
-            <radio wx:for="{{items}}" wx:key="index" value="{{index}}" checked="{{item.checked}}" data-id="index">{{item.value}}</radio>
+            <radio wx:for="{{invoiceTitleItems}}" wx:key="value" value="{{item.value}}"
+                   checked="{{invoiceTitleIndex==index?true:false}}">{{item.name}}</radio>
           </label>
         </radio-group>
       </view>
@@ -24,23 +24,33 @@
 
     <view>
       <mp-cells>
-        <mp-cell title="{{item.title}}" wx:for="{{cellsData}}" wx:key="index">
-          <input slot="footer" placeholder="{{item.footer}}" type="text" value=""/>
-        </mp-cell>
+        <block wx:if="{{invoiceTitle=='COMPANY'}}">
+          <mp-cell title="*发票抬头"><input slot="footer" placeholder="填写发票抬头" type="text" model:value="{{corporateName}}"/></mp-cell>
+          <mp-cell title="*发票税号"><input slot="footer" placeholder="纳税人识别号" type="text" model:value="{{number}}"/></mp-cell>
+          <mp-cell title="*发票内容"><input slot="footer" placeholder="商品明细" type="text" model:value="{{content}}"/></mp-cell>
+          <mp-cell title="*单位地址"><input slot="footer" placeholder="填写单位地址" type="text" model:value="{{address}}"/></mp-cell>
+          <mp-cell title="*电话号码"><input slot="footer" placeholder="填写电话号码" type="text" model:value="{{corporatePhone}}"/></mp-cell>
+          <mp-cell title="*开户银行"><input slot="footer" placeholder="填写开户银行" type="text" model:value="{{bank}}"/></mp-cell>
+          <mp-cell title="*银行账号"><input slot="footer" placeholder="填写银行账户" type="text" model:value="{{account}}"/></mp-cell>
+        </block>
+        <block wx:else>
+          <mp-cell title="*发票抬头"><input slot="footer" placeholder="填写发票抬头" type="text" model:value="{{personalName}}"/></mp-cell>
+          <mp-cell title="*发票内容"><input slot="footer" placeholder="商品明细" type="text" model:value="{{content}}"/></mp-cell>
+        </block>
       </mp-cells>
     </view>
 
     <view>
       <view class="phone">接收方式</view>
       <mp-cell title="收票人手机">
-        <input slot="footer" type="number" placeholder="输入你的手机号" maxlength="11" value="" />
+        <input slot="footer" type="number" placeholder="输入你的手机号" maxlength="11" model:value="{{phoneNumber}}" />
       </mp-cell>
     </view>
   </form>
 
   <view class="note">
-    <button class="submit" type="">提交申请</button>
-    <button class="nobill" type="primary">不开发票</button>
+    <button class="submit" type="" bindtap="commitInvoice">提交申请</button>
+    <button class="nobill" type="primary" bindtap="cancelInvoice">不开发票</button>
 
     <view class="note_text">
       <view> <view class="mark">!</view>发票须知：</view>

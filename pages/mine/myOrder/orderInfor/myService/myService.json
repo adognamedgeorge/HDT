@@ -1,8 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "mp-cells": "../../../resources/weui/cells/cells",
-    "mp-cell": "../../../resources/weui/cell/cell"
+    "mp-cells": "../../../../../resources/weui/cells/cells",
+    "mp-cell": "../../../../../resources/weui/cell/cell"
   },
   "navigationBarTitleText": "选择售后类型"
 }

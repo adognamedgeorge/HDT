@@ -1,33 +1,45 @@
 <!--pages/mine/userManager/userManager.wxml-->
 <view style="background-color: #F6F6F7;">
-  <form>
+  <form catchsubmit="formSubmit">
     <view class="img_box">
       <image class="user_img" src="{{userImg}}" />
-      <view class="user_txt">点击修改头像</view>
     </view>
 
     <mp-cells ext-class="my_cells">
-      <mp-cell title="昵称" footer="{{nickName}}"></mp-cell>
-      <mp-cell title="真实姓名" footer="张女士"></mp-cell>
-      <mp-cell title="手机号码" footer="130777777777"></mp-cell>
+      <mp-cell title="昵称">
+        <input slot="footer" placeholder="请输入昵称" value="{{nickName}}" name="wxNickname"/>
+      </mp-cell>
+      <mp-cell title="真实姓名">
+        <input slot="footer" placeholder="请输入姓名" value="{{realName}}" name="realName"/>
+      </mp-cell>
+      <mp-cell title="手机号码" footer="{{phone}}">
+        <input slot="footer" placeholder="请输入手机号码" value="{{phone}}" name="phone" disabled=""/>
+      </mp-cell>
       <mp-cell title="性别">
         <view slot="footer">
-          <radio-group bindChange="radioChange" class="my_radio">
+          <radio-group class="my_radio" name="gender">
             <label wx:for="{{radioData}}" wx:key="index" style="margin: 0 16rpx;">
-              <radio value="{{item.value}}" checked="true" />{{item.name}}
+            <view wx:if="{{male==item.value}}">
+              <radio value="{{male}}" checked="true"/>{{item.name}}
+            </view>
+            <view wx:if="{{male!=item.value}}">
+              <radio value="{{item.value}}"/>{{item.name}}
+            </view>
             </label>
           </radio-group>
         </view>
       </mp-cell>
       <mp-cell title="生日" link hover>
-        <picker mode="date" value="{{date}}" start="1900-01-01" end="2020-12-31" bindchange="bindDateChange">
+        <picker name="birthday" mode="date" value="{{birthday}}" start="1900-01-01" end="2020-12-31" bindchange="bindDateChange">
           <view class="picker">
-            {{date}}
+            {{birthday}}
           </view>
         </picker>
       </mp-cell>
     </mp-cells>
+
+    <button type="" formType="submit" class="my_btn">保存</button>
   </form>
 
-  <button type="" bindtap="saveUserInfor" class="my_btn">保存</button>
+  <!-- <button type="" bindtap="saveUserInfor" class="my_btn">保存</button> -->
 </view>

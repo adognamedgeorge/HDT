@@ -1,21 +1,23 @@
-<!--pages/mine/myOrder/orderInfor/myService/regoods/regoods.wxml-->
 <view class="page">
   <form>
     <mp-cells>
       <mp-cell title="退货原因" link hover>
-        <picker slot="footer">
-          <text>请选择</text>
+        <picker slot="footer" bindchange="bindPickerChange" value="{{reasonIndex}}" range="{{reasonEnums}}" range-key="name">
+          <view class="picker">{{reasonEnums[reasonIndex].name}}</view>
         </picker>
       </mp-cell>
       <mp-cell title="退款金额">
-        <text style="font-size: 32rpx; color: #E02020;">￥999</text>
+        <input slot="footer" model:value="{{amount}}" style="color: red;"/>
       </mp-cell>
-      <mp-cell title="退货数量" footer="1"></mp-cell>
+      <mp-cell title="退货数量">
+        <input slot="footer" model:value="{{quantity}}"/>
+      </mp-cell>
     </mp-cells>
 
     <view class="my_textarea">
       <text style="width: 30%;">退货说明:</text>
-      <textarea auto-height placeholder="请输入内容" maxlength=""></textarea>
+      <textarea auto-height placeholder="请输入内容(不超过100个字)"
+                maxlength="250" style="text-align: right;" model:value="{{description}}"></textarea>
     </view>
 
     <view class="my_uploader">
@@ -23,5 +25,5 @@
     </view>
   </form>
 
-  <button class="my_btn">提交申请</button>
+  <button class="my_btn" bindtap="submitReturnPlace" >提交申请</button>
 </view>

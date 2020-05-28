@@ -17,6 +17,8 @@
 .top_lf {
   position: relative;
   flex: .9;
+  background-color: #F5F6F7;
+  border-radius: 36rpx;
 }
 
 .lf_input {
@@ -24,6 +26,7 @@
   border-radius: 36rpx;
   padding: 16rpx 24rpx;
   font-size: 30rpx;
+  width: 75%;
 }
 
 .lf_img {
@@ -226,5 +229,14 @@
 
 .re_price {
   color: #FF3B30 ;
-  font-size: 36rpx;
+  font-size: 30rpx;
+}
+.price {
+  color: red;
+}
+
+.del_price {
+  text-decoration: line-through;
+  font-size: 20rpx;
+  color: grey;
 }

@@ -1,18 +1,23 @@
 // pages/goodsInfo/goods/goods.js
+// 计算属性
+const computedBehavior = require('miniprogram-computed');
 Component({
+  behaviors: [computedBehavior],
   /**
    * 组件的属性列表
    */
   properties: {
-
+    detail:{type:Object},
+    imagePath:{type:String},
+    cartNum:{type:String},
+    isAddCart:{type: Boolean}
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    isHid: true,
-    isAddCart: true,
+    isHid:true,
     setsData: [
       {
         title: '厨房电器套餐组合',
@@ -86,7 +91,14 @@ Component({
           }
         ]
       }
-    ]
+    ],
+    num: 1
+  },
+
+  computed: {
+    sum (data) {
+      return data.num
+    }
   },
 
   /**
@@ -113,6 +125,44 @@ Component({
       wx.navigateTo({
         url: '../../component/orderConfirm/orderConfirm'
       })
-    }
+    },
+
+    // 减
+    minus () {
+      let that = this
+      if(that.data.num > 1) {
+        that.setData({
+          sum: that.data.num--
+        })
+      }
+      console.log(that.data.sum)
+    },
+    // 加
+    plus () {
+      let that = this
+      that.setData({
+        sum: that.data.num++
+      })
+      console.log(that.data.sum)
+    },
+    addCart(event){
+      let that = this
+      this.triggerEvent('addCartEntry', {
+        code: event.currentTarget.dataset.code,
+        num:that.data.num
+      })
+    },
+    toOrderConfirm(event){
+      let that = this
+      this.triggerEvent('toOrderConfirm', {
+        code: event.currentTarget.dataset.code,
+        num:1
+      })
+    },
+    toCart(event){
+      let that = this
+      this.triggerEvent('toCart', {
+      })
+    },
   }
 })

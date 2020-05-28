@@ -1,0 +1,52 @@
+/* pages/mine/myAddress/addAddress/addAddress.wxss */
+.my_form {
+  font-size: 28rpx;
+  color: #BEC2CB;
+}
+.my_input {
+  border-bottom: 1px solid #F6F6F7;
+  padding: 36rpx 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input {
+  flex: 1;
+  margin-left: 15rpx;
+  color: black;
+}
+
+.area {
+  display: flex;
+  justify-content: space-bewteen;
+  align-items: center;
+}
+
+.my_textarea {
+  padding: 36rpx 32rpx;
+  min-height: 88rpx;
+  font-size: 28rpx;
+  color: black;
+  border-bottom: 32rpx solid #F6F6F7;
+  width: 100%;
+}
+
+.my_switch {
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 100rpx;
+  color: #2D313A;
+  margin-bottom: 56rpx;
+  padding: 0 32rpx;
+}
+
+.my_btn {
+  height: 88rpx;
+  width: 90% !important;
+  color: #BEC2CB;
+  font-size: 32rpx;
+  border-radius: 200rpx;
+}

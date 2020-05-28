@@ -90,9 +90,9 @@ Page({
     }, 500)
   },
 
-  bindToGoodsInfo () {
+  bindToGoodsInfo (e) {
     wx.navigateTo({
-      url: '../component/goodsInfo/goodsInfo'
+      url: '../component/goodsInfo/goodsInfo?code='+e.currentTarget.dataset.code
     })
   },
 
@@ -112,14 +112,17 @@ Page({
     case 3: 
       wx.navigateTo({
         url: '../component/familyInfo/familyInfo'
-      });
-      break;
+      })
     }
   },
-
+  toProductList(e) {
+    wx.navigateTo({
+      url: "../component/goodsList/goodsList?sort=salesVolume-desc"
+    })
+  },
   bindToGoodsList (e) {
     wx.navigateTo({
-      url: "../component/goodsList/goodsList"
+      url: "../component/goodsList/goodsList?categoryCode="+e.currentTarget.dataset.code
     })
   },
 

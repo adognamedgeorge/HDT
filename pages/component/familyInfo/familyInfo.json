@@ -2,7 +2,8 @@
   "component": true,
   "usingComponents": {
     "mp-cells": "../../../resources/weui/cells/cells",
-    "mp-cell": "../../../resources/weui/cell/cell"
+    "mp-cell": "../../../resources/weui/cell/cell",
+    "mp-icon": "../../../resources/weui/icon/icon"
   },
   "navigationBarTitleText": "家庭信息"
 }

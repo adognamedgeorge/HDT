@@ -1,27 +1,36 @@
 {
   "pages": [
+    "pages/component/familyInfo/familyInfo",
+    "pages/component/goodsInfo/goodsInfo",
     "pages/home/home",
+    "pages/guide/guide",
     "pages/component/search/search",
     "pages/mine/mine",
     "pages/component/customer/customer",
     "pages/mall/mall",
     "pages/cart/cart",
+    "pages/mall/sets/sets",
     "pages/home/coupons/coupon",
     "pages/mall/sorts/sorts",
+    "pages/component/goodsList/goodsList",
+    "pages/mine/myOrder/myOrder",
     "pages/mine/myCoupon/myCoupon",
-    "pages/login/login",
     "pages/mine/myAddress/myAddress",
-    "pages/mine/myOrder/orderInfor/logistics/logistics",
-    "pages/mine/myOrder/orderInfor/logistics/logisticsDetail/logisticsDetail",
-    "pages/component/bill/bill",
+    "pages/login/login",
     "pages/component/orderConfirm/orderConfirm",
-    "pages/component/familyInfo/familyInfo",
+    "pages/mine/myOrder/orderInfor/logistics/logistics",
+    "pages/component/bill/bill",
     "pages/mine/myOrder/orderInfor/orderInfor",
     "pages/mine/myOrder/orderInfor/myService/myService",
     "pages/mine/myOrder/orderInfor/myService/regoods/regoods",
     "pages/mine/myOrder/orderInfor/myService/refund/refund",
+    "pages/mine/myOrder/orderInfor/logistics/logisticsDetail/logisticsDetail",
     "pages/mine/myOrder/orderInfor/myService/refund/refundDetail/refundDetail",
-    "pages/mine/myOrder/orderInfor/myService/regoods/regoodsDetail/regoodsDetail"
+    "pages/mine/myOrder/orderInfor/myService/regoods/regoodsDetail/regoodsDetail",
+    "pages/mine/userManager/userManager",
+    "pages/component/paied/paied",
+    "pages/mine/myAddress/addAddress/addAddress",
+    "pages/mine/myAddress/editAddress/editAddress"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -43,8 +52,8 @@
       {
         "pagePath": "pages/home/home",
         "text": "首页",
-        "iconPath": "./resources/img/logo.png",
-        "selectedIconPath": "./resources/img/logo.png"
+        "iconPath": "./resources/img/mall.png",
+        "selectedIconPath": "./resources/img/mall.png"
       },
       {
         "pagePath": "pages/mall/mall",

@@ -15,6 +15,24 @@ Page({
     time: 60,
     isDisable: false
   },
+  bindGetUserInfo (e) {
+    console.log(e)
+    wx.showLoading({
+      title: 'loading',
+    });
+    if (e.detail.errMsg == "getUserInfo:ok") {
+      wx.hideLoading();
+      console.log(e.detail.userInfo)
+      let nickName =e.detail.userInfo.nickName;
+      let avatarUrl = e.detail.userInfo.avatarUrl;
+      let gender = e.detail.userInfo.gender;
+      wx.navigateTo({
+        url: '../guide/guide?nickName=' + nickName + '&gender=' + gender + '&avatarUrl=' + avatarUrl
+      })
+    }else{
+      wx.hideLoading();
+    }
+  },
   phoneInput(e){
     this.setData({
       phone: e.detail.value

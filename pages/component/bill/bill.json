@@ -5,5 +5,5 @@
     "mp-cells": "../../../resources/weui/cells/cells",
     "mp-cell": "../../../resources/weui/cell/cell"
   },
-  "navigationBarTitleText": "开具电子发票"
+  "navigationBarTitleText": "开具发票"
 }

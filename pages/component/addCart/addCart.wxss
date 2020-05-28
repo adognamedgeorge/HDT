@@ -30,9 +30,9 @@
 }
 
 .img_lf {
-  width: 150rpx;
-  height: 150rpx;
-  border-radius: 20rpx;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 8rpx;
 }
 
 .content_rt {

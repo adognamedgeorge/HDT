@@ -1,31 +1,44 @@
 /* pages/mine/myOrder/myOrder.wxss */
+.page {
+  background-color: #F5F5F5;
+}
+
 .tabbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 30rpx 0;
+  color: #BEC2CB;
+  font-size: 32rpx;
+  background-color: #ffffff;
+  border-bottom: 16rpx solid #F5F5F5;
 }
 
 .tab_text {
-  color: grey;
-  padding: 15rpx;
   text-align: center;
+  padding: 18rpx 0;
 }
 
 .navActive {
-  color: black;
-  border-bottom: 1px solid black;
+  color: #333333;
+  border-bottom: 4px solid black;
 }
 
 .content {
-  border-bottom: 10rpx solid #e6e6e6;
+  background-color: #ffffff;
+  font-size: 28rpx;
+  color: #333333;
+  margin-bottom: 16rpx;
 }
 
 .content_top, .content_mid, .content_btm {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20rpx 40rpx;
+  padding: 18rpx 30rpx;
+}
+
+.content_top, .content_mid {
+  border-bottom: 1px solid #EEEEEE;
 }
 
 .content_mid {
@@ -55,19 +68,36 @@
 }
 
 .btn {
-  width: 100rpx;
-  height: 30rpx;
+  width: 96rpx;
+  height: 28rpx;
   border: 1px solid lightgrey;
   border-radius: 40rpx;
-  font-size: 25rpx;
-  padding: 10rpx 20rpx;
+  font-size: 24rpx;
+  padding: 10rpx 16rpx;
   text-align: center;
   line-height: 30rpx;
   color: black;
+  margin: 0 7rpx;
 }
 
 .btn2 {
   border: 1px solid red;
   color: red;
-  margin-left: 15rpx;
 }
+
+.content_box {
+  padding: 0 24rpx; 
+  margin-bottom: 16rpx;
+}
+
+.my_btn {
+  display: flex; 
+  justify-content: space-around;
+}
+
+.my_font {font-size: 24rpx;}
+
+.color_CREATED { color: #E02020; }
+.color_PAID { color: #71B925; }
+.color_RECEIVED { color: #868A92; }
+.color_DELIVERED { color: #333333; }

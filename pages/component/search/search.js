@@ -8,6 +8,16 @@ Page({
 
   },
 
+  // 点击键盘上的搜索
+  bindconfirm:function(e){
+    var that=this;
+    var discountName=e.detail.value['search - input'] ?e.detail.value['search - input'] : e.detail.value
+    console.log('e.detail.value', discountName)
+    wx.navigateTo({
+      url: "../../component/goodsList/goodsList?name="+discountName
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

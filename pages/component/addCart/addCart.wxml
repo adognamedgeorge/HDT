@@ -1,6 +1,6 @@
 <!--pages/component/addCart/addCart.wxml-->
 <view class="box_rt">
-        <image class="img_lf" src="../../../resources/img/b.png" />
+        <image class="img_lf" src="../../../resources/img/a.png" />
         <view class="content_rt">
           <view class="rt_top">
             <view class="top_title">产品名称产品名称产品名称</view>

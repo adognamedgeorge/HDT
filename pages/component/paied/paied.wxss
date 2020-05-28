@@ -1,0 +1,38 @@
+/* pages/component/paied/paied.wxss */
+.top {
+  margin: 0 auto;
+  text-align: center;
+  padding: 71rpx 0 41rpx 0;
+  color: #333333;
+}
+
+.mid {
+  border-bottom: 2rpx dashed #EEEEEE;
+  margin-bottom: 55rpx;
+  padding-bottom: 8rpx;
+}
+
+.mid_flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  color: #999999;
+  padding: 8rpx 0;
+}
+
+.my_btn {
+  margin: 0 auto;
+  width: 98% !important;
+  background-image: linear-gradient(99deg, #FC3A3A 0%, #E12828 97%);
+  border-radius: 47rpx;
+  color: #ffffff;
+  font-size: 36rpx;
+  margin-bottom: 74rpx;
+}
+
+.back {
+  color: #999999;
+  font-size: 36rpx;
+  text-align: center;
+}

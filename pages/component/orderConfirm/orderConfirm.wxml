@@ -1,50 +1,70 @@
-<!--pages/component/orderConfirm/orderConfirm.wxml-->
 <view class="page">
   <mp-form>
     <view prop="address" class="address">
-      <view>
-        浙江杭州市江干区
-      </view>
-      <view>
-        <mp-icon type="field" icon="location" size="{{20}}" color="orange"></mp-icon>
-        <text class="location">钱江路利友商务大厦1111</text>
-        <mp-icon icon="arrow" size="{{8}}" color="#BEC2CB;"></mp-icon>
-      </view>
-      <view>
-        <text>张女士</text>
-        <text>12323334567</text>
-      </view>
+      <block wx:if="{{address&&address.region}}">
+        <view>
+          <view>{{address.region}}{{address.city}}{{address.cityDistrict}}</view>
+          <view bindtap="checkoutAddress">
+            <mp-icon type="field" icon="location" size="{{20}}" color="orange"></mp-icon>
+            <text class="location">{{address.line1}}</text>
+            <mp-icon icon="arrow" size="{{8}}" color="#BEC2CB;" style="position: absolute; right: 30rpx;"></mp-icon>
+          </view>
+          <view>
+            <text>{{address.firstName}}</text>
+            <text>{{address.cellphone}}</text>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view style="color: red; font-size: 32rpx; text-align: center;" bindtap="checkoutAddress">
+          <text class="que_icon">?</text>
+          <text>添加收货人信息</text>
+          <mp-icon icon="arrow" size="{{16}}" color="#BEC2CB;" style="position: absolute; right: 30rpx; top: 24rpx;"></mp-icon>
+        </view>
+      </block>
     </view>
-    
+
     <view class="info_title">商品信息</view>
-    <view class="goods_info">
-      <image class="goods_img" src="../../../resources/img/a.png" />
-      <view style="margin-left: 32rpx; flex: 1;">
-        <view style="font-size: 34rpx;">欧舒丹甜蜜樱花沐浴啫喱/身体乳套装</view>
-        <text style="color: #999999;">DNFJ-90-BVJ</text>
-        <view style="font-size: 40rpx; color: #FF3B30;">¥378</view>
+    <block wx:for="{{checkoutCart.entries}}" wx:key="index">
+      <view class="goods_info">
+        <block wx:if="{{item.productImage}}">
+          <image class="goods_img" src="{{imagePath + item.productImage}}" />
+        </block>
+        <block wx:else>
+          <image class="goods_img" src="../../../resources/img/missing_product.jpg" />
+        </block>
+        <view style="margin-left: 32rpx; flex: 1;">
+          <view style="font-size: 34rpx;">{{item.productName}}</view>
+          <text style="color: #999999;">{{item.productModel}}</text>
+          <view style="font-size: 40rpx; color: #FF3B30;">{{item.basePrice}}</view>
+        </view>
       </view>
-    </view>
+    </block>
 
     <view class="my_textarea">
       <view style="width: 25%;">买家留言：</view>
-      <textarea slot="footer" auto-height placeholder="给商家留言，最多100字" maxlength="100"></textarea>
+      <textarea slot="footer" auto-height placeholder="给商家留言，最多100字" maxlength="100" model:value="{{remark}}" style="margin-top: 4rpx;"></textarea>
     </view>
 
     <view class="my_cells">
       <mp-cells>
-        <mp-cell title="优惠券" footer="暂无可用" link hover></mp-cell>
-        <mp-cell title="商品金额" footer="￥36.00"></mp-cell>
-        <mp-cell title="运费" footer="+￥0.00" link hover></mp-cell>
-        <mp-cell title="优惠券" footer="-￥0.00"></mp-cell>
-        <mp-cell title="活动优惠" footer="-￥0.00"></mp-cell>
-        <mp-cell title="发票" footer="不开发票" link hover bindtap="bindToBill"></mp-cell>
+        <block wx:if="{{checkoutCart.availableCoupons>0}}">
+          <mp-cell title="优惠券" footer="{{checkoutCart.availableCoupons}}张可用" link hover></mp-cell>
+        </block>
+        <block wx:else>
+          <mp-cell title="优惠券" footer="暂无可用" link hover></mp-cell>
+        </block>
+        <mp-cell title="商品金额" footer="{{checkoutCart.subTotal}}"></mp-cell>
+        <mp-cell title="运费" footer="+{{checkoutCart.freight}}"></mp-cell>
+        <mp-cell title="优惠券" footer="-{{checkoutCart.couponDiscount}}"></mp-cell>
+        <mp-cell title="活动优惠" footer="-{{checkoutCart.activityDiscount}}"></mp-cell>
+        <mp-cell title="发票" footer="{{checkoutCart.invoiceType}}" link hover bindtap="bindToBill"></mp-cell>
       </mp-cells>
     </view>
   </mp-form>
 
   <view class="btn">
-    <text>应付金额：￥36.00</text>
-    <button class="my_btn" type="" size="mini">提交订单</button>
+    <text>应付金额：{{checkoutCart.totalPrice}}</text>
+    <button class="my_btn" type="" size="mini" bindtap="placeOrder">提交订单</button>
   </view>
 </view>

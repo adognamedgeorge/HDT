@@ -63,3 +63,13 @@
   margin: 0 !important;
   padding: 18rpx 60rpx !important;
 }
+
+.que_icon {
+  width: 32rpx; 
+  height: 32rpx; 
+  display: inline-block;
+  border: 1px solid red;
+  line-height: 32rpx;
+  text-align: center;
+  margin-right: 10rpx;
+}

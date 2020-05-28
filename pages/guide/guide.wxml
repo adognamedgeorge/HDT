@@ -1,0 +1,22 @@
+<!--pages/cart/cart.wxml-->
+<view class="page">
+  <view>
+    <view class="img-box">
+      <image class="img" src="{{avatarUrl}}" />
+    </view>
+    <view class="name">
+      你好，{{nickName}}
+    </view>
+    <view class="ps">
+      为了您的账户安全，请绑定手机号
+    </view>
+  </view>
+   <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="btn">
+    <image class="icon" src="./weixin.png" />
+    微信手机号一键绑定
+  </button>
+
+  <view class="all_check">
+    
+  </view>
+</view>

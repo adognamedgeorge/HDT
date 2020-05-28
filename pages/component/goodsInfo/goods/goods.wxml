@@ -1,48 +1,55 @@
 <!--pages/goodsInfo/goods/goods.wxml-->
-<view style="background-color: #e6e6e6;">
+<view style="background-color: #F5F5F5;">
   <view style="overflow: hidden; margin-top: 100rpx;">
-    <swiper indicator-dots autoplay interval="5000" duration="1000" circular>
-      <block>
-        <swiper-item>
+    <swiper indicator-dots autoplay interval="5000" duration="1000" circular style="height: 522rpx;">
+      <block wx:if="{{detail.videoOthers.length>0||detail.normal.length>0}}">
+        <swiper-item wx:for="{{detail.videoOthers}}">
           <view class="swiper_content">
-            <video src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" style="width: 100%; height: 100%;"></video>
+            <video src="{{imagePath+item}}" style="width: 100%; height: 100%;"></video>
           </view>
         </swiper-item>
-        <swiper-item>
+        <swiper-item wx:for="{{detail.normal}}">
           <view class="swiper_content">
-            <image style="width: 100%; height: 100%;" src="../../../../resources/img/a.jpg" />
+            <image style="width: 100%; height: 100%;" src="{{imagePath+item}}" />
           </view>
         </swiper-item>
+      </block>
+      <block wx:else>
+       <swiper-item>
+          <view class="swiper_content">
+              <image style="width: 100%; height: 100%;" src="../../../../resources/img/missing_product.jpg" />
+          </view>
+       </swiper-item>
       </block>
     </swiper>
   </view>
 
   <view class="wrap goods_title">
-    <view>产品名称产品名称产品名称产品名称产品名称产品名称产品名称</view>
-    <text class="sec_title">二级说明二级说明二级说明二级说明</text>
-    <view>
-      ￥599
-      <text class="del_price">￥919</text>
+    <view class="my_detailname">{{detail.name}}</view>
+    <text class="sec_title">型号：{{detail.model}}</text>
+    <view class="my_price">
+      {{detail.actualPrice}}
+      <text class="del_price">{{detail.linePrice}}</text>
     </view>
   </view>
 
   <view class="wrap">
-    <mp-cells title="发货|快递：23元">
-      <mp-cell value="优惠券" footer="点击获取更多优惠券" link hover bindtap="showMoreCoupon">
-        <image style="width: 50rpx; height: 50rpx;" slot="icon" src="../../../../resources/img/voucher.png" />
+    <mp-cells title="发货 | 快递：{{detail.deliveryCharge}}" ext-class="my_cells">
+      <mp-cell value="优惠券" footer="点击获取更多优惠券" link hover bindtap="showMoreCoupon" style="color:#FD7035; font-size: 24rpx;">
+        <image class="my_icon" slot="icon" src="../../../../resources/img/voucher.png" />
       </mp-cell>
     </mp-cells>
   </view>
 
-  <view class="wrap" style="padding: 30rpx;">优惠套餐</view>
+  <view class="wrap" style="padding: 28rpx; color: #333333; font-size: 32rpx;">优惠套餐</view>
 
   <view class="flex">
-    <view class="flex_content" wx:for="{{setsData}}" wx:key="index" wx:for-item="itemName" style="margin-bottom: 25rpx; padding: 15rpx;">
+    <view class="flex_content" wx:for="{{setsData}}" wx:key="index" wx:for-item="itemName">
       <text class="item_title">{{itemName.title}}</text>
 
       <view class="flex_wrap">
         <view wx:for="{{itemName.content}}" wx:key="index">
-          <image src="{{item.imgSrc}}" style="width: 110rpx; height: 110rpx; display: block; margin: 0 auto;"/>
+          <image src="{{item.imgSrc}}" style="width: 144rpx; height: 144rpx; display: block; margin: 0 auto;"/>
           <view class="item_name">{{item.name}}</view>
           <view style="font-size: 24rpx;">
             ￥{{item.price}}
@@ -52,9 +59,9 @@
       </view>
 
       <view class="flex_btm">
-        <view style="font-size: 28rpx; flex: 1;">
+        <view style="font-size: 24rpx; flex: 1;">
           <text>套餐价:</text>
-          <text>￥{{itemName.price}}</text>
+          <text style="font-size: 32rpx; color: #FF2626;">￥{{itemName.price}}</text>
         </view>
         <view class="buy_now">立即购买</view>
       </view>
@@ -66,12 +73,12 @@
       <image src="../../../../resources/img/customer.png" style="width: 60rpx; height: 60rpx;" />
       <view style="font-size: 30rpx;">客服</view>
     </button>
-    <view style="position: relative; width: 20%;">
+    <view style="position: relative; width: 20%;" bindtap="toCart">
       <image src="../../../../resources/img/cart2.png" class="btm_cart" />
-      <mp-badge content="99+" class="cart_badge"></mp-badge>
+      <mp-badge wx:if="{{cartNum}}" content="{{cartNum}}" class="cart_badge"></mp-badge>
     </view>
     <button size="mini" type="primary" class="btm_btn" bindtap="bindAddCart">加入购物车</button>
-    <button size="mini" type="warn" class="btm_btn" style="background-color: red;" bindtap="bindToOrderConfirm">立即购买</button>
+    <button size="mini" type="warn" class="btm_btn" style="background-color: red;" data-code="{{detail.code}}" bindtap="toOrderConfirm">立即购买</button>
   </view>
 
   <!-- 弹窗 -->
@@ -83,7 +90,30 @@
   <view wx:if="{{!isHid || !isAddCart}}" class="mask" bindtap="close"></view>
   <!-- 弹窗2 -->
   <view hidden="{{isAddCart}}" class="dialog">
-    <add-cart></add-cart>
-    <button class="dialog_btn">确认</button>
+    <view class="dialog_content">
+      <block wx:if="{{detail.src}}">
+          <image class="dialog_img" src="{{imagePath + detail.src}}" />
+      </block>
+      <block wx:else>
+          <image class="dialog_img" src="../../../resources/img/missing_product.jpg" />
+      </block>
+      <view style="padding: 32rpx; width: 60%;">
+        <view class="rt_title">{{detail.name}}</view>
+        <text style="font-size: 24rpx; color: #999999;">{{detail.model}}</text>
+        <view class="rt_btm">
+          <view>
+            <text style="font-size: 40rpx; color: #FF3B30;">{{detail.actualPrice}}</text>
+            <text class="del_price" style="font-size: 20rpx;">{{detail.linePrice}}</text>
+          </view>
+          <view class="num">
+            <text bindtap="minus">-</text>
+            <text class="my_num">{{sum}}</text>
+            <text bindtap="plus">+</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <button class="dialog_btn" bindtap="addCart" data-code="{{detail.code}}">确认</button>
   </view>
 </view>

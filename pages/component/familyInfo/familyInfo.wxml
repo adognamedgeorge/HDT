@@ -1,7 +1,7 @@
 <!--pages/component/familyInfo/familyInfo.wxml-->
-<view class="page">
-  <form>
-    <view>
+<view style="border-top: 16rpx solid #F6F6F7;">
+  <form class="my_form" catchsubmit="formSubmit">
+    <!-- <view>
       <mp-cells>
         <mp-cell title="所在地区：" link hover>
           <picker mode="region" value="{{region}}" bindchange="bindRegionChange">
@@ -10,12 +10,12 @@
         </mp-cell>
 
         <mp-cell title="电力户号：">
-          <input slot="footer" placeholder="请输入您的电力户号" />
+          <input slot="footer" placeholder="请输入电力户号" />
         </mp-cell>
 
         <mp-cell title="房间面积：">
           <view slot="footer">
-            <input placeholder="请输入您的房屋面积" style="display: inline-block;" />
+            <input placeholder="请输入房屋面积" style="display: inline-block;" />
             <text style="margin-left: 10rpx; color: #000000;">m²</text>
           </view>
         </mp-cell>
@@ -42,7 +42,38 @@
           <input slot="footer" />
         </mp-cell>
       </mp-cells>
+    </view> -->
+
+      <view class="my_input">
+        <picker mode="region" value="" custom-item="{{customItem}}" bindchange="bindRegionChange">
+          <view class="area">
+            <text>所在地区：</text>
+            <view style="width: 500rpx; text-align: right;">{{region}}</view>
+          </view>
+        </picker>
+        <mp-icon icon="arrow" size="{{8}}" color="#BEC2CB "></mp-icon>
+      </view>
+    <view class="my_input" style="text-align: right;">
+      <text>电力户号：</text>
+      <input class="input" name="electricityNumber" placeholder="请输入电力户号" value="{{electricityNumber}}" type="text"/>
     </view>
+    <view class="my_input" style="text-align: right;">
+      <text>房屋面积：</text>
+      <input class="input" name="area" placeholder="请输入房屋面积" value="{{area}}" type="text"/>
+      <text style="margin-left: 10rpx; color: #000000;">m²</text>
+    </view>
+
+    <!-- 户型 -->
+    <view class="my_input">
+        <picker mode="multiSelector" value="{{multiIndex}}" range="{{houseType}}" bindchange="changeHouseType">
+          <view class="area">
+            <text>房屋户型：</text>
+            <view style="width: 500rpx; text-align: right;">{{houseType[0][multiIndex[0]]}},{{houseType[1][multiIndex[1]]}}, {{houseType[2][multiIndex[2]]}}, {{houseType[3][multiIndex[3]]}}, {{houseType[4][multiIndex[4]]}}</view>
+          </view>
+        </picker>
+        <mp-icon icon="arrow" size="{{8}}" color="#BEC2CB "></mp-icon>
+      </view>
+
+       <button type="primary" formType="submit" class="my_btn">保存</button>
   </form>
-  <button type="" class="my_btn">保存</button>
 </view>

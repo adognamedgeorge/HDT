@@ -9,7 +9,7 @@
   text-align: right;
 }
 
-.my_btn {
+/* .my_btn {
   width: 90% !important;
   background-color: #2875E1;
   font-size: 32rpx;
@@ -17,4 +17,35 @@
   text-align: center;
   margin-top: 60rpx;
   border-radius: 200rpx;
+} */
+.my_form {
+  font-size: 28rpx;
+  color: #BEC2CB;
+}
+.my_input {
+  border-bottom: 1px solid #F6F6F7;
+  padding: 36rpx 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.input {
+  flex: 1;
+  margin-left: 15rpx;
+  color: black;
+}
+
+.area {
+  display: flex;
+  justify-content: space-bewteen;
+  align-items: center;
+}
+.my_btn {
+  height: 88rpx;
+  width: 90% !important;
+  color: #BEC2CB;
+  font-size: 32rpx;
+  border-radius: 200rpx;
+  padding: 18rpx 0;
+  margin: 30rpx;  
 }

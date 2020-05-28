@@ -1,18 +1,19 @@
-<!--pages/mine/myOrder/orderInfor/orderInfor.wxml-->
 <view class="page">
   <view class="infor_top">
     <view>
       <view>{{orderDetail.statusDes}}</view>
-      <view>还剩8天2小时自动确认</view>
+      <block wx:if="{{orderDetail.status=='CREATED'}}">
+          <view>还剩{{timeToCancel}}自动取消认</view>
+      </block>
+      <block wx:if="{{orderDetail.status=='DELIVERED'}}">
+          <view>还剩{{timeToDelivered}}自动确认</view>
+      </block>
     </view>
     <image class="infor_img" src="../../../../resources/img/shopping-bag2.png" />
   </view>
 
   <view class="buyer">
-    <view>
-      {{orderDetail.deliveryAddressName}}
-      <text>{{orderDetail.deliveryAddressPhone}}</text>
-    </view>
+    <view>{{orderDetail.deliveryAddressName}}<text>{{orderDetail.deliveryAddressPhone}}</text></view>
     <view>
       <mp-icon size="{{15}}" color="orange" icon="location" type="field"></mp-icon>
       <text class="buyer_add">{{orderDetail.deliveryAddressAdd}}</text>
@@ -22,19 +23,27 @@
   <view>
     <mp-cell class="my_cell" title="商品信息" link></mp-cell>
     <view class="goods_wrap">
-      <view class="goods" wx:for="{{goodsData}}" wx:key="index">
-        <image class="img_lf" src="{{item.imgSrc}}" />
+      <view class="goods" wx:for="{{orderDetail.entries}}" wx:key="index" wx:for-item="entry">
+        <block wx:if="{{entry.productImage}}">
+              <image class="img_lf" src="{{imagePath + entry.productImage}}" />
+        </block>
+        <block wx:else>
+              <image class="img_lf" src="../../../../resources/img/missing_product.jpg" />
+        </block>
         <view class="content_rt">
           <view class="rt_top">
-            <view class="top_title">{{item.title}}</view>
-            <text>×{{item.num}}</text>
+            <view class="top_title">{{entry.productName}}</view>
+            <text>×{{entry.quantity}}</text>
           </view>
-
-          <text class="sec_title">{{item.secTitle}}</text>
-
+          <text class="sec_title">{{entry.productModel}}</text>
           <view class="rt_btm">
-            <text style="color: #FF3B30; font-size: 40rpx;">¥{{item.price}}</text>
-            <button size="mini" class="my_btn" bindtap="bindToServe">售后</button>
+            <text style="color: #FF3B30; font-size: 40rpx;">{{entry.basePrice}}</text>
+            <block wx:if="{{(!entry.returnRequest)&&(orderDetail.status=='PAID'||orderDetail.status=='DELIVERED')}}">
+                <button size="mini" class="my_btn" bindtap="bindToAddServe" data-pk="{{entry.pk}}">申请售后</button>
+            </block>
+             <block wx:if="{{entry.returnRequest}}">
+                <button size="mini" class="my_btn" bindtap="bindToShowServe" data-returnCode="{{entry.returnRequest}}" data-type="{{entry.returnRequestType}}">查看售后</button>
+            </block>
           </view>
         </view>
       </view>
@@ -44,27 +53,50 @@
   <view class="my_cells">
     <mp-cells>
       <mp-cell title="订单信息"></mp-cell>
-      <mp-cell title="商品总价" footer="￥{{orderDetail.subtotal}}"></mp-cell>
-      <mp-cell title="运费" footer="￥{{orderDetail.deliveryCost}}"></mp-cell>
-      <mp-cell title="优惠金额" footer="￥{{orderDetail.couponAmount}}"></mp-cell>
+      <mp-cell title="商品总价" footer="{{orderDetail.subtotal}}"></mp-cell>
+      <mp-cell title="运费" footer="{{orderDetail.deliveryCost}}"></mp-cell>
+      <mp-cell title="优惠金额" footer="{{orderDetail.couponAmount}}"></mp-cell>
     </mp-cells>
   </view>
 
   <view class="my_cells">
     <mp-cells>
-      <mp-cell title="订单编号" footer="123283"></mp-cell>
-      <mp-cell title="下单时间" footer="2020-5-23 16:00"></mp-cell>
-      <mp-cell title="支付方式" footer="微信支付"></mp-cell>
-      <mp-cell title="支付时间" footer="2020-5-23 16:00"></mp-cell>
-      <mp-cell title="发货时间" footer="2020-5-24 13:00"></mp-cell>
+      <mp-cell title="订单编号" footer="{{orderDetail.code}}"></mp-cell>
+      <mp-cell title="下单时间" footer="{{orderDetail.creationTime}}"></mp-cell>
+      <block wx:if="{{orderDetail.status!='CREATED' && orderDetail.status!='CANCELLED' && orderDetail.status}}">
+          <mp-cell title="支付方式" footer="{{orderDetail.paymentModeName}}"></mp-cell>
+          <mp-cell title="支付时间" footer="{{orderDetail.paymentTime}}"></mp-cell>
+      </block>
+      <block wx:if="{{orderDetail.status=='DELIVERED'||orderDetail.status=='RECEIVED'||orderDetail.status=='COMPLETED'}}">
+          <mp-cell title="发货时间" footer="{{orderDetail.shippingTime}}"></mp-cell>
+      </block>
     </mp-cells>
   </view>
 
   <view class="pay">
-    <text>实付金额：￥{{orderDetail.totalPrice}}</text>
-    <view>
-      <button class="my_btn" size="mini" bindtap="bindToLogistics">查看物流</button>
-      <button class="my_btn btm_btn" size="mini" bindtap="bindToEvaluate">确认收货</button>
-    </view>
+      <block wx:if="{{orderDetail.status=='CREATED'||orderDetail.status=='CANCELLED'}}">
+          <text>待付金额：{{orderDetail.totalPrice}}</text>
+      </block>
+       <block wx:else>
+          <text>实付金额：{{orderDetail.totalPrice}}</text>
+       </block>
+      <view>
+          <block wx:if="{{orderDetail.status=='CREATED'}}">
+               <button class="my_btn" size="mini" bindtap="toCancelOrder">取消订单</button>
+               <button class="my_btn btm_btn" size="mini" bindtap="toPaid">立即付款</button>
+          </block>
+          <block wx:if="{{orderDetail.status=='DELIVERED'||orderDetail.status=='RECEIVED'||orderDetail.status=='COMPLETED'}}">
+               <button class="my_btn" size="mini" bindtap="toLogistics">查看物流</button>
+          </block>
+           <block wx:if="{{orderDetail.status=='PAID'||orderDetail.status=='DELIVERED'||orderDetail.status=='RECEIVED'||orderDetail.status=='COMPLETED'}}">
+                <button class="my_btn" size="mini" bindtap="toInvoice">查看发票</button>
+           </block>
+          <block wx:if="{{orderDetail.status=='DELIVERED'}}">
+               <button class="my_btn btm_btn" size="mini" bindtap="toDelivered">确认收货</button>
+          </block>
+          <block wx:if="{{orderDetail.status=='RECEIVED'}}">
+                <button class="my_btn btm_btn" size="mini" bindtap="toReceived">评价</button>
+           </block>
+      </view>
   </view>
 </view>

@@ -1,18 +1,22 @@
-<!--pages/mine/myService/myService.wxml-->
 <view class="page">
   <view class="goods">
-    <image class="goods_img" src="../../../../../resources/img/a.png" />
-    <view class="goods_content">方太油烟机方太油烟机方太油烟机方太油烟机方太油烟机方太油烟机</view>
+    <block wx:if="{{orderEntry.productImage}}">
+       <image class="goods_img" src="{{imagePath+orderEntry.productImage}}" />
+    </block>
+    <block wx:else>
+       <image class="goods_img" src="../../../../../resources/img/missing_product.jpg" />
+    </block>
+    <view class="goods_content">{{orderEntry.productName}}</view>
   </view>
 
   <view>
-    <mp-cells>
-      <mp-cell title="退款" link hover bindtap="bindtoRefund">
-        <image class="my_icon" slot="icon" src="../../../../../resources/img/tuikuan.png" />
-      </mp-cell>
-      <mp-cell title="退货退款" link hover bindtap="bindtoRegoods">
-        <image class="my_icon" slot="icon" src="../../../../../resources/img/tui.png" />
-      </mp-cell>
-    </mp-cells>
+      <mp-cells>
+        <mp-cell title="退款" link hover bindtap="bindToRefund">
+          <image class="my_icon" slot="icon" src="../../../../../resources/img/tuikuan.png" />
+        </mp-cell>
+        <mp-cell title="退货退款" link hover bindtap="bindToReturn">
+          <image class="my_icon" slot="icon" src="../../../../../resources/img/tui.png" />
+        </mp-cell>
+      </mp-cells>
   </view>
 </view>

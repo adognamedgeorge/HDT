@@ -17,12 +17,12 @@ Component({
         setPrice: 599,
         delPrice: 899,
         content: [
-          {imgSrc: '../../../resources/img/a.jpg', price: 100},
-          {imgSrc: '../../../resources/img/a.jpg', price: 100},
-          {imgSrc: '../../../resources/img/a.jpg', price: 100},
-          {imgSrc: '../../../resources/img/a.jpg', price: 100},
-          {imgSrc: '../../../resources/img/a.jpg', price: 100},
-          {imgSrc: '../../../resources/img/a.jpg', price: 100}
+          {imgSrc: '../../../resources/img/a.png', price: 100},
+          {imgSrc: '../../../resources/img/a.png', price: 100},
+          {imgSrc: '../../../resources/img/a.png', price: 100},
+          {imgSrc: '../../../resources/img/a.png', price: 100},
+          {imgSrc: '../../../resources/img/a.png', price: 100},
+          {imgSrc: '../../../resources/img/a.png', price: 100}
         ]
       },
       {
@@ -30,12 +30,12 @@ Component({
         setPrice: 699,
         delPrice: 999,
         content: [
-          {imgSrc: '../../../resources/img/a.jpg', price: 100},
-          {imgSrc: '../../../resources/img/a.jpg', price: 100},
-          {imgSrc: '../../../resources/img/a.jpg', price: 100},
-          {imgSrc: '../../../resources/img/a.jpg', price: 100},
-          {imgSrc: '../../../resources/img/a.jpg', price: 100},
-          {imgSrc: '../../../resources/img/a.jpg', price: 100}
+          {imgSrc: '../../../resources/img/a.png', price: 100},
+          {imgSrc: '../../../resources/img/a.png', price: 100},
+          {imgSrc: '../../../resources/img/a.png', price: 100},
+          {imgSrc: '../../../resources/img/a.png', price: 100},
+          {imgSrc: '../../../resources/img/a.png', price: 100},
+          {imgSrc: '../../../resources/img/a.png', price: 100}
         ]
       }
     ]

@@ -1,7 +1,9 @@
 /* pages/goodsInfo/infor/infor.wxss */
 .title {
-  background-color: #e6e6e6;
-  padding: 30rpx;
+  background-color: #F5F5F5;
+  padding: 16rpx 32rpx;
+  font-size: 28rpx;
+  color: #666666;
 }
 
 .img_box {

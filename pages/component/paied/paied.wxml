@@ -1,0 +1,24 @@
+<view style="padding: 0 32rpx;">
+  <view class="top">
+    <mp-icon icon="done2" size="{{44}}" type="field" color="#42D43D"></mp-icon>
+    <view style="padding: 10rpx 0; font-size: 32rpx;">支付成功</view>
+    <view sytle="font-size: 40rpx;">
+      <text style="font-size: 64rpx;">{{totalPrice}}</text>
+    </view>
+  </view>
+
+  <view class="mid">
+    <view class="mid_flex">
+      <text>付款方式</text>
+      <text style="color: #333333;">{{paymentMode}}</text>
+    </view>
+
+    <view class="mid_flex">
+      <text>支付金额</text>
+      <text style="color: #FF2929;">{{totalPrice}}</text>
+    </view>
+  </view>
+
+  <button class="my_btn" bindtap="bindToOrder">查看订单</button>
+  <view class="back" bindtap="backHome">返回首页</view>
+</view>

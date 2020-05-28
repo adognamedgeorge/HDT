@@ -43,13 +43,12 @@ function request(url, data, method = "GET",Content="application/json") {
           resolve(res.data);
         } else if (res.statusCode === 401) {
           //跳转到登录页面
-          /*if (!wx.getStorageSync('loginPage')) {
+          /*if (!wx.getStorageSync('loginPage')) {*/
             wx.clearStorageSync();
-            wx.setStorageSync('companyId', '1')
             wx.navigateTo({
               url: '/pages/login/login'
             })
-          }*/
+          /*}*/
         } else {
           reject(res.errMsg);
         }
@@ -84,10 +83,80 @@ function login() {
   });
 }
 
+/**
+ * 调用微信支付
+ */
+function weChatPayment(param, orderCode) {
+  wx.requestPayment({
+    timeStamp: param.timeStamp,
+    nonceStr: param.nonceStr,
+    package: param.package,
+    signType: param.signType,
+    paySign: param.paySign,
+    success: function (res) {
+      console.log(res);
+      //校验支付状态，跳转到支付成功页面
+      request(api.PaymentQueryUrl, {code : orderCode}, "POST",'application/x-www-form-urlencoded'
+      ).then((res) => {
+        if (res.success) {
+          //跳转到支付成功页面
+          wx.navigateTo({
+            url: '/pages/component/paied/paied?code='+res.datas
+          })
+        }else{
+          //util.toast(res.msg, false);
+          //跳转到支付失败-订单列表页面
+          wx.navigateTo({
+            url: '/pages/mine/myOrder/myOrder'
+          })
+        }
+      });
+    },
+    fail: function (res) {
+      //跳转到支付失败-订单列表页面
+      console.log(res);
+      wx.navigateTo({
+        url: '/pages/mine/myOrder/myOrder'
+      })
+    },
+    complete: function (res) {
+      console.log(res)
+    }
+  })
+}
+
+/**
+ * 提示信息
+ */
+function toast(msg,icon){
+  let aicon = "none";
+  if (icon){
+    aicon=icon;
+  }
+  wx.showToast({
+    title: msg,
+    icon: aicon,
+    duration: 1000,
+    mask:true
+  });
+  /*wx.showToast({
+      title:"成功",
+      icon: 'loading...',//图标，支持"success"、"loading"
+      image: '/images/tan.png',//自定义图标的本地路径，image 的优先级高于 icon
+      duration: 2000,//提示的延迟时间，单位毫秒，默认：1500
+      mask: false,//是否显示透明蒙层，防止触摸穿透，默认：false
+      success:function(){},
+      fail:function(){},
+      complete:function(){}
+  })*/
+}
+
 module.exports = {
   formatTime: formatTime,
   request: request,
   login: login,
+  toast: toast,
+  weChatPayment: weChatPayment,
 };
 
 

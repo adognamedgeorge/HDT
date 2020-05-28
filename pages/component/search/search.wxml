@@ -2,6 +2,6 @@
 <view>
   <view class="wrap">
     <image src="../../../resources/img/search.png" class="wrap_img"/>
-    <input class="wrap_input" type="text" confirm-type="search" placeholder="请输入商品名" value=""/>
+    <input class="wrap_input" type="text" confirm-type="search" bindconfirm="bindconfirm" placeholder="请输入商品名" value=""/>
   </view>
 </view>

@@ -12,10 +12,11 @@ Component({
    * 组件的初始数据
    */
   data: {
+    imagePath:api.ImageUrl,
     pageSize: 10,
     pageNum: 0,
     isLoad:true,
-    tabData: [{name:'全部',code:''},{name:'待付款',code:'created'},{name:'待发货',code:'piad'},{name:'待收款',code:'delivered'},{name:'待评价',code:'received'}],
+    tabData: [{name:'全部',code:''},{name:'待付款',code:'created'},{name:'待发货',code:'paid'},{name:'待收货',code:'delivered'},{name:'待评价',code:'received'}],
     navActive: 0,
     list:[]
   },
@@ -38,6 +39,24 @@ Component({
       wx.navigateTo({
         url: './orderInfor/orderInfor?code='+event.currentTarget.dataset.code
       })
+    },
+    toCancelOrder (event) {
+      util.toast("toCancelOrder");
+    },
+    toPaid (event) {
+      util.toast("toPaid");
+    },
+    toLogistics (event) {
+      util.toast("toLogistics");
+    },
+    toInvoice (event) {
+      util.toast("toInvoice");
+    },
+    toDelivered (event) {
+      util.toast("toDelivered");
+    },
+    toReceived (event) {
+      util.toast("toReceived");
     },
     getOrderList(){
       let that = this;

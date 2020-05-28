@@ -2,11 +2,11 @@
 <view>
   <mp-cells>
     <mp-cell title="物流单号">
-      <input slot="footer" placeholder="请输入" />
+      <input slot="footer" placeholder="请输入物流单号" />
     </mp-cell>
     <mp-cell title="物流公司" link hover>
-      <picker slot="footer">
-        <view>请选择</view>
+      <picker slot="footer" bindchange="bindPickerChange" value="{{carrierIndex}}" range="{{carrierEnum}}" range-key="name">
+        <view class="picker">{{carrierEnum[carrierIndex].name}}</view>
       </picker>
     </mp-cell>
   </mp-cells>

@@ -1,33 +1,56 @@
 <!--pages/mine/myOrder/myOrder.wxml-->
-<view>
+<view class="page">
   <view class="tabbar">
     <view wx:for="{{tabData}}" wx:key="index" class="tab_text {{index == navActive ? 'navActive' : ''}}" bindtap="bindBar" data-idx="{{index}}">{{item.name}}</view>
   </view>
-  <view wx:for="{{list}}">
-        <view class="content" >
+  <view wx:for="{{list}}" style="padding: 0 24rpx;" wx:key="index">
+        <view class="content">
             <view class="content_top">
               <text>订单编号：{{item.code}}</text>
-              <text style="color: red;">{{item.statusDes}}</text>
+              <text class="{{'color_' + item.status}}">{{item.statusDes}}</text>
             </view>
-            <view wx:for="{{item.entries}}" wx:for-index="idx" wx:for-item="entry" class="content_mid" bindtap="toOrderInfor" data-code='{{item.code}}'>
-              <image style="width: 115rpx; height: 115rpx;" src="../../../resources/img/a.jpg" />
+            <view wx:for="{{item.entries}}" wx:for-index="idx" wx:for-item="entry" class="content_mid" bindtap="toOrderInfor" data-code='{{item.code}}' wx:key="index">
+               <block wx:if="{{entry.productImage}}">
+                      <image style="width: 115rpx; height: 115rpx;" src="{{imagePath + entry.productImage}}" />
+                </block>
+                <block wx:else>
+                      <image style="width: 115rpx; height: 115rpx;" src="../../../resources/img/missing_product.jpg" />
+                </block>
               <view class="mid_rt">
                 <text class="mid_title">{{entry.productName}}</text>
                 <view style="font-size: 25rpx;">{{entry.productModel}}</view>
-                <view>￥{{entry.basePrice}}</view>
+                <view>{{entry.basePrice}}</view>
                 <view class="total">×{{entry.quantity}}</view>
               </view>
             </view>
 
             <view class="content_btm">
               <view>
-                <text>付款金额</text>
-                <text>￥</text>
-                <text style="color: red;">{{item.totalPrice}}</text>
+              <block wx:if="{{item.status=='CREATED'||item.status=='CANCELLED'}}">
+                    <text>待付金额：</text>
+              </block>
+               <block wx:else>
+                    <text>实付金额：</text>
+               </block>
+                <text style="color: #FF3C3C; font-size: 40rpx;">{{item.totalPrice}}</text>
               </view>
               <view style="display: flex; justify-content: space-around;">
-                <view class="btn">取消订单</view>
-                <view class="btn btn2">立即付款</view>
+              <block wx:if="{{item.status=='CREATED'}}">
+                   <view class="btn" bindtap="toCancelOrder">取消订单</view>
+                   <view class="btn btn2" bindtap="toPaid">立即付款</view>
+              </block>
+              <block wx:if="{{item.status=='DELIVERED'||item.status=='RECEIVED'||item.status=='COMPLETED'}}">
+                   <view class="btn" bindtap="toLogistics">查看物流</view>
+              </block>
+               <block wx:if="{{item.status=='PAID'||item.status=='DELIVERED'||item.status=='RECEIVED'||item.status=='COMPLETED'}}">
+                    <view class="btn" bindtap="toInvoice">查看发票</view>
+               </block>
+              <block wx:if="{{item.status=='DELIVERED'}}">
+                   <view class="btn btn2" bindtap="toDelivered">确认收货</view>
+              </block>
+              <block wx:if="{{item.status=='RECEIVED'}}">
+                    <view class="btn btn2" bindtap="toReceived">评价</view>
+               </block>
               </view>
             </view>
          </view>

@@ -1,36 +1,44 @@
 <!--pages/cart/cart.wxml-->
 <view class="page">
-  <mp-checkbox-group>
     <view class="check_box" wx:for="{{cartData}}" wx:key="index">
-      <mp-checkbox label="" value="0" ext-class="my_check"></mp-checkbox>
+      <!-- <mp-checkbox label="" value="0" ext-class="my_check"></mp-checkbox> -->
       <view class="box_rt">
-        <image class="img_lf" src="{{item.imgSrc}}" />
+        <block wx:if="{{item.productImage}}">
+             <image class="img_lf" src="{{imagePath+item.productImage}}" />
+        </block>
+        <block wx:else>
+            <image class="img_lf" src="../../resources/img/missing_product.jpg" />
+         </block>
+
         <view class="content_rt">
           <view class="rt_top">
-            <view class="top_title">{{item.title}}</view>
-            <text style="font-size: 26rpx;">型号：{{item.type}}</text>
-            <mp-icon class="top_icon" icon="delete" size="{{20}}" color="grey"></mp-icon>
+            <view class="top_title">{{item.productName}}</view>
+            <text class="top_style">型号：{{item.productModel}}</text>
+            <mp-icon bindtap="updateProductNum" data-quantity="{{0}}" data-product="{{item.productCode}}" class="top_icon" icon="delete" size="{{19}}" color="#999999"></mp-icon>
           </view>
           <view class="rt_btm">
-            <text>￥{{item.price}}</text>
-            <view>
-              <text>-</text>
-              <text>1</text>
-              <text>+</text>
+            <text style="color: #FF3C3C;">{{item.basePrice}}</text>
+            <view class="num">
+              <text bindtap="updateProductNum" data-quantity="{{item.quantity-1}}" data-product="{{item.productCode}}">-</text>
+              <text class="my_num">{{item.quantity}}</text>
+              <text bindtap="updateProductNum" data-quantity="{{item.quantity+1}}" data-product="{{item.productCode}}">+</text>
             </view>
           </view>
         </view>
       </view>
     </view>
-  </mp-checkbox-group>
 
-  <view class="all_check">
-    <mp-checkbox-group>
-      <mp-checkbox label="全选"></mp-checkbox>
-    </mp-checkbox-group>
+  <view wx:if="{{cartData.length == 0}}" class="no_goods">
+    <view style="text-align:center;">
+      <image style="width: 480rpx; height: 300rpx;" src="../../resources/img/no_goods.png" />
+      <view style="color: #666666;">您还未添加任何商品到购物车</view>
+    </view>
+  </view>
+
+  <view class="all_check" wx:if="{{cartData.length > 0}}">
     <view class="all_rt">
-      <view class="all_total">合计：￥0</view>
-      <button type="primary" size="mini">结算(0)</button>
+      <view class="all_total">合计：{{subTotal}}<text class="hit">\n促销优惠金额请在下单页查看</text></view>
+      <button size="mini" class="my_btn" bindtap="gotoCheckout">结算({{totalItems}})</button>
     </view>
   </view>
 </view>

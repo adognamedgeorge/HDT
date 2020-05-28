@@ -5,9 +5,10 @@
   </view>
 
   <view>
-    <goods wx:if="{{navActive == 0}}"></goods>
-    <infor wx:if="{{navActive == 1}}"></infor>
-    <assess wx:if="{{navActive ==2}}"></assess>
+    <goods wx:if="{{navActive == 0}}" detail="{{detail}}" imagePath="{{imagePath}}" bindaddCartEntry="addCartEntry" isAddCart="{{isAddCart}}" cartNum="{{cartNum}}"
+    bindtoOrderConfirm="toOrderConfirm" bindtoCart="toCart"></goods>
+    <infor wx:if="{{navActive == 1}}" detail="{{detail}}" imagePath="{{imagePath}}"></infor>
+    <assess wx:if="{{navActive ==2}}" detail="{{detail}}" imagePath="{{imagePath}}"></assess>
   </view>
 </view>
 

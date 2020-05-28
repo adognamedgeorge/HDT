@@ -1,18 +1,25 @@
 <!--pages/goodsInfo/infor/infor.wxml-->
 <view>
-  <view>
-    <view class="title" style="margin-top: 100rpx;">商品信息</view>
+    <view class="title" style="margin-top: 100rpx;">产品参数</view>
+  <view  wx:for="{{detail.classifications}}">
     <view style="padding: 30rpx;">
-      <view>品牌：daiehfga</view>
-      <view>品牌：daiehfga</view>
-      <view>品牌：daiehfga</view>
+        <view>{{item.name}}</view>
+      <view  wx:for="{{item.features}}" wx:for-item="feature">{{feature.name}}：
+      <text wx:for="{{feature.featureValues}}" wx:for-item="featureValue" decode="{{true}}">{{featureValue.value}}&nbsp;&nbsp;</text>
+      </view>
     </view>
   </view>
 
   <view>
+    <view class="title">产品描述</view>
+    <view style="padding: 30rpx;">
+            <rich-text nodes="{{detail.description}}"></rich-text>
+     </view>
+  </view>
+  <view>
     <view class="title">图文详情</view>
     <view class="img_box">
-      <image class="img" src="../../../../resources/img/a.jpg" />
+      <image wx:for="{{detail.detailPics}}" class="img" src="{{imagePath+item}}" />
     </view>
   </view>
 </view>

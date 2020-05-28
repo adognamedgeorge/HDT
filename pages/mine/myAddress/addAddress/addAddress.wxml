@@ -1,32 +1,33 @@
 <!--pages/mine/myAddress/addAddress/addAddress.wxml-->
 <view style="border-top: 16rpx solid #F6F6F7;">
-  <form class="my_form">
-    <view class="my_input">
+  <form class="my_form" catchsubmit="formSubmit">
+  <input class="input" name="pk" placeholder="" value="" hidden/>
+    <view class="my_input" style="text-align: right;">
       <text>收货人</text>
-      <input class="input" name="input1" placeholder="" value="" type="text"/>
+      <input class="input" name="firstName" placeholder="" value="" type="text"/>
     </view>
 
-    <view class="my_input">
+    <view class="my_input" style="text-align: right;">
       <text>手机号码</text>
-      <input class="input" name="input2" placeholder="" value="" type="number" maxlength="11"/>
+      <input class="input" name="cellphone" placeholder="" value="" type="number" maxlength="11"/>
     </view>
 
     <view class="my_input">
-      <picker mode="region" value="{{region}}" custom-item="{{customItem}}" bindchange="bindRegionChange">
+      <picker mode="region" value="" custom-item="{{customItem}}" bindchange="bindRegionChange">
         <view class="area">
           <text>所在地区：</text>
-          <view style="width: 500rpx;">{{region[0]}},{{region[1]}},{{region[2]}}</view>
+          <view style="width: 500rpx; text-align: right;">{{region}}</view>
         </view>
       </picker>
       <mp-icon icon="arrow" size="{{8}}" color="#BEC2CB "></mp-icon>
     </view>
 
-    <textarea class="my_textarea" value="" placeholder="详细地址：如道路、门牌号、小区、楼栋号、单元室等" placeholder-style="color: #BEC2CB;"></textarea>
+    <textarea class="my_textarea" value="" name="line1" placeholder="详细地址：如道路、门牌号、小区、楼栋号、单元室等" placeholder-style="color: #BEC2CB;"></textarea>
 
-    <view class="my_switch">
+    <view class="my_switch" >
       <text>设为默认地址</text>
-      <switch checked></switch>
+      <switch name="default"></switch>
     </view>
+      <button type="primary" formType="submit" class="my_btn">保存</button>
   </form>
-  <button type="primary" class="my_btn">保存</button>
 </view>

@@ -3,7 +3,8 @@
   "usingComponents": {
     "mp-checkbox-group": "../../../resources/weui/checkbox-group/checkbox-group",
     "mp-checkbox": "../../../resources/weui/checkbox/checkbox",
-    "mp-icon": "../../../resources/weui/icon/icon"
+    "mp-icon": "../../../resources/weui/icon/icon",
+    "mp-dialog": "../../../resources/weui/dialog/dialog"
   },
   "navigationBarTitleText": "地址管理",
   "backgroundColor": "#F6F6F7"

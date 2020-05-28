@@ -27,7 +27,7 @@
         <view class="right geted" wx:if="{{item.type == 1}}">已领取</view>
         <view class="right noleft" wx:if="{{item.type == 2}}">
           立即领取
-          <image class="right_img" src="../../../resources/img/overdue.png" />
+          <image class="right_img" src="../../../resources/img/no_left.png" />
         </view>
       </view>
     </view>

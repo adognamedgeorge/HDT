@@ -34,12 +34,12 @@
 .midtext {
   display: block;
   color: #FE3F3F;
-  font-size: 30rpx;
+  font-size: 24rpx;
 }
 
 .right {
   font-weight: bold;
-  font-size: 30rpx;
+  font-size: 24rpx;
   color: #FF3C3C;
   width: 115rpx;
   text-align: center;

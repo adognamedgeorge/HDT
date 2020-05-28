@@ -4,6 +4,39 @@
 const util = require('../utils/util.js');
 const api = require('../config/api.js');
 
+function loginByWXPhone(ivPhone, encryptedPhoneData,nickName,gender,avatarUrl) {
+    let code = null;
+    return new Promise(function (resolve, reject) {
+        return util.login().then((res) => {
+            code = res.code;
+            return wx.getStorageSync("userId")
+        }).then((result) => {
+            util.request(api.WeChatLogin,
+                {
+                    code: code,
+                    ivPhone: ivPhone,
+                    encryptedPhoneData: encryptedPhoneData,
+                    nickName:nickName,
+                    gender:gender,
+                    avatarUrl:avatarUrl,
+                },
+                'POST',
+                'application/x-www-form-urlencoded'
+            ).then(res => {
+                if (res.success) {
+                    wx.setStorageSync('userId', res.datas.userId);
+                    //从后台获取的token，前端自己保存到全局变量中，备用；以后每次使用request都把该变量存入header变量
+                    wx.setStorageSync('mini_token', res.datas.miniToken);
+                    resolve(res);
+                }
+            }).catch((err) => {
+                reject(err);
+            });
+        }).catch((err) => {
+            reject(err);
+        })
+    });
+}
 /**
  * 调用微信登录
  */
@@ -62,7 +95,6 @@ function checkLogin() {
         let result = false;
         let userId = wx.getStorageSync('userId');
         let token = wx.getStorageSync('mini_token');
-        console.log("userId--->" + userId);
         if (userId && token) {
             result = true;
         }
@@ -120,4 +152,5 @@ module.exports = {
     loginByWeChat: loginByWeChat,
     sendSms: sendSms,
     loginBySms: loginBySms,
+    loginByWXPhone:loginByWXPhone,
 };

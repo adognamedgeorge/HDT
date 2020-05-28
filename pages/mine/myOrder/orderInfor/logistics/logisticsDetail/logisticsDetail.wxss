@@ -43,12 +43,19 @@
 }
 
 .log_program {
-  padding-left: 140rpx;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .width_limit {
-  width: 95%;
-  margin-bottom: 80rpx;
+  padding-bottom: 80rpx;
+  padding-left: 100rpx;
+  position: relative;
+  border-left: 1px solid #CCCCCC;
+}
+
+.no_border {
+  border-left: none;
 }
 
 .log_txt {

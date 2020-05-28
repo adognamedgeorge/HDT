@@ -1,24 +1,25 @@
-<!--pages/mine/myAddress/myAddress.wxml-->
 <view class="page">
   <view class="radio_box">
-    <radio-group>
-      <radio class="radio">
-        <view class="my_radio">
-          <view>
-            <view class="radio_txt">张女士</view>
-            <text style="font-size: 20rpx;">默认</text>
-          </view>
-          <view>
-            <text class="radio_txt">1308899999</text>
-            <view>浙江杭州江干区利友大厦1201</view>
-          </view>
-          <view>
-            <view>编辑</view>
-            <mp-icon size="{{16}}" color="#868A92" icon="delete"></mp-icon>
-          </view>
-        </view>
-      </radio>
-    </radio-group>
+    <view class="my_radio" wx:for="{{addData}}" wx:key="index">
+      <view style="width: 100rpx;" bindtap="selectAddress" data-id="{{item.pk}}">
+        <view class="radio_txt">{{item.firstName}}</view>
+        <text style="font-size: 20rpx;" wx:if="{{item.default}}">默认</text>
+      </view>
+      <view class="mid_flex" bindtap="selectAddress" data-id="{{item.pk}}">
+        <text class="radio_txt">{{item.cellphone}}</text>
+        <view class="flex_add">{{item.regionName}}{{item.cityName}}{{item.distinctName}}{{item.line1}}</view>
+      </view>
+      <view style="text-align: center;">
+        <view data-default="{{item.default}}" data-distinct-name="{{item.distinctName}}"
+              data-distinct-iso="{{item.distinctIso}}" data-city-name="{{item.cityName}}"
+              data-city-iso="{{item.cityIso}}" data-region-name="{{item.regionName}}"
+              data-region-iso="{{item.regionIso}}" data-first-name="{{item.firstName}}"
+              data-cell-phone="{{item.cellphone}}" data-line1="{{item.line1}}"
+              data-pk="{{item.pk}}" style="margin-bottom: 32rpx;" bindtap="editAddress">编辑</view>
+        <mp-icon data-pk="{{item.pk}}" bindtap="showDialog" size="{{16}}" color="#868A92" icon="delete"></mp-icon>
+      </view>
+    </view>
   </view>
   <button type="" bindtap="addAddress" class="add_btn">添加收货人</button>
+  <mp-dialog title="确认删除地址？" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}"></mp-dialog>
 </view>

@@ -2,7 +2,7 @@
 <view class="page">
   <view class="top">
     <view class="top_lf">
-      <text class="lf_text">国家电网</text>
+      <text class="lf_text">惠电通</text>
       <view class="lf_add" bindtap="getLocat">{{city}}</view>
     </view>
     <view class="top_rt" bindtap="bindToSearch">
@@ -10,7 +10,7 @@
     </view>
   </view>
   <!-- 轮播 -->
-  <view bindtap="bindToGoodsInfo">
+  <view>
    <swiper indicator-dots autoplay interval="2000" duration="500" circular>
     <block wx:for="{{banner}}" wx:key="*this">
       <swiper-item>
@@ -48,11 +48,17 @@
   <view class="recommend">
     <view class="rec_title">
       <text class="rec_title_lf">推荐商品</text>
-      <text class="rec_title_rt">查看全部></text>
+      <text class="rec_title_rt" bindtap="toProductList">查看全部></text>
     </view>
-    <view class="rec_content" wx:for="{{recData.length < 3 ? recData : newRecData}}" wx:key="index">
+    <view class="rec_content" wx:for="{{recData.length < 3 ? recData : newRecData}}" wx:key="index" bindtap="bindToGoodsInfo" data-code="{{item.code}}">
       <view class="content_lf">
-        <image class="content_lf_img" src="{{imagePath+item.src}}" />
+
+        <block wx:if="{{item.src}}">
+            <image class="content_lf_img" src="{{imagePath+item.src}}" />
+        </block>
+        <block wx:else>
+            <image class="content_lf_img" src="../../resources/img/missing_product.jpg" />
+         </block>
       </view>
       <view class="content_rt">
         <view class="content_rt_name">{{item.name}}</view>
@@ -73,9 +79,14 @@
   <view class="goods_category">
     <text class="goods_title">商品类别</text>
     <view class="category_content">
-      <view class="category" wx:for="{{cateData}}" wx:key="index" bindtap="bindToGoodsList">
+      <view class="category" wx:for="{{cateData}}" wx:key="index" bindtap="bindToGoodsList" data-code="{{item.code}}">
         <view class="cate_img_box">
-          <image class="cate_img" src="{{imagePath+item.src}}"/>
+        <block wx:if="{{item.src}}">
+            <image class="cate_img" src="{{imagePath+item.src}}"/>
+        </block>
+        <block wx:else>
+            <image class="cate_img" src="../../resources/img/missing_product.jpg" />
+        </block>
         </view>
         <text>{{item.name}}</text>
       </view>

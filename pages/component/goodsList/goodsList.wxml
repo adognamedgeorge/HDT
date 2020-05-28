@@ -1,26 +1,31 @@
 <!--pages/component/goodsList/goodsList.wxml-->
 <view>
   <view class="tabbar">
-    <view wx:for="{{tabData}}" wx:key="index" bindtap="bindBar" data-idx="{{index}}">
-      <view>
-        {{item}}
-        <image src="../../../resources/img/arrow.png" style="width: 20rpx; height: 20rpx;" />
+    <view wx:for="{{tabData}}" wx:key="index" bindtap="bindBar" data-idx="{{index}}" data-sort="{{item.code}}">
+      <view class="{{index == navActive ? 'navActive' : ''}}">
+        {{item.name}}
+        <image src="../../../resources/img/arrow.png" style="width: 15rpx; height: 15rpx;" />
       </view>
     </view>
   </view>
 
   <view>
-    <view wx:for="{{list}}" class="content" >
+    <view wx:for="{{list}}" class="content"  bindtap="toDetail" data-code='{{item.code}}'>
       <view class="content_lf">
-        <image class="lf_img" src="{{imagePath+item.src}}" />
+        <block wx:if="{{item.src}}">
+            <image class="lf_img" src="{{imagePath + item.src}}" />
+        </block>
+        <block wx:else>
+           <image class="lf_img" src="../../../resources/img/missing_product.jpg" />
+         </block>
       </view>
       <view class="content_rt">
         <view class="rt_top">{{item.name}}</view>
         <text class="rt_mid">{{item.model}}</text>
-        <view>
-          <text class="price">￥{{item.actualPrice}}</text>
-          <text class="del_price">￥{{item.linePrice}}</text>
-          <image src="../../../resources/img/cart2.png" class="btm_img"/>
+        <view style="position: relative;">
+          <text class="price">{{item.actualPrice}}</text>
+          <text class="del_price">{{item.linePrice}}</text>
+          <image catchtap="addCartEntry" data-code='{{item.code}}'  hover-stop-propagation src="../../../resources/img/cart2.png" class="btm_img"/>
         </view>
       </view>
     </view>

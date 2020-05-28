@@ -1,6 +1,7 @@
 // pages/component/goodsList/goodsList.js
 const util = require('../../../utils/util.js');
 const api = require('../../../config/api.js');
+const user = require('../../../services/user.js');
 Component({
   /**
    * 组件的属性列表
@@ -15,8 +16,9 @@ Component({
     pageSize: 10,
     pageNum: 0,
     isLoad: true,
-    tabData: ['综合', '销量', '价格'],
+    tabData: [{name:'综合',code:'creationTime-desc'},{name:'销量',code:'salesVolume-desc'},{name:'价格',code:'price-desc'}],
     navActive: 0,
+    navSort:'creationTime-desc',
     list: [],
     searchName:'',
     categoryCode:'',
@@ -31,16 +33,23 @@ Component({
         this.setData({
           navActive: e.currentTarget.dataset.idx,
           list: [],
-          pageNum: 0
+          pageNum: 0,
+          navSort:e.currentTarget.dataset.sort
         })
         this.getProductList();
       }
+    },
+    toDetail(event) {
+      wx.navigateTo({
+        url: '../goodsInfo/goodsInfo?code='+event.currentTarget.dataset.code
+      })
     },
     onLoad:function(options){
       console.log(options);
       this.setData({
         searchName:options.name,
         categoryCode:options.categoryCode,
+        navSort:options.sort,
       })
     },
     getProductList(){
@@ -48,13 +57,25 @@ Component({
       that.setData({
         isLoad:true
       });
+      var param={
+        page:this.data.pageNum,
+        size:this.data.pageSize
+      };
+      if (this.data.searchName != null && this.data.searchName.length > 0 ) {
+        param.name=this.data.searchName;
+      }
+      if (this.data.categoryCode != null && this.data.categoryCode.length > 0) {
+        param.categoryCode=this.data.categoryCode;
+      }
+      if (this.data.navSort == null || this.data.navSort.length <= 0) {
+        this.setData({
+          navSort: 'creationTime-desc',
+        });
+      }
+      param.sort = this.data.navSort;
+
       util.request(api.ProductList,
-          {
-            name:this.data.searchName,
-            categoryCode:this.data.categoryCode,
-            page:this.data.pageNum,
-            size:this.data.pageSize
-          },
+          param,
           'POST',
           'application/x-www-form-urlencoded'
       ).then((function (res) {
@@ -73,6 +94,34 @@ Component({
       }));
     },
 
+    addCartEntry(event){
+      let that = this;
+      user.checkLogin().then((function (res) {
+        if (res) {
+          util.request(api.AddCartEntryUrl,
+              {
+                product:event.currentTarget.dataset.code,
+                quantity:1
+              },
+              'POST',
+              'application/x-www-form-urlencoded'
+          ).then((function (res) {
+            console.log(res)
+            if(res.success){
+              util.toast("添加商品成功");
+            }else{
+              console.log(res.msg);
+              util.toast(res.msg, false);
+            }
+          }));
+        } else {
+          //跳转到登录页面
+          wx.navigateTo({
+            url: '/pages/login/login',
+          })
+        }
+      }));
+    },
     onReachBottom:function(){
       if (!this.data.isLoad) {
         this.setData({

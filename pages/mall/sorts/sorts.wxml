@@ -1,20 +1,20 @@
 <!--pages/mall/sorts/sorts.wxml-->
 <view class="page">
-  <view class="title">
+  <view class="title" bindtap="toProductList" data-code=''>
     <text>全部商品</text>
     <mp-icon icon="arrow" size="{{10}}" color="#BEC2CB"></mp-icon>
   </view>
 
-  <view wx:for="{{sortsData}}" wx:key="index" wx:for-item="itemName">
+  <view wx:for="{{sortsData}}" wx:key="index" wx:for-item="item" bindtap="toProductList" data-code='{{item.code}}'>
     <view class="title">
-      <text>{{itemName.title}}</text>
+      <text>{{item.name}}</text>
       <view class="check_all">
         <text style="margin-right: 15rpx;">查看全部</text>
         <mp-icon icon="arrow" size="{{10}}"></mp-icon>
       </view>
     </view>
     <view class="content_flex">
-      <view class="content" wx:for="{{itemName.content}}" wx:key="index">{{item}}</view>
+      <view class="content" wx:for="{{item.childCategories}}" wx:key="index" wx:for-item="childItem"  bindtap="toProductList" data-code='{{childItem.code}}'>{{childItem.name}}</view>
     </view>
   </view>
 </view>

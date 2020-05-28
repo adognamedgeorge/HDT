@@ -16,12 +16,12 @@
   </view>
 
   <view class="slider_program">
-    <slider class="my_slider"></slider>
 
     <view class="log_program">
-      <view class="width_limit" wx:for="{{logDetailData}}" wx:key="index">
+      <view class="width_limit {{index == logDetailData.length -1 ? 'no_border' : ''}}" wx:for="{{logDetailData}}" wx:key="index">
         <view class="{{index == 0 ? 'navActive' : ''}}">您的包裹已到「{{item.add}}」已到达</view>
         <text class="log_txt">{{item.date}}</text>
+        <mp-icon icon="done2" type="field" color="#F62525" style="position: absolute; top: 0; left: -20rpx;"></mp-icon>
       </view>
     </view>
   </view>

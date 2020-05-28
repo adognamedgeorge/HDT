@@ -5,15 +5,10 @@
 }
 
 .check_box {
-  width: 94%;
-  padding: 20rpx;
-  border-radius: 40rpx;
+  padding: 24rpx 40rpx;
+  border-radius: 24rpx;
   background-color: #ffffff;
-  margin: 20rpx auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 200rpx;
+  margin: 16rpx auto;
 }
 
 .rt_btm {
@@ -29,20 +24,22 @@
 }
 
 .img_lf {
-  width: 150rpx;
-  height: 150rpx;
-  border-radius: 20rpx;
+  width: 178rpx;
+  height: 178rpx;
+  border-radius: 8rpx;
 }
 
 .content_rt {
-  flex: 1;
   margin-left: 20rpx;
-  height: 200rpx;
+  width: 60%;
   padding: 15rpx;
+  font-size: 28rpx;
 }
 
 .rt_top {
   position: relative;
+  color: #333333;
+  margin-bottom: 23rpx;
 }
 
 .top_title {
@@ -65,7 +62,7 @@
   padding: 0 !important;
 }
 
-.all_check {
+.all_rt {
   display: flex;
   justify-content: space-between;
   background-color: #ffffff;
@@ -74,16 +71,52 @@
   position: fixed;
   bottom: 0;
   left: 0;
-}
-
-.all_rt {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 30rpx;
+  padding: 32rpx 40rpx;
 }
 
 .all_total {
-  color: red;
-  margin-right: 20rpx;
+  color: #E02020;
+  font-size: 32rpx;
+}
+.hit{
+font-size: 22rpx;
+}
+.my_btn {
+  width: 240rpx !important;
+  background-image: linear-gradient(99deg, #FC3A3A 0%, #E12828 97%);
+  border-radius: 54rpx;
+  color: #ffffff;
+}
+
+.num {
+  border: 1px solid #EFEFEF;
+  border-radius: 3rpx;
+  height: 48rpx;
+  width: 161rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.my_num {
+  border-left: 1px solid #EFEFEF;
+  border-right: 1px solid #EFEFEF;
+  display: block;
+  width: 40%;
+  text-align: center;
+}
+
+.top_style {
+  width: 99%;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.no_goods {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items:center;
 }

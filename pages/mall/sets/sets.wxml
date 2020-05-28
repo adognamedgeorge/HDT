@@ -4,7 +4,6 @@
     <view class="title">
       <view class="title_lf">
         <view>{{itemName.name}}</view>
-        <text>二级标题</text>
       </view>
       <view class="title_rt">钜惠套餐</view>
     </view>
@@ -12,16 +11,16 @@
     <view class="content_flex">
       <view class="content" wx:for="{{itemName.content}}" wx:key="index">
         <image class="content_img" src="{{item.imgSrc}}" />
-        <view>￥{{item.price}}</view>
+        <view class="my_price">￥{{item.price}}</view>
       </view>
     </view>
 
     <view class="bottom">
       <view class="bottom_lf">
         套餐价格
-        <text>￥</text>
-        <text>{{itemName.setPrice}}</text>
-        <text class="price_del">￥{{itemName.delPrice}}</text>
+        <text style="font-size: 24rpx; color: #FF3B30;">￥</text>
+        <text style="font-size: 56rpx; color: red;">{{itemName.setPrice}}</text>
+        <!-- <text class="price_del">￥{{itemName.delPrice}}</text> -->
       </view>
       <view class="bottom_rt">
         立即购买

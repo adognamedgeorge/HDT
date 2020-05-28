@@ -1,4 +1,7 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "mp-icon": "../../../resources/weui/icon/icon"
+  },
+  "navigationBarTitleText": "商品列表"
 }

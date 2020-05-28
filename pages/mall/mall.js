@@ -10,41 +10,24 @@ Page({
    */
   data: {
     imgPath: api.ImageUrl,
+    searchContent:'',
     swiperBanner: [],
     goodsData: [],
     a: 1,
     b: 1,
     packageData: [
       {
-        title: '汽车活动套餐',
+        title: '家电套餐',
         price: '2723.00',
         content: [
-          {imgSrc: '../../resources/img/a.png'},
-          {imgSrc: '../../resources/img/a.png'},
-          {imgSrc: '../../resources/img/a.png'},
-          {imgSrc: '../../resources/img/a.png'}
-        ]
-      },
-      {
-        title: '家电活动套餐',
-        price: '1234.00',
-        content: [
-          {imgSrc: '../../resources/img/a.png'},
-          {imgSrc: '../../resources/img/a.png'},
-          {imgSrc: '../../resources/img/a.png'},
-          {imgSrc: '../../resources/img/a.png'}
+          {imgSrc: '../../resources/img/missing_product.jpg'},
+          {imgSrc: '../../resources/img/missing_product.jpg'},
+          {imgSrc: '../../resources/img/missing_product.jpg'},
+          {imgSrc: '../../resources/img/missing_product.jpg'}
         ]
       }
     ],
     recommendData: [
-      {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa炒锅炒锅', price: '345'},
-      {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'},
-      {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'},
-      {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'},
-      {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'},
-      {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'},
-      {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'},
-      {imgSrc: '../../resources/img/a.png', text: '炒锅砂锅aaaaa', price: '345'}
     ]
   },
   computed: {
@@ -70,10 +53,44 @@ Page({
       url: './sorts/sorts'
     })
   },
-
+  searchContentInput(e){
+    this.setData({
+      searchContent: e.detail.value
+    })
+  },
+  toSearch: function (e) {
+    var that=this;
+    wx.navigateTo({
+      url: "../component/goodsList/goodsList?name="+that.data.searchContent
+    })
+  },
   bindToSets: function (e) {
     wx.navigateTo({
       url: './sets/sets'
+    })
+  },
+  toProductList(e) {
+    wx.navigateTo({
+      url: "../component/goodsList/goodsList?sort=salesVolume-desc"
+    })
+  },
+  bindToGoodsList (e) {
+    wx.navigateTo({
+      url: "../component/goodsList/goodsList?categoryCode="+e.currentTarget.dataset.code
+    })
+  },
+  bindToGoodsInfo (e) {
+    wx.navigateTo({
+      url: '../component/goodsInfo/goodsInfo?code='+e.currentTarget.dataset.code
+    })
+  },
+  // 点击键盘上的搜索
+  bindconfirm:function(e){
+    var that=this;
+    var discountName=e.detail.value['search - input'] ?e.detail.value['search - input'] : e.detail.value
+    console.log('e.detail.value', discountName)
+    wx.navigateTo({
+      url: "../component/goodsList/goodsList?name="+discountName
     })
   },
 
@@ -113,6 +130,7 @@ Page({
     util.request(api.MallSetMealUrl, {}, "GET").then((res) => {
       if (res.success) {
         console.log(res)
+
       }
     })
   },
@@ -120,7 +138,11 @@ Page({
   // 获取商品推荐数据
   getRec () {
     util.request(api.MallRecommendedUrl, {}, "GET").then((res) => {
-      console.log(res)
+      if (res.success) {
+        this.setData({
+          recommendData: res.datas
+        })
+      }
     })
   },
 
