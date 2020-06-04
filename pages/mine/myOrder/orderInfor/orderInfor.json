@@ -3,7 +3,8 @@
   "usingComponents": {
     "mp-icon": "../../../../resources/weui/icon/icon",
     "mp-cells": "../../../../resources/weui/cells/cells",
-    "mp-cell": "../../../../resources/weui/cell/cell"
+    "mp-cell": "../../../../resources/weui/cell/cell",
+    "mp-dialog": "../../../../resources/weui/dialog/dialog"
   },
   "navigationBarTitleText": "订单详情"
 }

@@ -43,9 +43,14 @@ Component({
       let that = this;
       util.request(api.LogisticsSelect, {}, "GET").then((res) => {
         if (res.success) {
+
+          let carrierEnumInit = res.datas;
+          let initValue = {"code":"select","name":"请选择物流公司","pk":""};
+          carrierEnumInit.unshift(initValue);
+
           that.setData({
-            carrierEnum: res.datas,
-            carrier: res.datas[0].code
+            carrierEnum: carrierEnumInit,
+            carrier: carrierEnumInit[0].code
           })
         }else{
           util.toast(res.msg, false);
@@ -63,20 +68,28 @@ Component({
 
     saveLogistics (){
       let that = this;
+      if(that.data.trackingId.replace(/\s*/g,"").length===0){
+        util.toast("请填写物流单号", false);
+        return;
+      }
+      if(that.data.carrier==="select"){
+        util.toast("请选择物流公司", false);
+        return;
+      }
       util.request(api.SaveLogistics, {
         code: that.data.code,
         carrier: that.data.carrier,
         trackingId: that.data.trackingId
-      }, "POST").then((res) => {
+      }, "POST",'application/x-www-form-urlencoded').then((res) => {
         if (res.success) {
           wx.showToast({
             title: '物流信息保存成功',
             icon: 'success',
-            duration: 1000,
+            duration: 2000,
             mask: true,
             success: function () {
               //保存成功进入详情页面
-              wx.navigateTo({
+              wx.navigateBack({
                 url: '../regoodsDetail?code='+res.datas
               })
             }

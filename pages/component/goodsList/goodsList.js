@@ -22,6 +22,7 @@ Component({
     list: [],
     searchName:'',
     categoryCode:'',
+    noResult: false
   },
 
   /**
@@ -88,8 +89,18 @@ Component({
           that.setData({
             list: newlist
           })
+
+          if (res.datas.length == 0) {
+            that.setData({
+              noResult: true
+            })
+          }
+
         }else{
           console.log(res.msg);
+          that.setData({
+            noResult: true
+          })
         }
       }));
     },

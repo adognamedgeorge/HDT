@@ -1,1 +1,17 @@
 /* pages/mine/myOrder/orderInfor/myService/regoods/regoodsDetail/regoodsLog/regoodsLog.wxss */
+.my_cell {
+  color: #333333;
+  font-size: 28rpx;
+}
+
+.my_btn {
+  background-image: linear-gradient(99deg, #FC3A3A 0%, #E12828 97%);
+  border-radius: 200rpx;
+  width: 90% !important;
+  color: #ffffff;
+  font-size: 32rpx;
+  position: fixed;
+  bottom: 14rpx;
+  left: 0;
+  right: 0;
+}

@@ -6,12 +6,9 @@
 
 .type {
   padding: 24rpx 32rpx;
-  background-color: #F6F6F7;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #999999;
-  font-size: 28rpx;
 }
 
 .my_picker {
@@ -36,7 +33,7 @@
 
 .note {
   background-color: #F5F5F5;
-  padding: 46rpx 32rpx;
+  padding: 110rpx 32rpx;
 }
 
 .submit, .nobill {
@@ -44,10 +41,16 @@
   border-radius: 44rpx;
   margin-bottom: 30rpx;
   color: #ffffff;
+  font-weight: normal;
+}
+
+.nobill {
+  background-color: #ffffff;
+  color: #2875E1;
 }
 
 .submit {
-  background-color: blue;
+  background-color: #2875E1;
 }
 
 .note_text {
@@ -64,4 +67,19 @@
   border-radius: 50%;
   display: inline-block;
   margin-right: 10rpx;
+}
+
+.my_radio {
+  font-size: 30rpx;
+}
+
+.my_placeholder {
+  color: #999999;
+  font-size: 32rpx;
+}
+
+.my_input {
+  color: #333333;
+  font-size: 32rpx;
+  width: 99%;
 }

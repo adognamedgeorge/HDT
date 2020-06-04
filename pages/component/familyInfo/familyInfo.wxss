@@ -49,3 +49,8 @@
   padding: 18rpx 0;
   margin: 30rpx;  
 }
+.my_radio {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

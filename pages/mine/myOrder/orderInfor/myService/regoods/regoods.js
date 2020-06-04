@@ -21,10 +21,10 @@ Component({
     orderEntryPk: "",
     code: "",
     reasonCode: "",
-    amount: "",
     amountValue: "",
+    maxAmount: "",
     quantity: "",
-    quantityValue: "",
+    maxQuantity: "",
     description: "",
     reasonEnums: [],
     reasonIndex: 0,
@@ -57,10 +57,10 @@ Component({
             if (res.success) {
               that.setData({
                 reasonCode: res.datas.reasonCode,
-                amount: res.datas.amountValue,
-                amountValue: res.datas.amountValue,
+                amountValue: res.datas.amountValue.toFixed(2),
+                maxAmount: res.datas.maxAmount,
                 quantity: res.datas.quantity,
-                quantityValue: res.datas.quantity,
+                maxQuantity: res.datas.maxQuantity,
                 description: res.datas.description,
                 reasonEnums: res.datas.reasonEnums,
                 uploadImages: res.datas.uploadImages
@@ -97,11 +97,19 @@ Component({
 
     submitReturnPlace () {
       let that = this;
-      if(that.data.amount>that.data.amountValue){
+      if (that.data.amountValue == "" || !(/(^[0-9]+(.[0-9]{1,2})?$)/.test(that.data.amountValue))) {
+        util.toast("请输入正确的金额", false);
+        return;
+      }
+      if(that.data.amountValue>that.data.maxAmount){
         util.toast("超过最大退款金额", false);
         return;
       }
-      if(that.data.quantity>that.data.quantityValue){
+      if (that.data.quantity == "" || !(/(^\+?[1-9][0-9]*$)/.test(that.data.quantity))) {
+        util.toast("请输入正确的数量", false);
+        return;
+      }
+      if(that.data.quantity>that.data.maxQuantity){
         util.toast("超过最大退货数量", false);
         return;
       }
@@ -113,7 +121,7 @@ Component({
                       code: that.data.code,
                       type: "REPLACEMENT",
                       reasonCode: that.data.reasonCode,
-                      amount: that.data.amount,
+                      amount: that.data.amountValue,
                       quantity: that.data.quantity,
                       description: that.data.description,
                       uploadImages: that.data.uploadImages,

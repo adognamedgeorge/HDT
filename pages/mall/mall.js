@@ -47,6 +47,12 @@ Page({
       return pages
     }
   },
+  // 跳转领券页
+  bindToHomeCoupon () {
+    wx.navigateTo({
+      url: '../home/coupons/coupon'
+    })
+  },
 
   toSorts: function (e) {
     wx.navigateTo({

@@ -36,11 +36,11 @@ Component({
 
       formSubmit:function(e){
           let that = this;
-
+          var cellphoneReg = !/^[1][3,4,5,7,8][0-9]{9}$/.test(e.detail.value.cellphone);
           if(e.detail.value.firstName == ''){
               util.toast("请填写收件人");
-          }else if(e.detail.value.cellphone == ''){
-              util.toast("请填写手机号");
+          }else if(cellphoneReg){
+              util.toast("请填写正确格式的手机号");
           }else if(that.data.regionCode.length==0){
               util.toast("请选择地区");
           }else if(e.detail.value.line1 == ''){

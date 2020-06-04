@@ -1,0 +1,31 @@
+/* pages/component/invoice/invoice.wxss */
+.page {
+  min-height: 100vh;
+  background-color: #F5F5F5;
+}
+
+.title {
+  font-size: 34rpx;
+  padding: 28rpx 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #F5F5F5;
+}
+
+.note_text {
+  color: #666666;
+  font-size: 28rpx;
+}
+
+.mark {
+  width: 28rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+  border: 1px solid #666666;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10rpx;
+}

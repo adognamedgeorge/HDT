@@ -1,6 +1,6 @@
 <!--pages/component/goodsList/goodsList.wxml-->
 <view>
-  <view class="tabbar">
+  <view class="tabbar" wx:if="{{!noResult}}">
     <view wx:for="{{tabData}}" wx:key="index" bindtap="bindBar" data-idx="{{index}}" data-sort="{{item.code}}">
       <view class="{{index == navActive ? 'navActive' : ''}}">
         {{item.name}}
@@ -30,4 +30,6 @@
       </view>
     </view>
   </view>
+
+  <view wx:if="{{noResult}}" class="no_result">没有找到符合搜索条件的商品</view>
 </view>

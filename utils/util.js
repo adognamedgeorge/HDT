@@ -11,6 +11,14 @@ const formatTime = date => {
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 };
 
+const formatSpecTime = date => {
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+
+  return [year, month, day].map(formatNumber).join('-')
+};
+
 const formatNumber = n => {
   n = n.toString();
   return n[1] ? n : '0' + n
@@ -94,7 +102,7 @@ function weChatPayment(param, orderCode) {
     signType: param.signType,
     paySign: param.paySign,
     success: function (res) {
-      console.log(res);
+      //console.log(res);
       //校验支付状态，跳转到支付成功页面
       request(api.PaymentQueryUrl, {code : orderCode}, "POST",'application/x-www-form-urlencoded'
       ).then((res) => {
@@ -104,23 +112,44 @@ function weChatPayment(param, orderCode) {
             url: '/pages/component/paied/paied?code='+res.datas
           })
         }else{
-          //util.toast(res.msg, false);
-          //跳转到支付失败-订单列表页面
           wx.navigateTo({
             url: '/pages/mine/myOrder/myOrder'
           })
+          /*wx.showToast({
+            title: '支付失败',
+            icon: 'false',
+            duration: 1000,
+            mask: true,
+            success: function () {
+              //跳转到支付失败-订单列表页面
+              wx.navigateTo({
+                url: '/pages/mine/myOrder/myOrder'
+              })
+            }
+          });*/
         }
       });
     },
     fail: function (res) {
       //跳转到支付失败-订单列表页面
-      console.log(res);
       wx.navigateTo({
         url: '/pages/mine/myOrder/myOrder'
       })
+      /*wx.showToast({
+        title: '支付失败',
+        icon: 'false',
+        duration: 1000,
+        mask: true,
+        success: function () {
+          //跳转到支付失败-订单列表页面
+          wx.navigateTo({
+            url: '/pages/mine/myOrder/myOrder'
+          })
+        }
+      });*/
     },
     complete: function (res) {
-      console.log(res)
+      //console.log(res)
     }
   })
 }
@@ -152,6 +181,7 @@ function toast(msg,icon){
 }
 
 module.exports = {
+  formatSpecTime: formatSpecTime,
   formatTime: formatTime,
   request: request,
   login: login,

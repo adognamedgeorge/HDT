@@ -1,10 +1,10 @@
 <!--pages/goodsInfo/assess/assess.wxml-->
 <view>
-  <view style="margin-top: 150rpx;">
-    <view wx:for="{{detail.reviews}}" style="padding: 20rpx 30rpx;">
+  <view class="assess_wrap">
+    <view wx:for="{{detail.reviews}}" class="detail_reviews">
       <view class="title">
         <view class="title_lf">
-          <image style="width: 90rpx; height: 90rpx; border-radius: 50%; margin: auto;" src="{{item.customerImg}}" />
+          <image class="customer_img" src="{{item.customerImg}}" />
           <view style="margin-left: 20rpx;">
             <text style="display: block;">{{item.customerName}}</text>
             <view class="grade">
@@ -12,16 +12,16 @@
             </view>
           </view>
         </view>
-        <view>{{item.creationTime}}</view>
+        <view class="creation_time">{{item.creationTime}}</view>
       </view>
 
-      <view style="padding: 15rpx 50rpx; font-size: 29rpx;">{{item.comment}}</view>
+      <view class="comment">{{item.comment}}</view>
 
-      <view style="padding: 15rpx 50rpx;">
-        <image  wx:for="{{item.evaluatePictures}}" wx:for-item="evaluatePicture" src="{{imagePath+evaluatePicture}}" style="width: 130rpx; height: 130rpx;"/>
+      <view class="img_box">
+        <image  wx:for="{{item.evaluatePictures}}" wx:for-item="evaluatePicture" wx:key="index" wx:if="{{index<5}}" src="{{imagePath+evaluatePicture}}" class="assess_img"/>
       </view>
 
-      <view wx:if="{{item.reply != null}}" style="padding: 20rpx; font-size: 25rpx; background-color: #e6e6e6; border-radius: 20rpx;">
+      <view wx:if="{{item.reply != null}}" class="reply">
         商家回复：{{item.reply}}
       </view>
     </view>

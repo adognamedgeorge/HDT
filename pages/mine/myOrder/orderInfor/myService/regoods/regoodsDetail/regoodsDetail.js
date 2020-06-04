@@ -24,11 +24,6 @@ Component({
     returnRequestResult: {}
   },
 
-  ready: function () {
-    let that = this;
-    that.showReturnRequest();
-  },
-
   /**
    * 组件的方法列表
    */
@@ -38,6 +33,11 @@ Component({
       that.setData({
         code: options.code
       });
+    },
+
+    onShow: function () {
+      let that = this;
+      that.showReturnRequest();
     },
 
     //获取售后申请的信息

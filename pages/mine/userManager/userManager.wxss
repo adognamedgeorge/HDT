@@ -38,7 +38,7 @@
   width: 90% !important;
   border-radius: 44rpx;
   position: fixed;
-  bottom: 15rpx;
+  bottom: 64rpx;
   left: 0;
   right: 0;
   color: #ffffff;

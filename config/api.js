@@ -1,5 +1,11 @@
+// 正式
+// var HybrisApiUrl = "https://api.cx2k-custstate1-p1-public.model-t.ccv2prod.sapcloud.cn/zddsws/"; //sgp测试环境
+// var ImageUrl = "https://api.cx2k-custstate1-p1-public.model-t.ccv2prod.sapcloud.cn";//图片地址
+
+// 测试
 var HybrisApiUrl = "https://api.cx2k-custstate1-d1-public.model-t.ccv2prod.sapcloud.cn/zddsws/"; //sgp测试环境
 var ImageUrl = "https://api.cx2k-custstate1-d1-public.model-t.ccv2prod.sapcloud.cn";//图片地址
+
 //var HybrisApiUrl = "https://electronics.local:9002/zddswebservices/"; //sgp测试环境
 //var ImageUrl = "https://electronics.local:9002";//图片地址
 
@@ -55,7 +61,10 @@ module.exports = {
 
   //商城个人中心
   MyOrder: HybrisApiUrl + "miniprogram/b2c/order/myOrder",//我的订单
+  DeliveryInfo: HybrisApiUrl + "miniprogram/b2c/account/deliveryInfo",//物流列表
+  DeliveryInfoDetail: HybrisApiUrl + "miniprogram/b2c/account/deliveryInfoDetail",//物流详情
   MyOrderDetail: HybrisApiUrl + "miniprogram/b2c/order/myOrderDetail",//我的订单详情
+  AddOrderReviews: HybrisApiUrl + "miniprogram/b2c/order/addOrderReviews",//订单商品评论
   PersonCenter: HybrisApiUrl + "miniprogram/b2c/customer/returnCustomer",//个人中心
   EditCustomer:HybrisApiUrl + "miniprogram/b2c/customer/editCustomer",//编辑账号信息
   AddOrUpdateAddress:HybrisApiUrl + "miniprogram/b2c/account/addOrUpdateAddress",//添加或修改收货地址
@@ -66,6 +75,7 @@ module.exports = {
 
 
   //退货退款服务
+  AfterSaleServiceList: HybrisApiUrl + "miniprogram/b2c/afterSale/queryReturnRequests",//售后服务列表
   AfterSaleService: HybrisApiUrl + "miniprogram/b2c/afterSale/orderEntry",//申请售后服务
   SetReturnRequest: HybrisApiUrl + "miniprogram/b2c/afterSale/setReturnRequest",//填写售后申请服务
   UpdateReturnRequest: HybrisApiUrl + "miniprogram/b2c/afterSale/updateReturnRequest",//更新售后申请服务

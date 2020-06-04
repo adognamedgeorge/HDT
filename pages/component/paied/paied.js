@@ -60,7 +60,7 @@ Component({
         } else {
           //跳转到登录页面
           wx.navigateTo({
-            url: '/pages/login/login',
+            url: '/pages/login/login'
           });
         }
       }));
@@ -73,9 +73,9 @@ Component({
     },
 
     backHome () {
-      wx.navigateBack({
-        delta: 3
-      })
+      wx.switchTab({
+        url: '../../home/home'
+      });
     }
   }
 });

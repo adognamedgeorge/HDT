@@ -70,15 +70,15 @@
 
   <view class="flex_contact">
     <button open-type="contact" size="mini" class="btn_contact">
-      <image src="../../../../resources/img/customer.png" style="width: 60rpx; height: 60rpx;" />
-      <view style="font-size: 30rpx;">客服</view>
+      <image src="../../../../resources/img/customer.png" style="width: 32rpx; height: 32rpx;" />
+      <view style="font-size: 20rpx; color: #2D313A;">客服</view>
     </button>
-    <view style="position: relative; width: 20%;" bindtap="toCart">
+    <view class="to_cart" bindtap="toCart">
       <image src="../../../../resources/img/cart2.png" class="btm_cart" />
       <mp-badge wx:if="{{cartNum}}" content="{{cartNum}}" class="cart_badge"></mp-badge>
     </view>
-    <button size="mini" type="primary" class="btm_btn" bindtap="bindAddCart">加入购物车</button>
-    <button size="mini" type="warn" class="btm_btn" style="background-color: red;" data-code="{{detail.code}}" bindtap="toOrderConfirm">立即购买</button>
+    <button size="mini" type="" class="btm_btn" bindtap="bindAddCart">加入购物车</button>
+    <button size="mini" type="" class="btm_btn my_warn" data-code="{{detail.code}}" bindtap="toOrderConfirm">立即购买</button>
   </view>
 
   <!-- 弹窗 -->
@@ -95,7 +95,7 @@
           <image class="dialog_img" src="{{imagePath + detail.src}}" />
       </block>
       <block wx:else>
-          <image class="dialog_img" src="../../../resources/img/missing_product.jpg" />
+          <image class="dialog_img" src="../../../../resources/img/missing_product.jpg" />
       </block>
       <view style="padding: 32rpx; width: 60%;">
         <view class="rt_title">{{detail.name}}</view>

@@ -75,3 +75,11 @@
 .navActive {
   color: red;
 }
+
+.no_result {
+  height: 100vh;
+  text-align: center;
+  color: grey;
+  padding-top: 100rpx;
+  background-color: #F5F5F5;
+}

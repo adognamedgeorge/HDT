@@ -33,14 +33,16 @@ radio {
 .add_btn {
   position: fixed;
   bottom: 28rpx;
-  height: 80rpx;
+  /* height: 80rpx; */
   border-radius: 44rpx;
   color: #ffffff;
   background-color: #2875E1;
   left: 0;
   right: 0;
   width: 90% !important;
-  padding:8rpx 24rpx;
+  vertical-align: middle;
+  padding:20rpx 24rpx;
+
 }
 
 .radio_txt {

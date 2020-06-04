@@ -10,8 +10,8 @@
     </view>
   </view>
   <!-- 轮播 -->
-  <view>
-   <swiper indicator-dots autoplay interval="2000" duration="500" circular>
+  <view style="height: 372rpx; overflow:hidden;">
+   <swiper style="height: 372rpx;" indicator-dots autoplay interval="2000" duration="500" circular>
     <block wx:for="{{banner}}" wx:key="*this">
       <swiper-item>
         <view class="swiper_item">
@@ -32,7 +32,7 @@
   </view>
   <!-- 新零售等大类目 -->
   <view class="sort_box">
-    <view class="sort" wx:for="{{plateData}}" wx:key="index">
+    <view class="sort" wx:for="{{plateData}}" wx:key="index" bindtap="bindToItem" data-idx="{{index}}">
       <view class="sort_content">
         <view class="sort_title">
           <text class="lf_title">{{item.name}}</text>

@@ -1,20 +1,24 @@
 /* pages/component/search/search.wxss */
 .wrap {
-  background-color: rgb(240, 227, 227);
+  background-color: #F5F6F7;
   height: 40rpx;
   line-height: 40rpx;
   display: flex;
-  border: 1px solid lightgrey;
-  border-radius: 10rpx;
-  width: 90%;
+  border-radius: 36rpx;
+  width: 86%;
   margin: 0 auto;
-  font-size: 30rpx;
+  font-size: 28rpx;
   align-items: center;
-  padding: 10rpx;
+  padding: 16rpx 0 16rpx 50rpx;
+  color: #999999;
 }
 
 .wrap_img {
   width: 50rpx;
   height: 50rpx;
   margin: 0 30rpx;
+}
+
+.wrap_input {
+  width: 90%;
 }

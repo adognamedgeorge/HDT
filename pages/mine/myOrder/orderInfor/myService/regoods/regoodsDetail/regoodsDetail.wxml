@@ -1,7 +1,7 @@
 <view>
   <view class="top">
-    <text>售后申请{{returnRequestResult.statusDes}}</text>
-    <image class="top_img" src="../../../../../../../resources/img/backDetail.png" />
+    <text class="top_text">售后申请{{returnRequestResult.statusDes}}</text>
+    <image class="top_img" src="../../../../../../../resources/img/retail.png" />
   </view>
 
   <block wx:for="{{returnRequestResult.entries}}" wx:key="index">

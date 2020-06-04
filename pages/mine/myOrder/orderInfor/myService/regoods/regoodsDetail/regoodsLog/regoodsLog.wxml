@@ -1,13 +1,13 @@
-<!--pages/mine/myOrder/orderInfor/myService/regoods/regoodsDetail/regoodsLog/regoodsLog.wxml-->
-<view>
+<view style="background-color: #F5F5F5;">
   <mp-cells>
-    <mp-cell title="物流单号">
-      <input slot="footer" placeholder="请输入物流单号" />
+    <mp-cell title="物流单号" ext-class="my_cell">
+      <input slot="footer" placeholder="请输入物流单号" model:value="{{trackingId}}"/>
     </mp-cell>
-    <mp-cell title="物流公司" link hover>
+    <mp-cell title="物流公司" link hover ext-class="my_cell">
       <picker slot="footer" bindchange="bindPickerChange" value="{{carrierIndex}}" range="{{carrierEnum}}" range-key="name">
         <view class="picker">{{carrierEnum[carrierIndex].name}}</view>
       </picker>
     </mp-cell>
   </mp-cells>
+  <button class="my_btn" bindtap="saveLogistics">确定</button>
 </view>

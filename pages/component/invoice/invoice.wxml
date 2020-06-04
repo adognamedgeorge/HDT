@@ -1,0 +1,17 @@
+<!--pages/component/invoice/invoice.wxml-->
+<view class="page">
+  <view class="title">
+    <text>发票状态</text>
+    <text style="font-size: 32rpx; color: #E02020;">已开票</text>
+  </view>
+
+  <view>content</view>
+
+  <view class="note_text">
+      <view> <view class="mark">!</view>发票须知：</view>
+      <view>
+        <view>1.开票金额为用户实际支付金额(不含优惠金额)</view>
+        <text>2.电子发票将在确认收货7天后开具（每月27日至31日不开票）</text>
+      </view>
+  </view>
+</view>

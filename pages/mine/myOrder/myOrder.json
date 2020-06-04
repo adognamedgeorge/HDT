@@ -1,6 +1,8 @@
 {
   "component": true,
-  "usingComponents": {},
+  "usingComponents": {
+    "mp-dialog": "../../../resources/weui/dialog/dialog"
+  },
   "onReachBottomDistance":50,
   "enablePullDownRefresh":true,
   "navigationBarTitleText": "我的订单"

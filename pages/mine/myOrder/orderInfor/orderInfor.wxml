@@ -1,15 +1,15 @@
 <view class="page">
   <view class="infor_top">
-    <view>
-      <view>{{orderDetail.statusDes}}</view>
+    <view class="infor_content">
+      <view style="font-size: 32rpx;">{{orderDetail.statusDes}}</view>
       <block wx:if="{{orderDetail.status=='CREATED'}}">
-          <view>还剩{{timeToCancel}}自动取消认</view>
+          <view>还剩{{timeToCancel}}自动取消</view>
       </block>
       <block wx:if="{{orderDetail.status=='DELIVERED'}}">
           <view>还剩{{timeToDelivered}}自动确认</view>
       </block>
     </view>
-    <image class="infor_img" src="../../../../resources/img/shopping-bag2.png" />
+    <image class="infor_img" src="../../../../resources/img/orderInfor.png" />
   </view>
 
   <view class="buyer">
@@ -21,14 +21,14 @@
   </view>
 
   <view>
-    <mp-cell class="my_cell" title="商品信息" link></mp-cell>
+    <mp-cell class="my_cell" title="商品信息"></mp-cell>
     <view class="goods_wrap">
       <view class="goods" wx:for="{{orderDetail.entries}}" wx:key="index" wx:for-item="entry">
         <block wx:if="{{entry.productImage}}">
-              <image class="img_lf" src="{{imagePath + entry.productImage}}" />
+              <image data-code="{{entry.productCode}}" bindtap="orderInformation" class="img_lf" src="{{imagePath + entry.productImage}}" />
         </block>
         <block wx:else>
-              <image class="img_lf" src="../../../../resources/img/missing_product.jpg" />
+              <image data-code="{{entry.productCode}}" bindtap="orderInformation" class="img_lf" src="../../../../resources/img/missing_product.jpg" />
         </block>
         <view class="content_rt">
           <view class="rt_top">
@@ -42,7 +42,7 @@
                 <button size="mini" class="my_btn" bindtap="bindToAddServe" data-pk="{{entry.pk}}">申请售后</button>
             </block>
              <block wx:if="{{entry.returnRequest}}">
-                <button size="mini" class="my_btn" bindtap="bindToShowServe" data-returnCode="{{entry.returnRequest}}" data-type="{{entry.returnRequestType}}">查看售后</button>
+                <button size="mini" class="my_btn" bindtap="bindToShowServe" data-returncode="{{entry.returnRequest}}" data-type="{{entry.returnRequestType}}">查看售后</button>
             </block>
           </view>
         </view>
@@ -73,30 +73,35 @@
     </mp-cells>
   </view>
 
-  <view class="pay">
+  <view class="content_btm">
+    <view class="btm_price">
       <block wx:if="{{orderDetail.status=='CREATED'||orderDetail.status=='CANCELLED'}}">
-          <text>待付金额：{{orderDetail.totalPrice}}</text>
+            <text>待付金额：</text>
       </block>
-       <block wx:else>
-          <text>实付金额：{{orderDetail.totalPrice}}</text>
-       </block>
-      <view>
-          <block wx:if="{{orderDetail.status=='CREATED'}}">
-               <button class="my_btn" size="mini" bindtap="toCancelOrder">取消订单</button>
-               <button class="my_btn btm_btn" size="mini" bindtap="toPaid">立即付款</button>
+        <block wx:else>
+            <text>实付金额：</text>
+        </block>
+        <text style="color: #FF3C3C; font-size: 40rpx;">{{orderDetail.totalPrice}}</text>
+    </view>
+    <view class="btn_box">
+        <block wx:if="{{orderDetail.status=='CREATED'}}">
+              <button class="my_btn" size="mini" bindtap="toCancelOrder">取消订单</button>
+              <button class="my_btn btm_btn" size="mini" bindtap="toPaid">立即付款</button>
+        </block>
+        <block wx:if="{{orderDetail.status=='DELIVERED'||orderDetail.status=='RECEIVED'||orderDetail.status=='COMPLETED'}}">
+              <button class="my_btn" size="mini" bindtap="toLogistics">查看物流</button>
+        </block>
+          <block wx:if="{{orderDetail.status=='PAID'||orderDetail.status=='DELIVERED'||orderDetail.status=='RECEIVED'||orderDetail.status=='COMPLETED'}}">
+              <button class="my_btn" size="mini" bindtap="toInvoice">查看发票</button>
           </block>
-          <block wx:if="{{orderDetail.status=='DELIVERED'||orderDetail.status=='RECEIVED'||orderDetail.status=='COMPLETED'}}">
-               <button class="my_btn" size="mini" bindtap="toLogistics">查看物流</button>
+        <block wx:if="{{orderDetail.status=='DELIVERED'}}">
+              <button class="my_btn btm_btn" size="mini" bindtap="toDelivered">确认收货</button>
+              <mp-dialog ext-class="my_dialog" title="确认收货？" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+              </mp-dialog>
+        </block>
+        <block wx:if="{{orderDetail.status=='RECEIVED'}}">
+              <button class="my_btn btm_btn" size="mini" bindtap="toReceived" data-code="{{orderDetail.code}}">评价</button>
           </block>
-           <block wx:if="{{orderDetail.status=='PAID'||orderDetail.status=='DELIVERED'||orderDetail.status=='RECEIVED'||orderDetail.status=='COMPLETED'}}">
-                <button class="my_btn" size="mini" bindtap="toInvoice">查看发票</button>
-           </block>
-          <block wx:if="{{orderDetail.status=='DELIVERED'}}">
-               <button class="my_btn btm_btn" size="mini" bindtap="toDelivered">确认收货</button>
-          </block>
-          <block wx:if="{{orderDetail.status=='RECEIVED'}}">
-                <button class="my_btn btm_btn" size="mini" bindtap="toReceived">评价</button>
-           </block>
-      </view>
+    </view>
   </view>
 </view>

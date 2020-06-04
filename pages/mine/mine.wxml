@@ -17,8 +17,8 @@
     <button hidden open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权绑定手机号
     </button> -->
       <view class="user_photo" bindtap="toUserManager">
-        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <view>
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover" />
+        <view style="width: 70%;">
           <text class="userinfo-nickname" style="font-size: 40rpx; color: #2D313A;">{{userInfo.nickName}}</text>
           <view style="font-size: 34rpx; color: #2D313A;">{{phone}}</view>
         </view>
@@ -55,4 +55,5 @@
       <mp-icon slot="icon" icon="group-detail" size="{{17}}" color="orange" class="cell_img"></mp-icon>
     </mp-cell>
   </mp-cells>
+  
 </view>

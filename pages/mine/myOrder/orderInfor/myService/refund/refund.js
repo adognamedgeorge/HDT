@@ -21,8 +21,8 @@ Component({
     orderEntryPk: "",
     code: "",
     reasonCode: "",
-    amount: "",
     amountValue: "",
+    maxAmount: "",
     description: "",
     reasonEnums: [],
     reasonIndex: 0,
@@ -55,8 +55,8 @@ Component({
             if (res.success) {
               that.setData({
                 reasonCode: res.datas.reasonCode,
-                amount: res.datas.amountValue,
-                amountValue: res.datas.amountValue,
+                amountValue: res.datas.amountValue.toFixed(2),
+                maxAmount: res.datas.maxAmount,
                 description: res.datas.description,
                 reasonEnums: res.datas.reasonEnums,
                 uploadImages: res.datas.uploadImages
@@ -93,7 +93,11 @@ Component({
 
     submitRefund () {
       let that = this;
-      if(that.data.amount>that.data.amountValue){
+      if (this.data.amountValue == "" || !(/(^[0-9]+(.[0-9]{1,2})?$)/.test(this.data.amountValue))) {
+        util.toast("请输入正确的金额", false);
+        return;
+      }
+      if(that.data.amountValue>that.data.maxAmount){
         util.toast("超过最大退款金额", false);
         return;
       }
@@ -105,7 +109,7 @@ Component({
                       code: that.data.code,
                       type: "REFUND",
                       reasonCode: that.data.reasonCode,
-                      amount: that.data.amount,
+                      amount: that.data.amountValue,
                       description: that.data.description,
                       uploadImages: that.data.uploadImages,
                     },

@@ -9,3 +9,43 @@
   display: flex;
   justify-content: space-between;
 }
+
+.creation_time {
+  font-size: 22rpx;
+  color: #868A92;
+}
+
+.assess_wrap {
+  color: #2D313A;
+  font-size: 28rpx;
+  margin-top: 122rpx;
+}
+
+.detail_reviews {
+  padding: 32rpx 24rpx;
+}
+
+.comment, .img_box {
+  padding: 16rpx 110rpx;
+}
+
+.assess_img {
+  width: 144rpx;
+  height: 144rpx;
+  margin: 4rpx;
+}
+
+.customer_img {
+  width: 68rpx; 
+  height: 68rpx; 
+  border-radius: 50%; 
+  margin: auto;
+}
+
+.reply {
+  padding: 16rpx 90rpx; 
+  font-size: 24rpx; 
+  background-color: #FBFBFB; 
+  border-radius: 8rpx;
+  color: #868A92 ;
+}

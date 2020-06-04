@@ -40,6 +40,7 @@
 
 .slider_program {
   background: white;
+  margin-top: 23rpx;
 }
 
 .log_program {

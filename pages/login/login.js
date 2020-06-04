@@ -31,6 +31,9 @@ Page({
       })
     }else{
       wx.hideLoading();
+      wx.switchTab({
+        url: '../home/home'
+      })
     }
   },
   phoneInput(e){

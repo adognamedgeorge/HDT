@@ -1,4 +1,8 @@
 /* pages/mine/mine.wxss */
+.page {
+  background-color: #F5F5F5;
+  min-height: 100vh;
+}
 .userinfo, .user_photo {
   display: flex;
   align-items: center;
@@ -7,6 +11,7 @@
 
 .userinfo {
   padding: 20rpx 30rpx;
+  background-color: #ffffff;
 }
 
 .userinfo-avatar {
@@ -17,7 +22,8 @@
 }
 
 .myBuy {
-  border-bottom: 20rpx solid #e6e6e6;
+  margin-bottom: 20rpx;
+  background-color: #ffffff;
 }
 
 .buy_title, .weui-cells__title {
@@ -35,10 +41,12 @@
 }
 
 .my_cells {
-  border-bottom: 20rpx solid #e6e6e6;
+  margin-bottom: 20rpx;
   color: #2D313A;
   font-size: 32rpx;
+  background-color: #ffffff;
 }
+
 
 .img1 {
   width: 64rpx;

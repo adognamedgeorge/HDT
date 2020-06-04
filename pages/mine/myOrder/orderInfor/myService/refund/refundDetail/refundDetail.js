@@ -17,6 +17,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    imagePath: api.ImageUrl,
     code: "",
     orderEntryPk: "",
     status: "",

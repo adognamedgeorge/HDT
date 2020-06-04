@@ -44,9 +44,11 @@
 }
 
 .my_btn {
-  height: 88rpx;
+  /* height: 88rpx; */
   width: 90% !important;
   color: #BEC2CB;
   font-size: 32rpx;
   border-radius: 200rpx;
+  vertical-align: middle;
+  padding: 21rpx 24rpx;
 }

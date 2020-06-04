@@ -121,9 +121,7 @@ Component({
                 'application/x-www-form-urlencoded'
             ).then(function (res) {
                 if (res.success) {
-                    wx.navigateTo({
-                        url: '../myAddress/myAddress?source='+that.data.source+"&selectId="+that.data.selectId
-                    })
+                    that.onShow();
                 } else {
                     util.toast("收货地址删除失败");
                 }

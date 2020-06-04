@@ -2,25 +2,23 @@
 <view class="page">
   <view class="my_cells">
     <mp-cells>
-      <mp-cell title="运单号" footer="37948798475"></mp-cell>
-      <mp-cell title="物流公司" footer="中通快递"></mp-cell>
+      <mp-cell title="运单号" footer="{{logisticsNumber}}"></mp-cell>
+      <mp-cell title="物流公司" footer="{{carrierName}}"></mp-cell>
     </mp-cells>
   </view>
 
-  <view class="imgs">
-    <view class="imgs_box">
-      <image class="my_img" src="../../../../../../resources/img/a.png" />
-      <image class="my_img" src="../../../../../../resources/img/a.png" />
-      <image class="my_img" src="../../../../../../resources/img/a.png" />
+  <!-- <view class="imgs">
+    <view class="imgs_box" wx:for="{{images}}">
+      <image class="my_img" src="{{imagePath+item}}" />
     </view>
-  </view>
+  </view> -->
 
   <view class="slider_program">
 
     <view class="log_program">
       <view class="width_limit {{index == logDetailData.length -1 ? 'no_border' : ''}}" wx:for="{{logDetailData}}" wx:key="index">
-        <view class="{{index == 0 ? 'navActive' : ''}}">您的包裹已到「{{item.add}}」已到达</view>
-        <text class="log_txt">{{item.date}}</text>
+        <view class="{{index == 0 ? 'navActive' : ''}}">{{item.context}}</view>
+        <text class="log_txt">{{item.time}}</text>
         <mp-icon icon="done2" type="field" color="#F62525" style="position: absolute; top: 0; left: -20rpx;"></mp-icon>
       </view>
     </view>

@@ -5,17 +5,27 @@
 }
 
 .infor_top {
-  padding: 52rpx 32rpx;
-  background-image:  linear-gradient(90deg, #EF556B 0%, #D9444F 100%);
+  height: 194rpx;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.infor_content {
+  position: absolute;
+  z-index: 999;
+  margin-left: 32rpx;
 }
 
 .infor_img {
-  width: 100rpx;
-  height: 100rpx;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .buyer {
@@ -104,11 +114,28 @@
   color: #E02020;
 }
 
+.btn_box {
+  display: flex; 
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 20rpx;
+}
+.content_btm {
+  padding: 18rpx 30rpx;
+}
+.btm_price {
+  text-align: right;
+}
+
 .pay {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 36rpx 32rpx;
+  padding: 36rpx 2rpx;
   font-size: 28rpx;
   color: #FF3C3C;
+}
+
+.weui-dialog {
+  width: 90% !important;
 }

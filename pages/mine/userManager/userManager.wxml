@@ -30,7 +30,7 @@
         </view>
       </mp-cell>
       <mp-cell title="生日" link hover>
-        <picker name="birthday" mode="date" value="{{birthday}}" start="1900-01-01" end="2020-12-31" bindchange="bindDateChange">
+        <picker name="birthday" mode="date" value="{{birthday}}" start="1900-01-01" end="2020-12-31" bindchange="bindDateChange" style="color:#999999;">
           <view class="picker">
             {{birthday}}
           </view>

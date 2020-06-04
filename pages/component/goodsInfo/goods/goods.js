@@ -24,13 +24,13 @@ Component({
         price: 320,
         content: [
           {
-            imgSrc: '../../../../resources/img/a.jpg',
+            imgSrc: '../../../../resources/img/missing_product.jpg',
             name: '九阳豆浆机',
             price: 320,
             delprice: 999
           },
           {
-            imgSrc: '../../../../resources/img/b.png',
+            imgSrc: '../../../../resources/img/missing_product.jpg',
             name: '十阳豆浆机',
             price: 420,
             delprice: 699
@@ -42,13 +42,13 @@ Component({
         price: 320,
         content: [
           {
-            imgSrc: '../../../../resources/img/a.jpg',
+            imgSrc: '../../../../resources/img/missing_product.jpg',
             name: '九阳豆浆机',
             price: 320,
             delprice: 999
           },
           {
-            imgSrc: '../../../../resources/img/b.png',
+            imgSrc: '../../../../resources/img/missing_product.jpg',
             name: '十阳豆浆机',
             price: 420,
             delprice: 699
@@ -60,13 +60,13 @@ Component({
         price: 320,
         content: [
           {
-            imgSrc: '../../../../resources/img/a.jpg',
+            imgSrc: '../../../../resources/img/missing_product.jpg',
             name: '九阳豆浆机',
             price: 320,
             delprice: 999
           },
           {
-            imgSrc: '../../../../resources/img/b.png',
+            imgSrc: '../../../../resources/img/missing_product.jpg',
             name: '十阳豆浆机',
             price: 420,
             delprice: 699
@@ -78,13 +78,13 @@ Component({
         price: 320,
         content: [
           {
-            imgSrc: '../../../../resources/img/a.jpg',
+            imgSrc: '../../../../resources/img/missing_product.jpg',
             name: '九阳豆浆机',
             price: 320,
             delprice: 999
           },
           {
-            imgSrc: '../../../../resources/img/b.png',
+            imgSrc: '../../../../resources/img/missing_product.jpg',
             name: '十阳豆浆机',
             price: 420,
             delprice: 699

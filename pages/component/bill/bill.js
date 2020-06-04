@@ -25,8 +25,8 @@ Component({
     invoiceTypeIndex: 0,
     invoiceType: "GENERAL",
     invoiceTitleItems: [
-      {name: '企业单位', value: 'COMPANY'},
-      {name: '个人/非企业单位', value: 'PERSONAL'},
+      {name: '个人', value: 'PERSONAL'},
+      {name: '企业', value: 'COMPANY'}
     ],
     invoiceTitleIndex: 1,
     invoiceTitle: "PERSONAL",
@@ -39,7 +39,16 @@ Component({
     address: "",
     bank: "",
     account: "",
-    phoneNumber: ""
+    phoneNumber: "",
+    companyArr: [
+      {title: '*发票抬头', holder: '填写发票抬头', value: '', id: 'corporateName'},
+      {title: '*发票税号', holder: '纳税人识别号', value: '', id: 'number'},
+      {title: '*发票内容', holder: '商品明细', value: '', id: 'content'},
+      {title: '*单位地址', holder: '填写单位地址', value: '', id: 'address'},
+      {title: '*电话号码', holder: '填写电话号码', value: '', id: 'corporatePhone'},
+      {title: '*开户银行', holder: '填写开户银行', value: '', id: 'bank'},
+      {title: '*银行账号', holder: '填写银行账户', value: '', id: 'account'}
+    ]
   },
 
   ready: function () {
@@ -74,6 +83,7 @@ Component({
                 phoneNumber: res.datas.phoneNumber
               })
             }
+
             //发票类型默认选择
             for(let i = 0;i<that.data.invoiceTypeItems.length;i++){
               let item =  that.data.invoiceTypeItems[i];
@@ -130,11 +140,58 @@ Component({
     // 提交发票申请
     commitInvoice (event) {
       let that = this;
+      let invoiceTypes;
+      //数据必填校验
+      if(that.data.invoiceTitle==="PERSONAL"){
+        invoiceTypes = "GENERAL";
+        if(that.data.personalName.replace(/\s*/g,"").length===0){
+          util.toast("请填写发票抬头", false);
+          return;
+        }
+        if(that.data.content.replace(/\s*/g,"").length===0){
+          util.toast("请填写发票内容", false);
+          return;
+        }
+      }else if(that.data.invoiceTitle==="COMPANY"){
+        invoiceTypes = that.data.invoiceType;
+        if(that.data.corporateName.replace(/\s*/g,"").length===0){
+          util.toast("请填写发票抬头", false);
+          return;
+        }
+        if(that.data.number.replace(/\s*/g,"").length===0){
+          util.toast("请填写纳税人识别号", false);
+          return;
+        }
+        if(that.data.content.replace(/\s*/g,"").length===0){
+          util.toast("请填写发票内容", false);
+          return;
+        }
+        if(that.data.address.replace(/\s*/g,"").length===0){
+          util.toast("请填写单位地址", false);
+          return;
+        }
+        if(that.data.corporatePhone.replace(/\s*/g,"").length===0){
+          util.toast("请填写电话号码", false);
+          return;
+        }
+        if(that.data.bank.replace(/\s*/g,"").length===0){
+          util.toast("请填写开户银行", false);
+          return;
+        }
+        if(that.data.account.replace(/\s*/g,"").length===0){
+          util.toast("请填写银行账户", false);
+          return;
+        }
+      }
+      if(that.data.phoneNumber.replace(/\s*/g,"").length===0){
+        util.toast("请填写收票人手机", false);
+        return;
+      }
       user.checkLogin().then((function (res) {
         if (res) {
           util.request(api.CheckoutCommitInvoiceUrl,
               {
-                invoiceType: that.data.invoiceType,
+                invoiceType: invoiceTypes,
                 invoiceTitle: that.data.invoiceTitle,
                 content: that.data.content,
                 personalName: that.data.personalName,

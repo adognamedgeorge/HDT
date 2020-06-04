@@ -24,6 +24,38 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    let that = this;
+    user.checkLogin().then((function (res) {
+      if (res) {
+        //登陆成功的情况下获取账户信息
+        util.request(api.PersonCenter,
+            {
+            },
+            'GET',
+            'application/x-www-form-urlencoded'
+        ).then((function (res) {
+          if(res.success){
+            var wxPicture = res.customerDate.wxPicture;
+            if (wxPicture == '' || typeof(wxPicture) == 'undefined') {
+              wxPicture = '../../resources/img/black.jpeg';
+            }
+            that.setData({
+              ['userInfo.avatarUrl']: wxPicture,
+              ['userInfo.nickName']: res.customerDate.name,
+              phone:res.customerDate.phone
+            });
+          }else{
+            console.log(res.msg);
+          }
+        }));
+      } else {
+        //跳转到登录页面
+        wx.navigateTo({
+          url: '/pages/login/login',
+        });
+      }
+    }));
     // if (app.globalData.userInfo) {
     //   this.setData({
     //     userInfo: app.globalData.userInfo,
@@ -125,7 +157,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function (options) {
     let that = this;
     user.checkLogin().then((function (res) {
       if (res) {
@@ -136,6 +168,7 @@ Page({
             'GET',
             'application/x-www-form-urlencoded'
         ).then((function (res) {
+          console.log(res)
           if(res.success){
             var wxPicture = res.customerDate.wxPicture;
             if (wxPicture == '' || typeof(wxPicture) == 'undefined') {
@@ -151,10 +184,7 @@ Page({
           }
         }));
       } else {
-        //跳转到登录页面
-        wx.navigateTo({
-          url: '/pages/login/login',
-        });
+        console.log(res)
       }
     }));
   },

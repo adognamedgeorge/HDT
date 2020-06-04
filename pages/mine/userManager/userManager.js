@@ -93,8 +93,13 @@ Component({
     ).then((function (res) {
       if(res.success){
         var wxPicture = res.customerDate.wxPicture;
+        var time = util.formatSpecTime(new Date());
+        var bir = res.customerDate.birthday;
         if (wxPicture == '' || typeof(wxPicture) == 'undefined') {
           wxPicture = '../../../resources/img/black.jpeg';
+        }
+        if(bir == '' || typeof(bir) == 'undefined'){
+          bir = time;
         }
         that.setData({
           userImg: wxPicture,
@@ -102,7 +107,7 @@ Component({
           realName: res.customerDate.realName,
           phone: res.customerDate.phone,
           male: res.customerDate.gender,
-          birthday: res.customerDate.birthday
+          birthday: bir
         });
       }else{
         console.log(res.msg);

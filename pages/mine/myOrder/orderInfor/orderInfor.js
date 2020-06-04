@@ -25,6 +25,8 @@ Component({
     timeToDelivered: "",
     paidDeadline: null,
     deliveredDeadline: null,
+    buttons: [{text: '取消'}, {text: '确认'}],
+    dialogShow: false
   },
 
   /**
@@ -149,12 +151,12 @@ Component({
       if(type == "REFUND"){
         //退款申请详情页面
         wx.navigateTo({
-          url: './myService/refund/refundDetail/refundDetail?code='+event.currentTarget.dataset.returnCode
+          url: './myService/refund/refundDetail/refundDetail?code='+event.currentTarget.dataset.returncode
         })
       }else if(type == "REPLACEMENT"){
         //退款退货申请详情页面
         wx.navigateTo({
-          url: './myService/regoods/regoodsDetail/regoodsDetail?code='+event.currentTarget.dataset.returnCode
+          url: './myService/regoods/regoodsDetail/regoodsDetail?code='+event.currentTarget.dataset.returncode
         })
       }
     },
@@ -167,32 +169,47 @@ Component({
     },
 
     //跳转订单评价
-    toReceived () {
+    toReceived (event) {
       wx.navigateTo({
-        url: './evaluate/evaluate'
+        url: './evaluate/evaluate?code='+event.currentTarget.dataset.code
       })
+    },
+
+    //跳转商品详情页
+    orderInformation(event){
+      wx.navigateTo({
+        url: '/pages/component/goodsInfo/goodsInfo?code='+event.currentTarget.dataset.code
+      });
     },
 
     //取消订单
     toCancelOrder (event) {
-      util.toast("toCancelOrder");
+      
     },
 
     //立即付款
     toPaid (event) {
       //根据支付方式判断唤起哪种支付
-      util.toast("toPaid");
+      
     },
 
     //查看发票
     toInvoice (event) {
-      util.toast("toInvoice");
+      
     },
 
     //确认收货
     toDelivered (event) {
-      util.toast("toDelivered");
+      this.setData({
+        dialogShow: true
+      })
     },
+
+    tapDialogButton (e) {
+      this.setData({
+        dialogShow: false
+      })
+    }
   },
 
   /*组件生命周期*/

@@ -1,7 +1,7 @@
 /* pages/cart/cart.wxss */
 .page {
   background-color: #EEEEEE;
-  padding: 20rpx;
+  padding: 4rpx 20rpx 410rpx 20rpx;
 }
 
 .check_box {

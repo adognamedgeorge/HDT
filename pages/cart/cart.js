@@ -105,6 +105,13 @@ Page({
     }));
   },
 
+  //跳转到商品详情
+  gotoProductDetail(event){
+    wx.navigateTo({
+      url: '/pages/component/goodsInfo/goodsInfo?code='+event.currentTarget.dataset.code
+    })
+  },
+
   //跳转到结算页面
   gotoCheckout(event){
     wx.navigateTo({

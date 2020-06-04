@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "mp-icon": "../../../resources/weui/icon/icon"
+  },
   "navigationBarTitleText": "搜索"
 }

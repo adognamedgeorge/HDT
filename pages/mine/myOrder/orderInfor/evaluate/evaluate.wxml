@@ -1,13 +1,13 @@
 <!--pages/mine/myOrder/orderInfor/evaluate/evaluate.wxml-->
 <view class="page">
-  <view class="evaluate_box">
+  <view wx:for="{{orderDetail.entries}}" wx:key="index" class="evaluate_box" style="margin-bottom: 24rpx;">
     <view class="eva_top">
-      <image class="top_img" src="../../../../../resources/img/a.png" />
-      <view class="top_txt">方太油烟机EGM油烟机方太油烟机EGM油烟机方太油烟机EGM油烟机方太油烟机EGM油烟机方太油烟机EGM油烟机方太油烟机EGM油烟机方太油烟机EGM油烟机</view>
+      <image class="top_img" src="{{imagePath+item.productImage}}" />
+      <view class="top_txt">{{item.productName}}</view>
     </view>
 
     <view class="eva_mid">
-      <textarea value="" placeholder-style="font-size: 28rpx; color: #868A92;" placeholder="请输入您的评论" auto-height></textarea>
+      <textarea  bindinput="commentInput" data-item="{{item.entryNumber}}" value="{{item.comment}}" placeholder-style="font-size: 28rpx; color: #868A92;" placeholder="请输入您的评论" auto-height></textarea>
 
       <mp-uploader max-count="5" tips="上传买家秀" title="" upload="{{uploadFile}}" files="{{files}}" select="{{selectFile}}" bindfail="uploadError" bindSuccess="uploadSuccess" ext-class="my_uploader"></mp-uploader>
     </view>
@@ -16,19 +16,19 @@
       <view style="padding: 14rpx;">
         <text>商品评分</text>
         <view class="stars">
-          <mp-icon icon="star" size="{{20}}" type="field" color="{{starColor}}" bindtap="changeColor"></mp-icon>
-          <mp-icon icon="star" size="{{20}}" type="field" color="orange"></mp-icon>
+          <mp-icon wx:for="{{item.productRating}}"  wx:key="index" wx:for-item="rating" icon="star" size="{{20}}" type="field" color="orange" bindtap="changeProductRating"  data-num="{{index+1}}" data-item="{{item.entryNumber}}"></mp-icon>
+          <mp-icon wx:for="{{5-item.productRating}}"  wx:key="index" wx:for-item="rating" icon="star" size="{{20}}" type="field" color="#EBEBEB" bindtap="changeProductRating"  data-num="{{item.productRating+index+1}}" data-item="{{item.entryNumber}}"></mp-icon>
         </view>
       </view>
 
       <view style="padding: 14rpx;">
         <text>物流服务</text>
         <view class="stars">
-          <mp-icon icon="star" size="{{20}}" type="field" color="orange"></mp-icon>
+          <mp-icon wx:for="{{item.logisticsRating}}"  wx:key="index" wx:for-item="rating" icon="star" size="{{20}}" type="field" color="orange" bindtap="changeLogisticsRating"  data-num="{{index+1}}" data-item="{{item.entryNumber}}"></mp-icon>
+          <mp-icon wx:for="{{5-item.logisticsRating}}"  wx:key="index" wx:for-item="rating" icon="star" size="{{20}}" type="field" color="#EBEBEB" bindtap="changeLogisticsRating"  data-num="{{item.logisticsRating+index+1}}" data-item="{{item.entryNumber}}"></mp-icon>
         </view>
       </view>
     </view>
-
   </view>
-  <button type="" class="my_btn">提交评价</button>
+  <button type="" class="my_btn"  bindtap="addOrderReviews">提交评价</button>
 </view>

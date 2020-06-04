@@ -23,8 +23,8 @@
     </swiper>
   </view>
   <!-- 优惠券 -->
-  <view class="coupon">
-    优惠券
+  <view class="coupon" bindtap="bindToHomeCoupon">
+    <image class="coupon_img" src="../../resources/img/get_coupon.png" />
   </view>
   <!-- 商品类别 -->
   <view class="goods">
@@ -90,7 +90,7 @@
         <view class="recontent_text">{{item.name}}</view>
         <view class="re_price">
             <text class="price">{{item.actualPrice}}</text>
-            <text class="del_price">{{item.linePrice}}</text>
+            <!-- <text class="del_price">{{item.linePrice}}</text> -->
          </view>
       </view>
     </view>

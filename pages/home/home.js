@@ -115,6 +115,26 @@ Page({
       })
     }
   },
+  bindToItem(e){
+    console.log(e)
+    switch(e.currentTarget.dataset.idx){
+      case 0:
+        wx.switchTab({
+          url:'../mall/mall'
+        });
+        break;
+       case 1:
+        wx.navigateTo({
+          // url:'../mall/sorts/sorts'
+        });
+        break;
+       case 2:
+        wx.navigateTo({
+          // url:'../mall/sets/sets'
+        });
+        break;
+    }
+  },
   toProductList(e) {
     wx.navigateTo({
       url: "../component/goodsList/goodsList?sort=salesVolume-desc"
@@ -158,6 +178,7 @@ Page({
   //获取栏位横幅
   getPlateData: function (){
     let that = this;
+    var itemUrl = "";
     //查询栏位横幅
     util.request(api.PlateUrl, {}, "GET").then(function (res) {
       if (res.success) {
@@ -176,6 +197,7 @@ Page({
         })
       }
     });
+    
   },
 
   //获取推荐商品

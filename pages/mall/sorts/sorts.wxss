@@ -28,7 +28,7 @@
 }
 
 .content {
-  width: 27%;
+  padding: 0 22rpx;
   background: #F2F2F2;
   height: 88rpx;
   line-height: 88rpx;

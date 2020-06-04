@@ -72,6 +72,11 @@
   margin-top: 36rpx;
 }
 
+.coupon_img {
+  width: 100%;
+  height: 100%;
+}
+
 .my_goods_swiper {
   height: 400rpx;
 }
@@ -114,6 +119,7 @@
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 16rpx;
+  border: 1px solid lightgrey;
 }
 
 .flex_img {
@@ -215,6 +221,7 @@
   display: block;
   margin: 0 auto;
   border-radius: 8rpx;
+  border: 1px solid #F5F5F5;
 }
 
 .recontent_text {

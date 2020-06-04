@@ -7,7 +7,7 @@
         </picker>
       </mp-cell>
       <mp-cell title="退款金额">
-        <input slot="footer" model:value="{{amount}}" style="color: red;"/>
+        <input slot="footer" model:value="{{amountValue}}" style="color: red;"/>
       </mp-cell>
       <mp-cell title="退货数量">
         <input slot="footer" model:value="{{quantity}}"/>

@@ -4,16 +4,16 @@
       <!-- <mp-checkbox label="" value="0" ext-class="my_check"></mp-checkbox> -->
       <view class="box_rt">
         <block wx:if="{{item.productImage}}">
-             <image class="img_lf" src="{{imagePath+item.productImage}}" />
+             <image class="img_lf" src="{{imagePath+item.productImage}}" bindtap="gotoProductDetail" data-code="{{item.productCode}}"/>
         </block>
         <block wx:else>
-            <image class="img_lf" src="../../resources/img/missing_product.jpg" />
+            <image class="img_lf" src="../../resources/img/missing_product.jpg" bindtap="gotoProductDetail" data-code="{{item.productCode}}" />
          </block>
 
         <view class="content_rt">
           <view class="rt_top">
-            <view class="top_title">{{item.productName}}</view>
-            <text class="top_style">型号：{{item.productModel}}</text>
+            <view class="top_title" bindtap="gotoProductDetail" data-code="{{item.productCode}}" >{{item.productName}}</view>
+            <text class="top_style" bindtap="gotoProductDetail" data-code="{{item.productCode}}" >型号：{{item.productModel}}</text>
             <mp-icon bindtap="updateProductNum" data-quantity="{{0}}" data-product="{{item.productCode}}" class="top_icon" icon="delete" size="{{19}}" color="#999999"></mp-icon>
           </view>
           <view class="rt_btm">

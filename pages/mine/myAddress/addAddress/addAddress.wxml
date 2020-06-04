@@ -2,21 +2,22 @@
 <view style="border-top: 16rpx solid #F6F6F7;">
   <form class="my_form" catchsubmit="formSubmit">
   <input class="input" name="pk" placeholder="" value="" hidden/>
-    <view class="my_input" style="text-align: right;">
-      <text>收货人</text>
-      <input class="input" name="firstName" placeholder="" value="" type="text"/>
+    <view class="my_input" style="padding: 32rpx 20rpx">
+      <!-- <text>收货人</text> -->
+      <input placeholder-class="phcolor" class="input" name="firstName" placeholder="收货人" value="" type="text"/>
     </view>
 
-    <view class="my_input" style="text-align: right;">
-      <text>手机号码</text>
-      <input class="input" name="cellphone" placeholder="" value="" type="number" maxlength="11"/>
+    <view class="my_input" style="padding: 32rpx 20rpx">
+      <!-- <text>手机号码</text> -->
+      <input placeholder-class="phcolor" class="input" name="cellphone" placeholder="手机号码" value="" type="number" maxlength="11"/>
     </view>
 
     <view class="my_input">
       <picker mode="region" value="" custom-item="{{customItem}}" bindchange="bindRegionChange">
         <view class="area">
-          <text>所在地区：</text>
-          <view style="width: 500rpx; text-align: right;">{{region}}</view>
+          <!-- <text>所在地区</text>
+          <view style="width: 540rpx; padding: 32rpx 0rpx;color:black">{{region}}</view> -->
+          <input placeholder="所在地区" value="{{region}}" disabled placeholder-style="color: #BEC2CB;" style="color: #333333; width: 540rpx;" />
         </view>
       </picker>
       <mp-icon icon="arrow" size="{{8}}" color="#BEC2CB "></mp-icon>

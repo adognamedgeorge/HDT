@@ -16,9 +16,12 @@ Component({
     pageSize: 10,
     pageNum: 0,
     isLoad:true,
-    tabData: [{name:'全部',code:''},{name:'待付款',code:'created'},{name:'待发货',code:'paid'},{name:'待收货',code:'delivered'},{name:'待评价',code:'received'}],
+    tabData: [{name:'全部',code:''},{name:'待付款',code:'created'},{name:'待发货',code:'paid'},{name:'待收货',code:'delivered'},{name:'待评价',code:'received'},{name:'售后',code:'saleService'}],
     navActive: 0,
-    list:[]
+    list:[],
+    saleServiceList:[],
+    buttons: [{text: '取消'}, {text: '确认'}],
+    dialogShow: false
   },
 
   /**
@@ -30,9 +33,14 @@ Component({
         this.setData({
           navActive: e.currentTarget.dataset.idx,
           list: [],
+          saleServiceList:[],
           pageNum:0
-        })
-        this.getOrderList();
+        });
+        if (this.data.navActive == 5) {
+          this.getSaleServiceList();
+        }else{
+          this.getOrderList();
+        }
       }
     },
     toOrderInfor (event) {
@@ -40,23 +48,45 @@ Component({
         url: './orderInfor/orderInfor?code='+event.currentTarget.dataset.code
       })
     },
+    toServiceInfor (event) {
+      util.toast("toServiceInfor" + event.currentTarget.dataset.code);
+      /*wx.navigateTo({
+        url: './orderInfor/orderInfor?code='+event.currentTarget.dataset.code
+      })*/
+    },
     toCancelOrder (event) {
-      util.toast("toCancelOrder");
+      
     },
     toPaid (event) {
-      util.toast("toPaid");
+
     },
     toLogistics (event) {
-      util.toast("toLogistics");
+      var orderCode = event.currentTarget.dataset.orderCode;
+      wx.navigateTo({
+        url: './orderInfor/logistics/logistics?orderCode='+orderCode
+      });
     },
     toInvoice (event) {
-      util.toast("toInvoice");
+      wx.navigateTo({
+        url: '../../component/invoice/invoice'
+      });
     },
+    // 确认收货
     toDelivered (event) {
-      util.toast("toDelivered");
+      this.setData({
+        dialogShow: true
+      })
     },
+    tapDialogButton (e) {
+      this.setData({
+        dialogShow: false
+      })
+    },
+
     toReceived (event) {
-      util.toast("toReceived");
+      wx.navigateTo({
+        url: './orderInfor/evaluate/evaluate?code='+event.currentTarget.dataset.code
+      })
     },
     getOrderList(){
       let that = this;
@@ -87,13 +117,43 @@ Component({
         }
       }));
     },
-
+    getSaleServiceList(){
+      let that = this;
+      that.setData({
+        isLoad:true
+      });
+      util.request(api.AfterSaleServiceList,
+          {
+            pageNum:this.data.pageNum,
+            pageSize:this.data.pageSize
+          },
+          'POST',
+          'application/x-www-form-urlencoded'
+      ).then((function (res) {
+        that.setData({
+          isLoad:false
+        });
+        console.log(res)
+        if(res.success){
+          let newlist = that.data.saleServiceList.concat(res.datas);
+          that.setData({
+            saleServiceList: newlist
+          })
+        }else{
+          console.log(res.msg);
+        }
+      }));
+    },
     onReachBottom:function(){
       if (!this.data.isLoad) {
         this.setData({
           pageNum:this.data.pageNum+1
         })
-        this.getOrderList();
+        if (this.data.navActive == 5) {
+          this.getSaleServiceList();
+        }else{
+          this.getOrderList();
+        }
       }
     },
   },
@@ -108,7 +168,6 @@ Component({
     },
     ready() {
       console.log("在组件在视图层布局完成后执行")
-      this.getOrderList();
     },
     moved() {
       console.log("在组件实例被移动到节点树另一个位置时执行")
@@ -119,20 +178,30 @@ Component({
     error() {
       console.log("每当组件方法抛出错误时执行")
     },
-    /*组件所在页面的生命周期 */
-    pageLifetimes: {
-      show: function () {
-        // 页面被展示
-        console.log("页面被展示")
-      },
-      hide: function () {
-        // 页面被隐藏
-        console.log("页面被隐藏")
-      },
-      resize: function (size) {
-        // 页面尺寸变化
-        console.log("页面尺寸变化")
+  },
+  /*组件所在页面的生命周期 */
+  pageLifetimes: {
+    show: function () {
+      // 页面被展示
+      console.log("页面被展示")
+      this.setData({
+        list: [],
+        saleServiceList:[],
+        pageNum:0
+      });
+      if (this.data.navActive == 5) {
+        this.getSaleServiceList();
+      }else{
+        this.getOrderList();
       }
+    },
+    hide: function () {
+      // 页面被隐藏
+      console.log("页面被隐藏")
+    },
+    resize: function (size) {
+      // 页面尺寸变化
+      console.log("页面尺寸变化")
     }
   }
 })

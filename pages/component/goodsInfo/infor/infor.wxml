@@ -1,9 +1,8 @@
 <!--pages/goodsInfo/infor/infor.wxml-->
 <view>
     <view class="title" style="margin-top: 100rpx;">产品参数</view>
-  <view  wx:for="{{detail.classifications}}">
+  <view  wx:for="{{detail.classifications}}" wx:key="index">
     <view style="padding: 30rpx;">
-        <view>{{item.name}}</view>
       <view  wx:for="{{item.features}}" wx:for-item="feature">{{feature.name}}：
       <text wx:for="{{feature.featureValues}}" wx:for-item="featureValue" decode="{{true}}">{{featureValue.value}}&nbsp;&nbsp;</text>
       </view>
@@ -18,8 +17,8 @@
   </view>
   <view>
     <view class="title">图文详情</view>
-    <view class="img_box">
-      <image wx:for="{{detail.detailPics}}" class="img" src="{{imagePath+item}}" />
+    <view class="img_box" wx:for="{{detail.detailPics}}" wx:key="index">
+      <image class="img" src="{{imagePath+item}}" />
     </view>
   </view>
 </view>
